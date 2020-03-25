@@ -1,0 +1,6 @@
+<!--miniprogram/pages/welcome/welcome.wxml-->
+<view class="container">
+  <image class="mp-avatar" src="/images/welcome/user-unlogin.png"></image>
+  <text>为了您更好的使用小程序,我们将获取您的微信数据</text>
+  <button type="primary" class="copyBtn" bindtap="copyCode">同意</button>
+</view>
