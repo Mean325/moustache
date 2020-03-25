@@ -1,6 +1,11 @@
 <!--miniprogram/pages/welcome/welcome.wxml-->
 <view class="container">
-  <image class="mp-avatar" src="/images/welcome/user-unlogin.png"></image>
-  <text>为了您更好的使用小程序,我们将获取您的微信数据</text>
-  <button type="primary" class="copyBtn" bindtap="copyCode">同意</button>
+  <block wx:if="{{ canIUse }}">
+    <image class="avatar" src="/images/welcome/user-unlogin.png"></image>
+    <view class="line"></view>
+    <view class="h">申请获取一下权限</view>
+    <text class="p">获得您的公开信息(昵称,头像等)</text>
+    <button class="login-btn" type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" style="width: 100%;">授权登录</button>
+  </block>
+  <view wx:else>请升级微信版本</view>
 </view>

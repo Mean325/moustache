@@ -1,43 +1,21 @@
-//index.js
+var base64 = require("../../images/base64");     // 未知图标,待删除
 const app = getApp()
 
 Page({
   data: {
     userInfo: {},
-
+    
     avatarUrl: './user-unlogin.png',
     logged: false,
     takeSession: false,
     requestResult: ''
   },
 
-  onLoad() {
+  onLoad: function() {
     this.setData({
-      userInfo: app.globalData.userInfo
-    })
-    // if (!wx.cloud) {
-    //   wx.redirectTo({
-    //     url: '../chooseLib/chooseLib',
-    //   })
-    //   return
-    // }
-
-    // // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           this.setData({
-    //             avatarUrl: res.userInfo.avatarUrl,
-    //             userInfo: res.userInfo
-    //           })
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+      userInfo: app.globalData.userInfo,
+      icon: base64.icon20
+    });
   },
 
   onGetUserInfo: function(e) {
