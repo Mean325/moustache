@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="statistics__month">
+    3月 2020 | 当月
+  </view>
+  <!-- <calendar binddayClick="dayClick" weeks-type="cn" active-type="rounded"/> -->
+  <calendar
+    id="calendar"
+    calendarConfig="{{calendarConfig}}"
+    bind:afterCalendarRender="afterCalendarRender"
+  >
+  </calendar>
+  <text>各分类支出占比</text>
+  <view class="class-proportion">
+    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
+    <view class="expense-wrapper">
+      <text>日用</text>
+      <view>1</view>
+    </view>
+    94.54% >
+  </view>
+</view>

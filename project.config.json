@@ -48,6 +48,13 @@
 					"id": -1,
 					"name": "setting",
 					"pathName": "pages/setting/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "statistics",
+					"pathName": "pages/statistics/statistics",
 					"scene": null
 				}
 			]
