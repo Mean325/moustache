@@ -3,7 +3,10 @@
     "pages/welcome/welcome",
     "pages/index/index",
     "pages/statistics/statistics",
+    "pages/tools/tools",
     "pages/setting/setting",
+
+
     "pages/index1/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -42,7 +45,7 @@
         "text": "统计"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/tools/tools",
         "iconPath": "images/tabBar/tool.png",
         "selectedIconPath": "images/tabBar/tool_active.png",
         "text": "工具"

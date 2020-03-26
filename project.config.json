@@ -53,8 +53,8 @@
 				},
 				{
 					"id": -1,
-					"name": "statistics",
-					"pathName": "pages/statistics/statistics",
+					"name": "tools",
+					"pathName": "pages/tools/tools",
 					"scene": null
 				}
 			]

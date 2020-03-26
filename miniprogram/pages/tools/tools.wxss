@@ -1,0 +1,73 @@
+.container {
+  padding: 30rpx;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tool {
+  width: calc(50% - 16rpx);
+  height: 180rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin: 0 30rpx 30rpx 0;
+  background: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tool:nth-child(1) {
+  background: #F56C6C;
+  background-image: linear-gradient(141deg, #EAD6EE 0%, #A0F1EA 100%);
+}
+
+.tool:nth-child(2) {
+  background: #2cb5e8;
+  background-image: linear-gradient(141deg, #E3FDF5 0%, #FFE6FA 100%);
+}
+
+.tool:nth-child(3) {
+  background: #909399;
+  background-image: linear-gradient(141deg, #fff1eb 0%, #ace0f9 100%);
+}
+
+.tool:nth-child(4) {
+  background: #67C23A;
+  background-image: linear-gradient(141deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.tool:nth-child(5) {
+  background: #909399;
+  background-image: linear-gradient(141deg, #e3eeff 0%, #f3e7e9 100%);
+}
+
+.tool:nth-child(6) {
+  background: #909399;
+  background-image: linear-gradient(141deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+
+.tool:nth-child(7) {
+  background: #67C23A;
+  background-image: linear-gradient(141deg, #e7f0fd 0%, #accbee 100%);
+}
+
+.tool:nth-child(8) {
+  background: #909399;
+  background-image: linear-gradient(141deg, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.tool:nth-child(9) {
+  background: #909399;
+  background-image: linear-gradient(141deg, #c2e9fb 0%, #a1c4fd 100%);
+}
+
+.tool:nth-child(2n) {
+  margin-right: 0;
+}
+
+.tool-icon {
+  width: 60rpx;
+  height: 60rpx;
+}

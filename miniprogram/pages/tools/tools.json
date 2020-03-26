@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#F6F6F6",
+  "navigationBarTitleText": "工具",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "usingComponents": {},
+  "enablePullDownRefresh": false
+}
