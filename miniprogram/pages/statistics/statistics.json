@@ -5,7 +5,8 @@
   "navigationBarTextStyle": "black",
   "navigationStyle": "default",
   "usingComponents": {
-    "calendar": "/components/calendar/index"
+    "calendar": "/components/calendar/index",
+    "progress": "/components/statistics/progress/progress"
   },
   "enablePullDownRefresh": false
 }

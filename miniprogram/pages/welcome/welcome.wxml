@@ -1,5 +1,4 @@
-<!--miniprogram/pages/welcome/welcome.wxml-->
-<view class="container">
+<view class="container" data-weui-theme="dark">
   <block wx:if="{{ canIUse }}">
     <image class="avatar" src="/images/welcome/user-unlogin.png"></image>
     <view class="line"></view>

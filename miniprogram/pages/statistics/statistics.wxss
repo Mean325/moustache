@@ -24,7 +24,7 @@
 .class-proportion {
   height: 120rpx;
   padding: 30rpx;
-  background: red;
+  /* background: red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +35,12 @@
   height: 120rpx;
 }
 
+.statistics__title {
+  padding: 0 30rpx;
+  margin: 20vh 0 10px;
+  color: #999999;
+}
+
 /* 分类占比 - 分类图标 */
 .class-icon {
   width: 120rpx;
@@ -43,7 +49,18 @@
 
 /* 分类占比 - 支出信息 */
 .expense-wrapper {
+  flex: 1;
+  margin: 0 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* 分类占比 - 支出类别名称 */
+.expense-class {
+  margin-bottom: 20rpx;
+}
+
+.expense-value {
+  color: #333333;
 }

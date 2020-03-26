@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="operate-bar">
+    <!-- 仅为了分类类别选择栏居中 -->
+    <view class="operate-bar__add-type"></view>
+    <!-- 分类类别选择栏 -->
+    <view class="operate-bar__types">
+      <view
+        wx:for="{{ types }}"
+        bindtap="selectType"
+        data-type="{{ item.type }}"
+        class="operate-bar__type {{ activeType === item.type ? 'operate-bar__type-active' : '' }}"
+      >
+        {{ item.name }}
+      </view>
+    </view>
+    <!-- 添加分类按钮 -->
+    <navigator url="/pages/addClass/addClass" class="operate-bar__add-type">
+      <image src="/images/icon/add.png" mode="aspectFit"></image>
+    </navigator>
+  </view>
+  <drag
+    id="drag"
+    bind:click="itemClick"
+    bind:change="change"
+    bind:sortend="sortEnd"
+    bind:scroll="scroll"
+    list-data="{{listData}}"
+    columns="1"
+    scroll-top="{{scrollTop}}"
+    top-size="110"
+  >
+  </drag>
+</view>

@@ -5,28 +5,28 @@
     "pages/statistics/statistics",
     "pages/tools/tools",
     "pages/setting/setting",
-
-
-    "pages/index1/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room"
+    "pages/classManage/classManage",
+    "pages/test/index1/index",
+    "pages/test/userConsole/userConsole",
+    "pages/test/storageConsole/storageConsole",
+    "pages/test/databaseGuide/databaseGuide",
+    "pages/test/addFunction/addFunction",
+    "pages/test/deployFunctions/deployFunctions",
+    "pages/test/chooseLib/chooseLib",
+    "pages/test/openapi/openapi",
+    "pages/test/openapi/serverapi/serverapi",
+    "pages/test/openapi/callback/callback",
+    "pages/test/openapi/cloudid/cloudid",
+    "pages/test/im/im",
+    "pages/test/im/room/room",
+    "pages/addClass/addClass"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#EDEDED"
   },
   "tabBar": {
     "color": "#dddddd",

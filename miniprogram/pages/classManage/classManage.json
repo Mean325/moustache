@@ -1,0 +1,11 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "分类管理",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "usingComponents": {
+    "drag": "../../components/drag/index"
+  },
+  "enablePullDownRefresh": false
+}

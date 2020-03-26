@@ -2,16 +2,30 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true,
+		"bundle": false
 	},
 	"appid": "wx1010f5d30a0d43ed",
 	"projectname": "wechat-mp",
-	"libVersion": "2.8.1",
+	"libVersion": "2.10.3",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -55,6 +69,20 @@
 					"id": -1,
 					"name": "tools",
 					"pathName": "pages/tools/tools",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "statistics",
+					"pathName": "pages/statistics/statistics",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "classManage",
+					"pathName": "pages/classManage/classManage",
 					"scene": null
 				}
 			]

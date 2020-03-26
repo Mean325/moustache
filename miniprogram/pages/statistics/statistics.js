@@ -1,9 +1,6 @@
 // miniprogram/pages/statistics/statistics.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+  mixins: [require('../../mixin/themeChanged')],
   data: {
     calendar: null,
     calendarConfig: {

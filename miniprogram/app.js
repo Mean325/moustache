@@ -1,7 +1,28 @@
-//app.js
+require('./libs/Mixins.js');
+
+const themeListeners = [];
+
 App({
   globalData: {
-    userInfo: {},
+    userInfo: {},   // 用户信息
+    theme: 'dark', // 主题颜色: light/dark
+  },
+  themeChanged(theme) {
+    this.globalData.theme = theme;
+    themeListeners.forEach((listener) => {
+      listener(theme);
+    });
+  },
+  watchThemeChange(listener) {
+    if (themeListeners.indexOf(listener) < 0) {
+      themeListeners.push(listener);
+    }
+  },
+  unWatchThemeChange(listener) {
+    const index = themeListeners.indexOf(listener);
+    if (index > -1) {
+      themeListeners.splice(index, 1);
+    }
   },
   onLaunch: function () {
     

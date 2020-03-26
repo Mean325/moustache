@@ -1,0 +1,15 @@
+/* 占比条高度 */
+.weui-progress {
+  width: 100%;
+}
+.weui-progress__bar {
+  height: 8px;
+  border-radius: 10px;
+  /* 背景颜色 */
+  /* background: #16c2c2; */
+}
+
+.weui-progress__inner-bar {
+  background-color: #16c2c2;
+  border-radius: 10px;
+}

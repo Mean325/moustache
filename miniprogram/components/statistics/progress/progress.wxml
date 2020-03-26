@@ -1,0 +1,5 @@
+<view class="weui-progress">
+  <view class="weui-progress__bar">
+    <view class="weui-progress__inner-bar js_progress" style="width: 50%;"></view>
+  </view>
+</view>

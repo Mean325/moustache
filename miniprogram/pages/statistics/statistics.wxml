@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" data-weui-theme="{{ theme }}">
   <!-- 用户信息 -->
   <view class="statistics__month">
     3月 2020 | 当月
@@ -10,12 +10,37 @@
     bind:afterCalendarRender="afterCalendarRender"
   >
   </calendar>
-  <text>各分类支出占比</text>
+  <text class="statistics__title">各分类支出占比</text>
   <view class="class-proportion">
     <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
     <view class="expense-wrapper">
-      <text>日用</text>
-      <view>1</view>
+      <view>
+        <text class="expense-class">日用 - </text>
+        <text class="expense-value">1111</text>
+      </view>
+      <progress></progress>
+    </view>
+    94.54% >
+  </view>
+  <view class="class-proportion">
+    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
+    <view class="expense-wrapper">
+      <view>
+        <text class="expense-class">日用 - </text>
+        <text class="expense-value">1111</text>
+      </view>
+      <progress></progress>
+    </view>
+    94.54% >
+  </view>
+  <view class="class-proportion">
+    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
+    <view class="expense-wrapper">
+      <view>
+        <text class="expense-class">日用 - </text>
+        <text class="expense-value">1111</text>
+      </view>
+      <progress></progress>
     </view>
     94.54% >
   </view>
