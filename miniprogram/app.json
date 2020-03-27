@@ -19,13 +19,15 @@
     "pages/test/openapi/cloudid/cloudid",
     "pages/test/im/im",
     "pages/test/im/room/room",
-    "pages/addClass/addClass"
+    "pages/addClass/addClass",
+    "pages/bookkeep/bookkeep"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
     "backgroundColor": "#EDEDED"
   },
   "tabBar": {

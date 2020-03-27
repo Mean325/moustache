@@ -1,0 +1,22 @@
+<view class="bookkeep-type-bar">
+  <!-- 左侧插槽 -->
+  <view class="bookkeep-type-bar__slot">
+    <slot name="left"></slot>
+  </view>
+  <!-- 分类类别选择栏 -->
+  <view class="bookkeep-type-bar__types">
+    <view
+      wx:for="{{ types }}"
+      wx:key="*this"
+      bindtap="selectType"
+      data-type="{{ item.type }}"
+      class="bookkeep-type-bar__type {{ activeType === item.type ? 'bookkeep-type-bar__type-active' : '' }}"
+    >
+      {{ item.name }}
+    </view>
+  </view>
+  <!-- 右侧插槽 -->
+  <view class="bookkeep-type-bar__slot">
+    <slot name="right"></slot>
+  </view>
+</view>

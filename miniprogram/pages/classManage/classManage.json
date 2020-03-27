@@ -1,11 +1,8 @@
 {
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "分类管理",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
   "usingComponents": {
-    "drag": "../../components/drag/index"
+    "drag": "../../components/drag/index",
+    "bookkeep-type-bar": "../../components/bookkeepTypeBar/bookkeepTypeBar"
   },
   "enablePullDownRefresh": false
 }

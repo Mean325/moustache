@@ -1,0 +1,30 @@
+.bookkeep-type-bar {
+  display: flex;
+  padding: 30rpx;
+}
+/* 分类类别选择栏 */
+.bookkeep-type-bar__types {
+  flex: 1;
+  background: #CCCCCC;
+  border: 3px solid #CCCCCC;
+  display: flex;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.bookkeep-type-bar__type {
+  width: 50%;
+  text-align: center;
+}
+
+.bookkeep-type-bar__type-active {
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+/* 左右两侧插槽 */
+.bookkeep-type-bar__slot {
+  height: 52rpx;
+  width: 52rpx;
+  margin-left: 30rpx;
+}

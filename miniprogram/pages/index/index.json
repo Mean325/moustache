@@ -1,9 +1,6 @@
 {
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#FFFFFF",
+  
   "navigationBarTitleText": "首页",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
   "usingComponents": {},
   "enablePullDownRefresh": false
 }

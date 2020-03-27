@@ -1,9 +1,5 @@
 {
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "新建分类",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "default",
   "usingComponents": {
     "drag": "../../components/drag/index"
   },

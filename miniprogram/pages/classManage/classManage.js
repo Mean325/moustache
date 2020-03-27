@@ -73,29 +73,10 @@ let listData = [
 
 Page({
   data: {
-    types: [
-      {
-        name: "支出",
-        type: 1
-      },
-      {
-        name: "收入",
-        type: 2
-      },
-    ],
-    activeType: 1,
     size: 1,
     listData: [],
     pageMetaScrollTop: 0,
     scrollTop: 0,
-  },
-  selectType(e) {
-    let type = e.currentTarget.dataset.type;
-    if (type !== this.data.activeType) {
-      this.setData({
-        activeType: type
-      })
-    }
   },
   sortEnd(e) {
     console.log("sortEnd", e.detail.listData)
@@ -129,35 +110,6 @@ Page({
 
     this.drag.init();
   },
-  add(e) {
-    let listData = this.data.listData;
-    listData.push({
-      dragId: `item${listData.length}`,
-      title: "这个绝望的世界没有存在的价值，所剩的只有痛楚",
-      description: "思念、愿望什么的都是一场空，被这种虚幻的东西绊住脚，什么都做不到",
-      images: "/assets/image/swipe/1.png",
-      fixed: false
-    });
-    setTimeout(() => {
-      this.setData({
-        listData,
-        afterExtraNodes: [
-          {
-            destKey: 0,
-            slot: "after",
-            fixed: true
-          },
-          {
-            destKey: listData.length - 1,
-            slot: "plus",
-            fixed: true
-          }
-        ]
-      });
-      this.drag.init();
-    }, 300)
-
-  },
   scroll(e) {
     this.setData({
       pageMetaScrollTop: e.detail.scrollTop
@@ -178,5 +130,11 @@ Page({
       });
       this.drag.init();
     }, 1000)
+  },
+  addClass() {
+    let type = this.data.activeType;
+    wx.navigateTo({
+      url: `/pages/addClass/addClass?type=${ type }`,
+    })
   }
 })

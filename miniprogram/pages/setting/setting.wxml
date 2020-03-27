@@ -12,7 +12,7 @@
   </view>
   <!-- 其余设置 -->
   <view class="weui-cells weui-cells_after-title">
-    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <navigator url="/pages/classManage/classManage" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__hd">
         <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
       </view>
@@ -38,8 +38,8 @@
     </navigator>
   </view>
   <!-- 退出登录 -->
-  <!-- <a class="weui-btn_cell weui-btn_cell-default">退出登录</a> -->
-  <button class="sign-out-button" hover-class="weui-cell_active" style="width: 100%;">
+  <a class="weui-btn_cell weui-btn_cell-default">退出登录</a>
+  <!-- <button class="sign-out-button" hover-class="weui-cell_active" style="width: 100%;">
     退出登录
-  </button>
+  </button> -->
 </view>

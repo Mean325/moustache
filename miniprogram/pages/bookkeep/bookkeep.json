@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "记一笔",
+  "usingComponents": {
+    "bookkeep-type-bar": "../../components/bookkeepTypeBar/bookkeepTypeBar"
+  },
+  "enablePullDownRefresh": false
+}

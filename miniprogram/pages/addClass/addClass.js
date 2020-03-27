@@ -1,66 +1,61 @@
-// miniprogram/pages/addClass/addClass.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    newClass: {
+      icon: "1",
+      name: ""
+    }
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * @hook 页面加载时,获取当前路由参数
    */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    console.log(options.type);
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 实现数据双向绑定
+   * @hook 顶部分类名称input输入事件
    */
-  onReady: function () {
-
+  handleInputChange(e) {
+    setTimeout(()=> {
+      this.setData({
+        'newClass.name': e.detail.value
+      })
+    }, 200);
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 调用云函数啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+   * @method 底部添加分类事件
    */
-  onShow: function () {
+  addClass() {
+    let pages = getCurrentPages();
+    let { options } = pages.pop();
+    let type = options.type;   // 获取路由参数type
+    console.log(type);
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    let newClass = this.data.newClass;
+    console.log(newClass.name);
+    if (!type) {
+      wx.showToast({
+        title: '出错啦,请返回上一页重新进入',
+        icon: 'none',
+      })
+      return;
+    }
+    if (!newClass.name) {
+      wx.showToast({
+        title: '请输入分类名称',
+        icon: 'none',
+      })
+      return;
+    }
+    if (!newClass.icon) {
+      wx.showToast({
+        title: '请输入分类图标',
+        icon: 'none',
+      })
+      return;
+    }
+    console.log("调用云函数");
+    wx.navigateBack();    // 返回上一页
   }
 })
