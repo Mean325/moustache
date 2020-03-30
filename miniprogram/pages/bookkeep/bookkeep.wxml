@@ -1,3 +1,13 @@
-<bookkeep-type-bar>
-
-</bookkeep-type-bar>
+<!--index.wxml-->
+<view class="container">
+  <view class="title">
+    记一笔
+  </view>
+  <bookkeep-type-bar>
+  </bookkeep-type-bar>
+  <view class="bookkeep__amount">
+    <text class="bookkeep__amount-currency">¥</text>
+    <input type="digit" class="bookkeep__amount-input" auto-focus></input>
+  </view>
+  <num-keyboard></num-keyboard>
+</view>

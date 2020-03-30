@@ -85,6 +85,18 @@
 					"pathName": "pages/classManage/classManage",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bookkeep",
+					"pathName": "pages/bookkeep/bookkeep",
+					"scene": null
 				}
 			]
 		}

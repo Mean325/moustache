@@ -82,7 +82,7 @@ Page({
         })
         app.globalData.userInfo = this.data.userInfo
         wx.switchTab({
-          url: '/pages/setting/setting',
+          url: '/pages/index/index',
         })
       },
       fail: err => {
