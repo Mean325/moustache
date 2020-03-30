@@ -83,13 +83,6 @@
 					"id": 4,
 					"name": "classManage",
 					"pathName": "pages/classManage/classManage",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
 					"scene": null
 				},
 				{

@@ -1,8 +1,7 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "bookkeep-type-bar": "../../components/bookkeepTypeBar/bookkeepTypeBar",
-    "num-keyboard": "../../components/numKeyboard/numKeyboard"
+    "bookkeep-type-bar": "../../components/bookkeepTypeBar/bookkeepTypeBar"
   },
   "enablePullDownRefresh": false
 }

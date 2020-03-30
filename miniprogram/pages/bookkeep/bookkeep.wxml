@@ -3,11 +3,89 @@
   <view class="title">
     记一笔
   </view>
-  <bookkeep-type-bar>
-  </bookkeep-type-bar>
-  <view class="bookkeep__amount">
-    <text class="bookkeep__amount-currency">¥</text>
-    <input type="digit" class="bookkeep__amount-input" auto-focus></input>
+  <view class="bookkeep">
+    <bookkeep-type-bar>
+    </bookkeep-type-bar>
+    <view class="bookkeep__amount">
+      <text class="bookkeep__amount-currency">¥</text>
+      <input type="digit" class="bookkeep__amount-input" auto-focus></input>
+    </view>
+    <scroll-view class="bookkeep__class-box" scroll-x>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+      <view class="bookkeep__class">
+        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <text>服饰美容</text>
+      </view>
+    </scroll-view>
+    <input placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+    <!-- <num-keyboard class="num-keyboard "></num-keyboard> -->
+    <!-- 自定义数字键盘 -->
+    <view class="keyboard">
+      <view class='keyboard-row'>
+        <view type='default' plain='true' class='key one' data-key='1' bindtap='tapKey'>1</view>
+        <view type='default' plain='true' class='key two' data-key='2' bindtap='tapKey'>2</view>
+        <view type='default' plain='true' class='key three' data-key='3' bindtap='tapKey'>3</view>
+        <view type='default' plain='true' class='key del' bindtap='tapDel'>退格</view>
+      </view>
+      <view class="keyboard-bottom3">
+        <view class="keyboard-bottom3-num">
+          <view class='keyboard-row'>
+            <view type='default' plain='true' class='key four' data-key='4' bindtap='tapKey'>4</view>
+            <view type='default' plain='true' class='key five' data-key='5' bindtap='tapKey'>5</view>
+            <view type='default' plain='true' class='key six' data-key='6' bindtap='tapKey'>6</view>
+          </view>
+          <view class='keyboard-row'>
+            <view type='default' plain='true' class='key seven' data-key='7' bindtap='tapKey'>7</view>
+            <view type='default' plain='true' class='key eight' data-key='8' bindtap='tapKey'>8</view>
+            <view type='default' plain='true' class='key nine' data-key='9' bindtap='tapKey'>9</view>
+          </view>
+          <view class='keyboard-row'>
+            <view type='default' plain='true' class='key flex2 zero' data-key='0' bindtap='tapKey'>0</view>
+            <view type='default' plain='true' class='key dot' data-key='.' bindtap='tapKey'>.</view>
+          </view>
+        </view>
+        <view type='default' plain='true' class='key submit' bindtap='tapSubmit'>确定</view>
+      </view>
+    </view>
+    
   </view>
-  <num-keyboard></num-keyboard>
 </view>

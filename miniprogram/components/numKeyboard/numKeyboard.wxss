@@ -1,54 +1,63 @@
 .keyboard{
-  height: 440rpx;
   width: 100vw;
+  padding: 30rpx;
+  box-sizing: border-box;
   background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.key {
+  width: calc((100vw - 30rpx - 60rpx)/4);
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 10px;
+  line-height: 110rpx;
+  margin-bottom: 12rpx;
+}
+
+.key.flex2 {
+  width: calc((100vw - 30rpx - 40rpx)/2);
+}
+
+/* 底部3层键盘 */
+.keyboard-bottom3 {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
   text-align: center;
 }
-.key {
-  width: 100%;
-  flex: 1;
-  box-sizing: border-box;
-  background: #FFFFFF;
-  border: 2px solid #333333;
-  border-radius: 10px;
-  line-height: 110rpx;
-}
-
-/* 左侧数字键盘 */
-.keyboard-num {
-  flex: 2;
+/* 底部3层左侧数字键盘 */
+.keyboard-bottom3-num {
+  flex: 3;
+  margin-right: 12rpx;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
 }
-/* 右侧删除与确定按钮 */
-.keyboard-operate {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/* 键盘每行 */
 .keyboard-row {
   flex: 1;
   width: 100%;
-  border-radius: 98rpx;
+  /* border-radius: 98rpx; */
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
-
 }
 
-.flex2 {
-  flex: 2;
+/* 底部按钮margin清0 */
+.zero, .dot, .submit{
+  margin-bottom: 0;
 }
-
-.flex3 {
-  flex: 3;
-  line-height: 330rpx;
+/* 确定按钮文字居中 */
+.submit {
+  background: #16C2C2;
+  color: #FFFFFF;
+  line-height: 354rpx;
 }
