@@ -131,6 +131,10 @@ Page({
       this.drag.init();
     }, 1000)
   },
+  /**
+   * 携带当前记账类型参数,跳转到添加分类页面
+   * @method 添加分类按钮点击事件
+   */
   addClass() {
     let type = this.data.activeType;
     wx.navigateTo({

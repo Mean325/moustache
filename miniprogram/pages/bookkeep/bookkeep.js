@@ -1,19 +1,25 @@
-// miniprogram/pages/bookkeep/bookkeep.js
-Page({
+const time = require("../../utils/utils.js");
 
+
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    bookkeep: {
+      num: 0,   // 金额
+      type: 1,    // 账目类型,1为支出,2为收入
+      category: 1,    // 账目分类id
+      remark: ""
+    },    // 记账数据
     // 键盘
-    num: 0,
     hasDot: false // 防止用户多次输入小数点
   },
   onLoad: function (options) {
 
   },
-  tapKey: function (evt) {
-    var x = evt.currentTarget.dataset.key
+  tapKey(e) {
+    var x = e.currentTarget.dataset.key
     if (x == '.') {
       if (this.data.hasDot) return
       this.setData({
@@ -21,12 +27,48 @@ Page({
       })
     }
     this.setData({
-      num: this.data.num == '0' ? x : this.data.num + x
+      'bookkeep.num': this.data.bookkeep.num == '0' ? x : this.data.bookkeep.num + x
     })
   },
-  tapSubmit: function () {
+  /**
+   * 调用云函数添加当前交易
+   * @method 自定义数字键盘确认按钮事件
+   */
+  tapSubmit() {
     // 用户已提交
     console.log('res =', this.data.num)
+    // wx.cloud.callFunction({
+    //   // 云函数名称
+    //   name: 'add',
+    //   // 传给云函数的参数
+    //   data: {
+    //     num: this.data.num
+    //   }
+    // })
+    // .then(res => {
+    //   console.log(res)
+    // })
+    // .catch(console.error)
+    let data = this.data.bookkeep;
+    data.time = new Date().getTime();
+    data.date = time.formatTime(data.time).split(' ')[0];
+    const db = wx.cloud.database()
+    db.collection('accountBook').add({
+      data,
+      success: res => {
+        wx.showToast({
+          title: '已记一笔',
+        })
+        wx.navigateBack();
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '记账失败'
+        })
+        console.error(err)
+      }
+    })
   },
   tapDel: function () {
     if (this.data.num == '0') return

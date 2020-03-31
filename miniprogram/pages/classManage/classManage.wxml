@@ -1,7 +1,7 @@
 <view class="container">
   <bookkeep-type-bar>
     <!-- 右侧-添加分类按钮 -->
-    <image slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
+    <image bindtap="addClass" slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
   </bookkeep-type-bar>
   <drag
     id="drag"

@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <image class="bg-image" src="/images/index/bg.jpg" mode="aspectFill"></image>
   <scroll-view
     class="scroll-view"
     scroll-y="true"
@@ -21,19 +22,11 @@
         <view class="bill__entry bill__day-amount">
           <text>今日</text>
           <view class="bill__line"></view>
-          <text>30.9</text>
+          <text>{{ todayAmount }}</text>
         </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
+        <view wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
+          <text>{{ item.category }}</text>
+          <text>{{ item.num }}</text>
         </view>
       </view>
       <view class="bill__month">

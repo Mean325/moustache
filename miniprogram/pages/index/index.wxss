@@ -4,9 +4,21 @@ page {
   background: #f6f6f6;
 }
 
+.container {
+  position: relative;
+}
+
+.bg-image {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
 .scroll-view {
   height: 100vh;
 }
+
 
 /* 账本 */
 .bill {
@@ -15,6 +27,7 @@ page {
   box-sizing: border-box;
   text-align: right;
   padding-top: calc(100vh - 500rpx - 120rpx);
+  color: #FFFFFF;
 }
 
 /* 顶部当月账单支出 */

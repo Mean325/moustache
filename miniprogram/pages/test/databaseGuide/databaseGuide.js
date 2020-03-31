@@ -22,7 +22,7 @@ Page({
   // 增
   onAdd: function () {
     const db = wx.cloud.database()
-    db.collection('user').add({
+    db.collection('accountBook').add({
       data: {
         count: 1
       },
@@ -50,7 +50,7 @@ Page({
   onQuery: function() {
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
-    db.collection('user').where({
+    db.collection('accountBook').where({
       _openid: this.data.openid
     }).get({
       success: res => {
@@ -72,7 +72,7 @@ Page({
   onCounterInc: function() {
     const db = wx.cloud.database()
     const newCount = this.data.count + 1
-    db.collection('user').doc(this.data.counterId).update({
+    db.collection('accountBook').doc(this.data.counterId).update({
       data: {
         count: newCount
       },
@@ -91,7 +91,7 @@ Page({
   onCounterDec: function() {
     const db = wx.cloud.database()
     const newCount = this.data.count - 1
-    db.collection('user').doc(this.data.counterId).update({
+    db.collection('accountBook').doc(this.data.counterId).update({
       data: {
         count: newCount
       },
@@ -110,7 +110,7 @@ Page({
   onRemove: function() {
     if (this.data.counterId) {
       const db = wx.cloud.database()
-      db.collection('user').doc(this.data.counterId).remove({
+      db.collection('accountBook').doc(this.data.counterId).remove({
         success: res => {
           wx.showToast({
             title: '删除成功',

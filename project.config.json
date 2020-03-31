@@ -83,12 +83,27 @@
 					"id": 4,
 					"name": "classManage",
 					"pathName": "pages/classManage/classManage",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "bookkeep",
 					"pathName": "pages/bookkeep/bookkeep",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "云开发案例",
+					"pathName": "pages/test/index1/index",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
 					"scene": null
 				}
 			]
