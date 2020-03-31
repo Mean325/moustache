@@ -8,7 +8,7 @@
     </bookkeep-type-bar>
     <view class="bookkeep__amount">
       <text class="bookkeep__amount-currency">¥</text>
-      <input type="digit" class="bookkeep__amount-input" auto-focus></input>
+      <input value="{{ num === 0 ? '' : num }}" class="bookkeep__amount-input" disabled="true"></input>
     </view>
     <scroll-view class="bookkeep__class-box" scroll-x>
       <view class="bookkeep__class">

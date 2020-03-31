@@ -13,7 +13,8 @@
 .bookkeep__amount {
   font-size: 80rpx;
   height: 100rpx;
-  padding: 0 30rpx 20rpx;
+  margin: 0 30rpx;
+  padding-bottom: 20rpx;
   border-bottom: 2rpx solid #CCCCCC;
   line-height: 100rpx;
   display: flex;
@@ -23,6 +24,7 @@
 .bookkeep__amount-input {
   flex: 1;
   height: 100rpx;
+  letter-spacing: 10px;
 }
 
 /* 类型选择框 */
@@ -32,7 +34,7 @@
   box-sizing: border-box;
   /* background: blue; */
   white-space: nowrap;
-  display: flex
+  display: flex;
 }
 
 .bookkeep__class {
