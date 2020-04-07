@@ -70,18 +70,27 @@ Page({
       }
     })
   },
-  tapDel: function () {
-    if (this.data.num == '0') return
-    if (this.data.num[this.data.num.length - 1] == '.') this.setData({
-      hasDot: false
-    })
+  /**
+   * @method 删除按钮点击事件
+   */
+  tapDel() {
+    let data = this.data.bookkeep;
+    if (data.num == '0') return;
+    if (data.num[data.num.length - 1] == '.') {
+      this.setData({
+        hasDot: false
+      })
+    }
     this.setData({
-      num: this.data.num.length == 1 ? '0' : this.data.num.substring(0, this.data.num.length - 1)
+      'bookkeep.num': data.num.length == 1 ? '0' : data.num.substring(0, data.num.length - 1)
     })
   },
-  tapClear: function () {
+  /**
+   * @method 自定义数字键盘 - 清楚按钮点击事件
+   */
+  tapClear() {
     this.setData({
-      num: '0',
+      'bookkeep.num': '0',
       hasDot: false
     })
   }

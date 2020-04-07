@@ -8,12 +8,28 @@ Page({
     monthAmount: 0,   // 本月总额
     todayBill: [],    // 今日账单
     monthBill: [],    // 本月账单
+    boxHeight: 0,   // 今日信息view高度,用于计算bill__today高度,使第一屏只显示今日信息
   },
   onLoad() {
+    this.getTodayBoxHeight();
     this.getTodayBill();
   },
   onShow() {
     this.getTodayBill();
+  },
+  /**
+   * 
+   * @method 获取今日信息盒子高度
+   */
+  getTodayBoxHeight() {
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    query.select('.bill__today').boundingClientRect(res => {
+      console.log(res);
+      this.setData({
+        boxHeight: res.height
+      })
+    }).exec();
   },
   /**
    * 

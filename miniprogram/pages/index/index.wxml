@@ -12,23 +12,32 @@
     scroll-top="{{scrollTop}}"
   >
     <view class="bill">
-      <view class="bill__amount-title">
-        本月支付(元)
-      </view>
-      <view class="bill__amount">
-        1000.00
-      </view>
-      <view class="bill__day">
-        <view class="bill__entry bill__day-amount">
-          <text>今日</text>
-          <view class="bill__line"></view>
-          <text>{{ todayAmount }}</text>
+      <!-- 今日信息框,首页 -->
+      <view class="bill__today" style="margin-top: calc(100vh - {{ boxHeight }}px);">
+        <view class="bill__amount-title">
+          本月支付(元)
         </view>
-        <view wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
-          <text>{{ item.category }}</text>
-          <text>{{ item.num }}</text>
+        <view class="bill__amount">
+          1000.00
+        </view>
+        <view class="bill__day">
+          <view class="bill__entry bill__day-amount">
+            <text>今日</text>
+            <view class="bill__line"></view>
+            <text>{{ todayAmount }}</text>
+          </view>
+          <block wx:if="{{ todayBill.length === 0 }}">
+            <text>今日暂无支出</text>
+          </block>
+          <block wx:else>
+            <view wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
+              <text>{{ item.category }}</text>
+              <text>{{ item.num }}</text>
+            </view>
+          </block>
         </view>
       </view>
+      <!-- 历史账单 -->
       <view class="bill__month">
         <view class="bill__entry bill__month-amount">
           <text>2020年3月</text>

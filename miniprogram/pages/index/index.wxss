@@ -26,8 +26,13 @@ page {
   padding: 0 30rpx;
   box-sizing: border-box;
   text-align: right;
-  padding-top: calc(100vh - 500rpx - 120rpx);
+  /* padding-top: calc(100vh - 500rpx - 120rpx); */
   color: #FFFFFF;
+}
+
+/* 今日账本信息 */
+.bill__today {
+  padding-bottom: 30rpx;
 }
 
 /* 顶部当月账单支出 */
@@ -39,10 +44,15 @@ page {
   font-size: 100rpx;
 }
 
-/* 账单每日 */
-.bill__day {
-  padding-bottom: 120rpx;
+/* 历史账单 - 每月合计 */
+.bill__month-amount {
+  margin-top: 120rpx;
 }
+
+/* 账单每日 */
+/* .bill__day {
+  padding-bottom: 120rpx;
+} */
 /* 账单条目 */
 .bill__entry, .bill__day-amount {
   height: 68rpx;
