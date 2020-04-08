@@ -37,7 +37,8 @@ const compareVersion = (v1, v2) => {
 
 Component({
 	options: {
-		multipleSlots: true
+		multipleSlots: true,
+    addGlobalClass: true
 	},
 	properties: {
 		beforeExtraNodes: {type: Array, value: []},            // 插入正常节点之前的额外节点

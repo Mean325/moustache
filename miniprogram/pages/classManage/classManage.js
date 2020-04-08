@@ -3,70 +3,71 @@ let listData = [
     dragId: "item0",
     title: "分类1",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/hanbao.png",
+    icon: "icon-baomihua",
     fixed: false
   },
   {
     dragId: "item1",
     title: "分类1",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/canju.png",
     fixed: false
   },
   {
     dragId: "item2",
     title: "分类2",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/huoguo.png",
     fixed: false
   },
   {
     dragId: "item3",
     title: "分类3",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/dangao.png",
     fixed: false
   },
   {
     dragId: "item4",
     title: "分类4",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/dianying.png",
     fixed: false
   },
   {
     dragId: "item5",
     title: "分类5",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/switch.png",
     fixed: false
   },
   {
     dragId: "item6",
     title: "分类6",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/xuegao.png",
     fixed: false
   },
   {
     dragId: "item7",
     title: "分类7",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/jiandao-.png",
     fixed: false
   },
   {
     dragId: "item8",
     title: "分类8",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/jianshen.png",
     fixed: false
   },
   {
     dragId: "item9",
     title: "分类9",
     description: "1条记录",
-    images: "/images/console-entrance.png",
+    images: "/images/class/kafei.png",
     fixed: false
   }
 ];
