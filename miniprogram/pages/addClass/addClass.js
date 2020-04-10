@@ -1,8 +1,35 @@
+let iconList = [
+  "/images/class/baomihua.png",
+  "/images/class/canyin.png",
+  "/images/class/dangao.png",
+  "/images/class/diannao.png",
+  "/images/class/dianying.png",
+  "/images/class/duanxiu.png",
+  "/images/class/hanbao.png",
+  "/images/class/huoguo.png",
+  "/images/class/jiandao.png",
+  "/images/class/jianshen.png",
+  "/images/class/kafei.png",
+  "/images/class/lifa.png",
+  "/images/class/qunzi.png",
+  "/images/class/shuben.png",
+  "/images/class/shutiao.png",
+  "/images/class/switch.png",
+  "/images/class/xuegao.png",
+  "/images/class/yaowan.png",
+  "/images/class/youxiji-1.png",
+  "/images/class/youxiji-2.png",
+];
+
 Page({
   data: {
     newClass: {
-      icon: "1",
-      name: ""
+      iconList: [],   // 图标列表
+      newClass: {
+        iconIndex: 0, 
+        icon: "",
+        name: ""
+      }
     }
   },
   /**
@@ -10,13 +37,16 @@ Page({
    */
   onLoad(options) {
     console.log(options.type);
+    this.setData({
+      iconList
+    });
   },
   /**
    * 实现数据双向绑定
    * @hook 顶部分类名称input输入事件
    */
   handleInputChange(e) {
-    setTimeout(()=> {
+    setTimeout(() => {
       this.setData({
         'newClass.name': e.detail.value
       })

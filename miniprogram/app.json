@@ -5,7 +5,14 @@
     "pages/statistics/statistics",
     "pages/tools/tools",
     "pages/setting/setting",
+    "pages/bookkeep/bookkeep",
+    "pages/addClass/addClass",
     "pages/classManage/classManage",
+
+    "pages/admin/index/index",
+    "pages/admin/classManage/classManage",
+    "pages/admin/addClass/addClass",
+
     "pages/test/index1/index",
     "pages/test/userConsole/userConsole",
     "pages/test/storageConsole/storageConsole",
@@ -18,9 +25,7 @@
     "pages/test/openapi/callback/callback",
     "pages/test/openapi/cloudid/cloudid",
     "pages/test/im/im",
-    "pages/test/im/room/room",
-    "pages/addClass/addClass",
-    "pages/bookkeep/bookkeep"
+    "pages/test/im/room/room"
   ],
   "window": {
     "backgroundTextStyle": "dark",

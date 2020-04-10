@@ -22,8 +22,8 @@
 				<image class="image" mode="aspectFill" src="{{item.data.images}}" alt=""/>
 			</view>
 			<view class="cell__bd">
-				<view class="name">{{item.data.title}}</view>
-				<view class="des">{{item.data.description}}</view>
+				<view class="name">{{ item.data.title }}</view>
+				<view class="des">{{ item.data.bookkeepNum }}条记录</view>
 			</view>
       <view class="cell__ft">
 				<image src="/images/icon/sort.png" mode="aspectFill"></image>

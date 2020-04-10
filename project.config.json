@@ -97,12 +97,20 @@
 					"id": -1,
 					"name": "云开发案例",
 					"pathName": "pages/test/index1/index",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
+					"name": "用户默认分类管理",
+					"pathName": "pages/admin/classManage/classManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加用户默认分类",
+					"pathName": "pages/admin/addClass/addClass",
 					"query": "",
 					"scene": null
 				}
