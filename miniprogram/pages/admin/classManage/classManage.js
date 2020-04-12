@@ -103,7 +103,6 @@ let listData = [
 Page({
   data: {
     activeType: 1,    // 当前分类类型,1为支出,2为收入
-    // size: 1,
     listData: [],
     pageMetaScrollTop: 0,
     scrollTop: 0,
@@ -112,11 +111,28 @@ Page({
     this.drag = this.selectComponent('#drag');
     // 模仿异步加载数据
     setTimeout(() => {
-      this.setData({
-        listData: listData
-      });
+      this.getClassList();
       this.drag.init();
     }, 1000)
+  },
+  /**
+   * 调用云函数adminClassList获取
+   * @method 获取分类列表数据
+   */
+  getClassList() {
+    wx.cloud.callFunction({
+      name: 'adminClassList',
+      data: {
+        type: "1"
+      }
+    })
+      .then(res => {
+        console.log(res.result.data);
+        this.setData({
+          listData: res.result.data
+        });
+      })
+      .catch(console.error)
   },
   sortEnd(e) {
     console.log("sortEnd", e.detail.listData)
@@ -170,5 +186,5 @@ Page({
     wx.navigateTo({
       url: `/pages/admin/addClass/addClass?type=${ type }`,
     })
-  }
+  },
 })

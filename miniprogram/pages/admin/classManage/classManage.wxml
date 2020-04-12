@@ -2,6 +2,7 @@
 <view class="container">
   <bookkeep-type-bar>
     <!-- 右侧-添加分类按钮 -->
+    <!-- <image bindtap="test" slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image> -->
     <image bindtap="addClass" slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
   </bookkeep-type-bar>
   <drag
@@ -10,9 +11,9 @@
     bind:change="change"
     bind:sortend="sortEnd"
     bind:scroll="scroll"
-    list-data="{{listData}}"
+    list-data="{{ listData }}"
     columns="1"
-    scroll-top="{{scrollTop}}"
+    scroll-top="{{ scrollTop }}"
     top-size="110"
   >
   </drag>
