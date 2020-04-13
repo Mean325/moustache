@@ -1,5 +1,6 @@
+<!-- 设置记账分类类别 -->
 <view class="container">
-  <bookkeep-type-bar>
+  <bookkeep-type-bar bind:changeType="changeType">
     <!-- 右侧-添加分类按钮 -->
     <image bindtap="addClass" slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
   </bookkeep-type-bar>
@@ -9,9 +10,9 @@
     bind:change="change"
     bind:sortend="sortEnd"
     bind:scroll="scroll"
-    list-data="{{listData}}"
+    list-data="{{ listData }}"
     columns="1"
-    scroll-top="{{scrollTop}}"
+    scroll-top="{{ scrollTop }}"
     top-size="110"
   >
   </drag>

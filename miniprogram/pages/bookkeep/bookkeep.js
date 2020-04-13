@@ -15,7 +15,7 @@ Page({
     // 键盘
     hasDot: false // 防止用户多次输入小数点
   },
-  onLoad: function (options) {
+  onLoad(options) {
 
   },
   tapKey(e) {

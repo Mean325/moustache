@@ -73,7 +73,8 @@
           <text>30.9</text>
         </view>
       </view>
-      <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn">记一笔</navigator>
+      <!-- <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style1">记一笔</navigator> -->
+      <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style2">+</navigator>
     </view>
   </scroll-view>
 </view>

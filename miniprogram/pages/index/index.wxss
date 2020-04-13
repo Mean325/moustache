@@ -74,7 +74,7 @@ page {
 }
 
 /* 底部记账按钮 */
-.bookkeep-btn {
+.bookkeep-btn.style1 {
   height: 60rpx;
   width: calc(100vw - 60rpx);
   background: #16C2C2;
@@ -85,4 +85,18 @@ page {
   position: fixed;
   bottom: 30rpx;
   left: 30rpx;
+}
+
+.bookkeep-btn.style2 {
+  height: 86rpx;
+  width: 110rpx;
+  background: rgba(255, 255, 255, 0.5);
+  color: #000000;
+  font-size: 24px;
+  line-height: 86rpx;
+  text-align: center;
+  border-radius: 40rpx 0 0 40rpx;
+  position: fixed;
+  bottom: 540rpx;
+  right: 0;
 }

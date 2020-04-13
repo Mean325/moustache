@@ -14,29 +14,29 @@
 		<!-- start:请在该区域编写自己的渲染逻辑 -->
 		<view wx:if="{{columns === 1 && item.extraNode}}" class="cell">
 			<view class="cell__bd" style="height: 160rpx;">
-				<slot name="{{item.slot}}"></slot>
+				<slot name="{{ item.slot }}"></slot>
 			</view>
 		</view>
-		<view wx:elif="{{columns === 1 && !item.extraNode}}" class="cell">
+		<view wx:elif="{{ columns === 1 && !item.extraNode }}" class="cell">
 			<view class="cell__hd">
-				<image class="image" mode="aspectFill" src="{{item.data.images}}" alt=""/>
+				<image class="image" mode="aspectFill" src="{{ item.data.icon }}" alt=""/>
 			</view>
 			<view class="cell__bd">
-				<view class="name">{{ item.data.title }}</view>
+				<view class="name">{{ item.data.name }}</view>
 				<view class="des">{{ item.data.bookkeepNum }}条记录</view>
 			</view>
       <view class="cell__ft">
 				<image src="/images/icon/sort.png" mode="aspectFill"></image>
 			</view>
 		</view>
-		<view wx:elif="{{columns > 1 && item.extraNode}}" class="info">
+		<view wx:elif="{{ columns > 1 && item.extraNode }}" class="info">
 			<view class="info__item">
 				<slot name="{{item.slot}}"></slot>
 			</view>
 		</view>
-		<view wx:elif="{{columns > 1 && !item.extraNode}}" class="info">
+		<view wx:elif="{{ columns > 1 && !item.extraNode }}" class="info">
 			<view class="info__item">
-				<image class="image" src="{{item.data.images}}"></image>
+				<image class="image" src="{{ item.data.images }}"></image>
 			</view>
 		</view>
 		<!-- end:请在该区域编写自己的渲染逻辑 -->

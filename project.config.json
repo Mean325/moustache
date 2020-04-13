@@ -113,6 +113,12 @@
 					"pathName": "pages/admin/addClass/addClass",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图片上传",
+					"pathName": "pages/admin/upload/upload",
+					"scene": null
 				}
 			]
 		}

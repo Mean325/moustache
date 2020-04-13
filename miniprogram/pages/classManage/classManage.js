@@ -1,136 +1,93 @@
-let listData = [
-  {
-    dragId: "item0",
-    title: "分类1",
-    description: "1条记录",
-    images: "/images/class/hanbao.png",
-    icon: "icon-baomihua",
-    fixed: false
-  },
-  {
-    dragId: "item1",
-    title: "分类1",
-    description: "1条记录",
-    images: "/images/class/canju.png",
-    fixed: false
-  },
-  {
-    dragId: "item2",
-    title: "分类2",
-    description: "1条记录",
-    images: "/images/class/huoguo.png",
-    fixed: false
-  },
-  {
-    dragId: "item3",
-    title: "分类3",
-    description: "1条记录",
-    images: "/images/class/dangao.png",
-    fixed: false
-  },
-  {
-    dragId: "item4",
-    title: "分类4",
-    description: "1条记录",
-    images: "/images/class/dianying.png",
-    fixed: false
-  },
-  {
-    dragId: "item5",
-    title: "分类5",
-    description: "1条记录",
-    images: "/images/class/switch.png",
-    fixed: false
-  },
-  {
-    dragId: "item6",
-    title: "分类6",
-    description: "1条记录",
-    images: "/images/class/xuegao.png",
-    fixed: false
-  },
-  {
-    dragId: "item7",
-    title: "分类7",
-    description: "1条记录",
-    images: "/images/class/jiandao-.png",
-    fixed: false
-  },
-  {
-    dragId: "item8",
-    title: "分类8",
-    description: "1条记录",
-    images: "/images/class/jianshen.png",
-    fixed: false
-  },
-  {
-    dragId: "item9",
-    title: "分类9",
-    description: "1条记录",
-    images: "/images/class/kafei.png",
-    fixed: false
-  }
-];
-
 Page({
   data: {
-    size: 1,
+    activeType: "1",    // 当前分类类型,1为支出,2为收入
     listData: [],
     pageMetaScrollTop: 0,
     scrollTop: 0,
   },
+  /**
+   * @hook 进入该页面时获取分类列表
+   */
+  onShow() {
+    this.getClassList();
+  },
+  /**
+   * 调用云函数adminClassList获取
+   * @method 获取分类列表数据
+   */
+  getClassList() {
+    this.drag = this.selectComponent('#drag');
+    wx.cloud.callFunction({
+      name: 'adminClassList',
+      data: {
+        type: this.data.activeType
+      }
+    })
+      .then(res => {
+        let data = res.result.data;
+        console.log(data);
+        data.forEach((item, index) => {
+          item.dragId = `item${index}`;
+          item.bookkeepNum = 0;
+          item.fixed = false;
+        })
+        this.setData({
+          listData: data
+        });
+
+        this.drag.init();   // 拖动列表初始化
+      })
+      .catch(console.error)
+  },
+  /**
+   * 赋值给activeType,并重新获取分类列表
+   * @hook 顶部分类类型组件改变事件
+   */
+  changeType(e) {
+    console.log(e.detail);
+    this.setData({
+      activeType: e.detail
+    })
+    this.getClassList();
+  },
+  /**
+   * 保存改变后的数据
+   * 调用云函数
+   * @hook 数组拖动排序结束事件
+   */
   sortEnd(e) {
     console.log("sortEnd", e.detail.listData)
     this.setData({
       listData: e.detail.listData
     });
+    wx.cloud.callFunction({
+      name: 'saveClassList',
+      data: {
+        list: this.data.listData
+      }
+    })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(console.error)
   },
+  /**
+   * @hook 数组拖动排序改变事件
+   */
   change(e) {
     console.log("change", e.detail.listData)
   },
-  sizeChange(e) {
-    wx.pageScrollTo({ scrollTop: 0 })
-    this.setData({
-      size: e.detail.value
-    });
-    this.drag.init();
-  },
+  /**
+   * @hook 数组item点击事件
+   */
   itemClick(e) {
     console.log(e);
-  },
-  toggleFixed(e) {
-    let key = e.currentTarget.dataset.key;
-
-    let { listData } = this.data;
-
-    listData[key].fixed = !listData[key].fixed
-
-    this.setData({
-      listData: listData
-    });
-
-    this.drag.init();
-  },
-  scroll(e) {
-    this.setData({
-      pageMetaScrollTop: e.detail.scrollTop
-    })
   },
   // 页面滚动
   onPageScroll(e) {
     this.setData({
       scrollTop: e.scrollTop
     });
-  },
-  onLoad() {
-    this.drag = this.selectComponent('#drag');
-    // 模仿异步加载数据
-    setTimeout(() => {
-      this.setData({
-        listData: listData
-      });
-      this.drag.init();
-    }, 1000)
   },
   /**
    * 携带当前记账类型参数,跳转到添加分类页面
@@ -139,7 +96,7 @@ Page({
   addClass() {
     let type = this.data.activeType;
     wx.navigateTo({
-      url: `/pages/addClass/addClass?type=${ type }`,
+      url: `/pages/addClass/addClass?type=${type}`,
     })
-  }
+  },
 })

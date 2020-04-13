@@ -1,145 +1,68 @@
-let listData = [
-  {
-    dragId: "item0",
-    title: "餐饮",
-    bookkeepNum: 1,
-    images: "/images/class/hanbao.png",
-    icon: "icon-baomihua",
-    fixed: false
-  },
-  {
-    dragId: "item1",
-    title: "日用",
-    bookkeepNum: 1,
-    images: "/images/class/canju.png",
-    fixed: false
-  },
-  {
-    dragId: "item2",
-    title: "交通",
-    bookkeepNum: 0,
-    images: "/images/class/huoguo.png",
-    fixed: false
-  },
-  {
-    dragId: "item3",
-    title: "娱乐",
-    bookkeepNum: 0,
-    images: "/images/class/dangao.png",
-    fixed: false
-  },
-  {
-    dragId: "item4",
-    title: "服饰",
-    bookkeepNum: 0,
-    images: "/images/class/dianying.png",
-    fixed: false
-  },
-  {
-    dragId: "item5",
-    title: "美容",
-    bookkeepNum: 0,
-    images: "/images/class/jiandao-.png",
-    fixed: false
-  },
-  {
-    dragId: "item6",
-    title: "书籍",
-    bookkeepNum: 0,
-    images: "/images/class/xuegao.png",
-    fixed: false
-  },
-  {
-    dragId: "item7",
-    title: "母婴",
-    bookkeepNum: 0,
-    images: "/images/class/jiandao-.png",
-    fixed: false
-  },
-  {
-    dragId: "item8",
-    title: "数码",
-    bookkeepNum: 0,
-    images: "/images/class/switch.png",
-    fixed: false
-  },
-  {
-    dragId: "item9",
-    title: "旅行",
-    bookkeepNum: 0,
-    images: "/images/class/kafei.png",
-    fixed: false
-  },
-  {
-    dragId: "item10",
-    title: "宠物",
-    bookkeepNum: 0,
-    images: "/images/class/kafei.png",
-    fixed: false
-  },
-  {
-    dragId: "item11",
-    title: "住房",
-    bookkeepNum: 0,
-    images: "/images/class/kafei.png",
-    fixed: false
-  },
-  {
-    dragId: "item12",
-    title: "医疗",
-    bookkeepNum: 0,
-    images: "/images/class/kafei.png",
-    fixed: false
-  },
-  {
-    dragId: "item13",
-    title: "通讯",
-    bookkeepNum: 0,
-    images: "/images/class/kafei.png",
-    fixed: false
-  }
-];
-
 Page({
   data: {
-    activeType: 1,    // 当前分类类型,1为支出,2为收入
+    activeType: "1",    // 当前分类类型,1为支出,2为收入
     listData: [],
     pageMetaScrollTop: 0,
     scrollTop: 0,
   },
-  onLoad() {
-    this.drag = this.selectComponent('#drag');
-    // 模仿异步加载数据
-    setTimeout(() => {
-      this.getClassList();
-      this.drag.init();
-    }, 1000)
+  /**
+   * @hook 进入该页面时获取分类列表
+   */
+  onShow() {
+    this.getClassList();
   },
   /**
    * 调用云函数adminClassList获取
    * @method 获取分类列表数据
    */
   getClassList() {
+    this.drag = this.selectComponent('#drag');
     wx.cloud.callFunction({
       name: 'adminClassList',
       data: {
-        type: "1"
+        type: this.data.activeType
       }
     })
       .then(res => {
-        console.log(res.result.data);
+        let data = res.result.data;
+        console.log(data);
+        data.forEach((item,index) => {
+          item.dragId = `item${ index }`;
+          item.bookkeepNum = 0;
+          item.fixed = false;
+        })
         this.setData({
-          listData: res.result.data
+          listData: data
         });
+
+        this.drag.init();   // 拖动列表初始化
       })
       .catch(console.error)
   },
+  /**
+   * 赋值给activeType,并重新获取分类列表
+   * @hook 顶部分类类型组件改变事件
+   */
+  changeType(e) {
+    console.log(e.detail);
+    this.setData({
+      activeType: e.detail
+    })
+    this.getClassList();
+  },
+  /**
+   * 保存改变后的数据
+   * @hook 数组拖动排序结束事件
+   */
   sortEnd(e) {
     console.log("sortEnd", e.detail.listData)
     this.setData({
       listData: e.detail.listData
     });
   },
+  /**
+   * @hook 数组拖动排序改变事件
+   */
   change(e) {
     console.log("change", e.detail.listData)
   },
@@ -150,27 +73,30 @@ Page({
   //   });
   //   this.drag.init();
   // },
+  /**
+   * @hook 数组item点击事件
+   */
   itemClick(e) {
     console.log(e);
   },
-  toggleFixed(e) {
-    let key = e.currentTarget.dataset.key;
+  // toggleFixed(e) {
+  //   let key = e.currentTarget.dataset.key;
 
-    let { listData } = this.data;
+  //   let { listData } = this.data;
 
-    listData[key].fixed = !listData[key].fixed
+  //   listData[key].fixed = !listData[key].fixed
 
-    this.setData({
-      listData: listData
-    });
+  //   this.setData({
+  //     listData: listData
+  //   });
 
-    this.drag.init();
-  },
-  scroll(e) {
-    this.setData({
-      pageMetaScrollTop: e.detail.scrollTop
-    })
-  },
+  //   this.drag.init();
+  // },
+  // scroll(e) {
+  //   this.setData({
+  //     pageMetaScrollTop: e.detail.scrollTop
+  //   })
+  // },
   // 页面滚动
   onPageScroll(e) {
     this.setData({
