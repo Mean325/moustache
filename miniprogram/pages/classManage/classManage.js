@@ -18,7 +18,7 @@ Page({
   getClassList() {
     this.drag = this.selectComponent('#drag');
     wx.cloud.callFunction({
-      name: 'adminClassList',
+      name: 'getClassList',
       data: {
         type: this.data.activeType
       }
@@ -44,7 +44,6 @@ Page({
    * @hook 顶部分类类型组件改变事件
    */
   changeType(e) {
-    console.log(e.detail);
     this.setData({
       activeType: e.detail
     })
@@ -63,7 +62,8 @@ Page({
     wx.cloud.callFunction({
       name: 'saveClassList',
       data: {
-        list: this.data.listData
+        list: this.data.listData,
+        type: this.data.activeType
       }
     })
     .then(res => {

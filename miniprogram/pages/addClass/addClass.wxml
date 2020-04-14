@@ -2,14 +2,14 @@
     <!-- 顶部输入框 -->
     <view class="add-class-wrapper">
       <view class="icon-wrapper">
-        <image class="icon" src="/images/console-entrance.png" mode="aspectFill"></image>
+        <image class="icon" src="{{ activeClass.icon }}" mode="aspectFill"></image>
       </view>
       <input bindinput="handleInputChange" class="add-class__input" maxlength="20" placeholder="分类名称"	/>
     </view>
     <!-- 类型图标合集 -->
     <view class="icons">
       <block wx:for="{{ iconList }}" wx:key="*this">
-        <view class="icon-wrapper {{ index === 2 ? 'icon-selected' : '' }}">
+        <view bindtap="selectIcon" data-icon="{{ item }}" data-icon-index="{{ index }}" class="icon-wrapper {{ index === activeClass.iconIndex ? 'icon-selected' : '' }}">
           <image class="icon" src="{{ item }}" mode="aspectFill"></image>
         </view>
       </block>
