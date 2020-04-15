@@ -8,16 +8,40 @@ Page({
   data: {
     bookkeep: {
       num: 0,   // 金额
-      type: 1,    // 账目类型,1为支出,2为收入
-      category: 1,    // 账目分类id
+      type: "1",    // 账目类型,1为支出,2为收入
+      category: "1",    // 账目分类id
       remark: ""
     },    // 记账数据
-    // 键盘
-    hasDot: false // 防止用户多次输入小数点
+    hasDot: false,    // 是否有小数点,防止用户多次输入小数点
+    classList: [],    // 记账分类列表
   },
   onLoad(options) {
-
+    this.getClassList();
   },
+  /**
+   * 调用云函数adminClassList获取
+   * @method 获取分类列表
+   */
+  getClassList() {
+    wx.cloud.callFunction({
+      name: 'getClassList',
+      data: {
+        type: this.data.bookkeep.type
+      }
+    })
+      .then(res => {
+        let classList = res.result.data;
+        console.log(classList);
+        this.setData({
+          classList
+        });
+      })
+      .catch(console.error)
+  },
+  /**
+   * num末尾追加当前点击的数字
+   * @method 自定义数字键盘按钮点击事件
+   */
   tapKey(e) {
     var x = e.currentTarget.dataset.key
     if (x == '.') {
@@ -32,7 +56,7 @@ Page({
   },
   /**
    * 调用云函数添加当前交易
-   * @method 自定义数字键盘确认按钮事件
+   * @method 自定义数字键盘确认按钮点击事件
    */
   tapSubmit() {
     // 用户已提交
@@ -86,7 +110,7 @@ Page({
     })
   },
   /**
-   * @method 自定义数字键盘 - 清楚按钮点击事件
+   * @method 自定义数字键盘 - 清除按钮点击事件
    */
   tapClear() {
     this.setData({

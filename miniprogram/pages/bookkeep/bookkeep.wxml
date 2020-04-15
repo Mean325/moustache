@@ -4,60 +4,31 @@
     记一笔
   </view>
   <view class="bookkeep">
+    <!-- 账本分类类别 -->
     <bookkeep-type-bar>
     </bookkeep-type-bar>
+
+    <!-- 记账金额输入框 -->
     <view class="bookkeep__amount">
       <text class="bookkeep__amount-currency">¥</text>
       <input value="{{ bookkeep.num === 0 ? '' : bookkeep.num }}" class="bookkeep__amount-input" disabled="true"></input>
     </view>
+
+    <!-- 记账分类选择框 -->
     <scroll-view class="bookkeep__class-box" scroll-x>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
+      <view wx:for="{{ classList }}" class="bookkeep__class">
+        <image src="{{ item.icon }}" mode="aspectFill"></image>
+        <text>{{ item.name }}</text>
       </view>
       <view class="bookkeep__class">
         <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
-      </view>
-      <view class="bookkeep__class">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
-        <text>服饰美容</text>
+        <text>设置</text>
       </view>
     </scroll-view>
+
+    <!-- 备注栏 -->
     <input placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
-    <!-- <num-keyboard class="num-keyboard "></num-keyboard> -->
+    
     <!-- 自定义数字键盘 -->
     <view class="keyboard">
       <view class='keyboard-row'>

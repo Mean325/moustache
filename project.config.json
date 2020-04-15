@@ -81,14 +81,14 @@
 				},
 				{
 					"id": 4,
-					"name": "classManage",
+					"name": "用户-分类管理",
 					"pathName": "pages/classManage/classManage",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "bookkeep",
+					"id": 5,
+					"name": "用户-记账",
 					"pathName": "pages/bookkeep/bookkeep",
 					"query": "",
 					"scene": null
