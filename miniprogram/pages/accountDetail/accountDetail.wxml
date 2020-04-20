@@ -28,8 +28,14 @@
     </view>
     <!-- 账目详情 - 按钮 -->
     <view class="account-btns">
-      <view bindtap="delAccount" class="account-btn del">删除</view>
-      <view bindtap="editAccount" class="account-btn edit">编辑</view>
+      <view bindtap="delAccount" class="account-btn del">
+        <image src="/images/icon/del.png" />
+        删除
+      </view>
+      <view bindtap="editAccount" class="account-btn edit">
+        <image src="/images/icon/edit.png" />
+        编辑
+      </view>
     </view>
   </view>
 </view>

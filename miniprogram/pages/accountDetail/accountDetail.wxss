@@ -8,7 +8,6 @@
 /* 账目详情 - 外观卡片 */
 .account-detail {
   width: 100%;
-  padding: 40rpx;
   background: #FFFFFF;
   box-sizing: border-box;
   text-align: center;
@@ -20,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 40rpx;
+  padding-top: 80rpx;
 }
 
 .account-category image{
@@ -41,7 +40,9 @@
 
 /* 账目详情 - 其他信息 */
 .account-infos {
+  margin: 0 40rpx;
   padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #DDDDDD;
 }
 
 .account-info {
@@ -61,13 +62,21 @@
 
 /* 账目详情 - 按钮 */
 .account-btns {
-  border-top: 1rpx solid #DDDDDD;
-  padding-top: 40rpx;
   display: flex;
 }
 
 .account-btn {
+  padding: 40rpx 0;
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-btn image{
+  width: 16px;
+  height: 16px;
+  margin-right: 10rpx;
 }
 
 .del {
@@ -75,5 +84,14 @@
 }
 
 .edit {
-  border-left: 1rpx solid #DDDDDD;
+  position: relative;
+}
+
+.edit::before {
+  content: '';
+  width: 2rpx;
+  height: 50rpx;
+  background: #DDDDDD;
+  position: absolute;
+  left: -1rpx;
 }
