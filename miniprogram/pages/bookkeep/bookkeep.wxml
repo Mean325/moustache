@@ -11,12 +11,21 @@
     <!-- 记账金额输入框 -->
     <view class="bookkeep__amount">
       <text class="bookkeep__amount-currency">¥</text>
-      <input value="{{ bookkeep.num === 0 ? '' : bookkeep.num }}" class="bookkeep__amount-input" disabled="true"></input>
+      <!-- 小程序中input的letter-spacing不生效,改用view显示 -->
+      <!-- <input value="{{ bookkeep.num === 0 ? '' : bookkeep.num }}" class="bookkeep__amount-input" disabled="true"></input> -->
+      <view class="bookkeep__amount-input" disabled="true">
+        {{ bookkeep.num === 0 ? '' : bookkeep.num }}
+      </view>
     </view>
 
     <!-- 记账分类选择框 -->
     <scroll-view class="bookkeep__class-box" scroll-x>
-      <view wx:for="{{ classList }}" class="bookkeep__class">
+      <view
+        bindtap="selectCategory"
+        data-id="{{ item._id }}"
+        wx:for="{{ classList }}"
+        class="bookkeep__class {{ item._id === bookkeep.category ? 'selected' : '' }}"
+      >
         <image src="{{ item.icon }}" mode="aspectFill"></image>
         <text>{{ item.name }}</text>
       </view>
@@ -27,7 +36,7 @@
     </scroll-view>
 
     <!-- 备注栏 -->
-    <input placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+    <input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
     
     <!-- 自定义数字键盘 -->
     <view class="keyboard">

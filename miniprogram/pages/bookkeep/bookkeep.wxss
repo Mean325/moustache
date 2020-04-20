@@ -24,7 +24,8 @@
 .bookkeep__amount-input {
   flex: 1;
   height: 100rpx;
-  letter-spacing: 10px;
+  letter-spacing: 4rpx;
+  padding: 0 8rpx;
 }
 
 /* 类型选择框 */
@@ -38,13 +39,21 @@
 }
 
 .bookkeep__class {
-  width: 120rpx;
-  height: 130rpx;
+  width: 112rpx;
+  height: 122rpx;
+  border: 4rpx solid transparent;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
+
+.bookkeep__class.selected {
+  background: rgba(22, 194, 194, 0.6);
+  border: 4rpx solid #16c2c2;
+  border-radius: 5px;
+}
+
 
 .bookkeep__class image {
   width: 60rpx;
@@ -55,7 +64,7 @@
 
 .bookkeep__class text{
   font-size: 11px;
-  color: #DDDDDD;
+  color: #999999;
 }
 
 /* 备注输入框 */

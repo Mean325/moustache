@@ -1,6 +1,6 @@
 Page({
   data: {
-    activeType: "1",    // 当前分类类型,1为支出,2为收入
+    activeType: 1,    // 当前分类类型,1为支出,2为收入
     listData: [],
     pageMetaScrollTop: 0,
     scrollTop: 0,
@@ -27,7 +27,7 @@ Page({
         let data = res.result.data;
         console.log(data);
         data.forEach((item,index) => {
-          item.dragId = `item${ index }`;
+          // item.dragId = `item${ index }`;
           item.bookkeepNum = 0;
           item.fixed = false;
         })

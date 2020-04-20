@@ -10,7 +10,7 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
-  const { type, icon, name } = event;
+  const { type, icon, name, _id } = event;
 
   // 查询当前用户是否有自定义分类列表
   let res = await db.collection('classList')
@@ -26,7 +26,8 @@ exports.main = async (event, context) => {
     list.push({
       type,
       icon,
-      name
+      name,
+      _id
     })    // 插入新的分类
   } else {   // 查询不到数据时查询默认分类数组
     _list = await db.collection('_classList')
@@ -38,7 +39,8 @@ exports.main = async (event, context) => {
     _list.data.push({
       type,
       icon,
-      name
+      name,
+      _id
     })    // 插入新的分类
     list = _list.data;
   }

@@ -65,5 +65,14 @@ Page({
         console.error('[数据库] [查询记录] 失败：', err)
       }
     })
+  },
+  /**
+   * 跳转到账目详情页
+   * @method 账单条目点击事件
+   */
+  toDetail() {
+    wx.navigateTo({
+      url: '/pages/accountDetail/accountDetail'
+    })
   }
 })

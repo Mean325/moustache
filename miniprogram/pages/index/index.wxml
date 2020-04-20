@@ -30,7 +30,7 @@
             <text>今日暂无支出</text>
           </block>
           <block wx:else>
-            <view wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
+            <view bindtap="toDetail" wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
               <text>{{ item.category }}</text>
               <text>{{ item.num }}</text>
             </view>

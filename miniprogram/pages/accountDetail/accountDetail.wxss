@@ -1,0 +1,79 @@
+.container {
+  height: 100vh;
+  background: #F6F6F6;
+  box-sizing: border-box;
+  padding: 40rpx;
+}
+
+/* 账目详情 - 外观卡片 */
+.account-detail {
+  width: 100%;
+  padding: 40rpx;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 6px;
+}
+
+/* 账目详情 - 分类 */
+.account-category  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40rpx;
+}
+
+.account-category image{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+
+.account-category text{
+  margin-left: 26rpx;
+}
+
+/* 账目详情 - 金额 */
+.account-amount {
+  font-size: 40px;
+  padding-bottom: 40rpx;
+}
+
+/* 账目详情 - 其他信息 */
+.account-infos {
+  padding-bottom: 40rpx;
+}
+
+.account-info {
+  display: flex;
+  text-align: left;
+}
+
+.account-info__label {
+  width: 80px;
+  flex-shrink: 0;
+  color: #999999;
+}
+
+.account-info__value {
+  flex: 1;
+}
+
+/* 账目详情 - 按钮 */
+.account-btns {
+  border-top: 1rpx solid #DDDDDD;
+  padding-top: 40rpx;
+  display: flex;
+}
+
+.account-btn {
+  width: 50%;
+}
+
+.del {
+  color: #fa5151;
+}
+
+.edit {
+  border-left: 1rpx solid #DDDDDD;
+}

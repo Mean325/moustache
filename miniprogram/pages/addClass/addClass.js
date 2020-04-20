@@ -21,6 +21,8 @@ let iconList = [
   "/images/class/youxiji-2.png",
 ];
 
+const md5 = require('./../../utils/md5.js');    // 引入md5加密
+
 Page({
   data: {
     iconList: [],   // 图标列表
@@ -68,8 +70,11 @@ Page({
   addClass() {
     let pages = getCurrentPages();
     let { options } = pages.pop();
-    let type = options.type;   // 获取路由参数type
+    let type = Number(options.type);   // 获取路由参数type
     console.log(type);
+
+    let time = new Date().getTime();
+    let _id = md5.hexMD5(time);   // 与微信云储存保持一致
 
     let { name, icon } = this.data.activeClass;
     console.log(name);
@@ -100,7 +105,8 @@ Page({
       data: {
         type,
         name,
-        icon
+        icon,
+        _id
       }
     })
       .then(res => {

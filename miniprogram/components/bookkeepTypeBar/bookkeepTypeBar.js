@@ -10,14 +10,14 @@ Component({
     types: [
       {
         name: "支出",
-        type: "1"
+        type: 1
       },
       {
         name: "收入",
-        type: "2"
+        type: 2
       },
     ],
-    activeType: "1",
+    activeType: 1,
   },
   methods: {
     selectType(e) {

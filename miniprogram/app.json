@@ -4,10 +4,12 @@
     "pages/index/index",
     "pages/statistics/statistics",
     "pages/tools/tools",
+
     "pages/setting/setting",
     "pages/bookkeep/bookkeep",
     "pages/addClass/addClass",
     "pages/classManage/classManage",
+    "pages/accountDetail/accountDetail",
 
     "pages/admin/index/index",
     "pages/admin/classManage/classManage",

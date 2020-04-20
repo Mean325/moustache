@@ -8,9 +8,9 @@ Page({
   data: {
     bookkeep: {
       num: 0,   // 金额
-      type: "1",    // 账目类型,1为支出,2为收入
+      type: 1,    // 账目类型,1为支出,2为收入
       category: "1",    // 账目分类id
-      remark: ""
+      remark: ""    // 备注
     },    // 记账数据
     hasDot: false,    // 是否有小数点,防止用户多次输入小数点
     classList: [],    // 记账分类列表
@@ -37,6 +37,25 @@ Page({
         });
       })
       .catch(console.error)
+  },
+  /**
+   * @method 选中分类事件
+   */
+  selectCategory(e) {
+    let _id = e.currentTarget.dataset.id;
+    this.setData({
+      'bookkeep.category': _id
+    });
+  },
+  /**
+   * @method 选中分类事件
+   */
+  handleInputChange(e) {
+    setTimeout(() => {
+      this.setData({
+        'bookkeep.remark': e.detail.value
+      })
+    }, 200);
   },
   /**
    * num末尾追加当前点击的数字

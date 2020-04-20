@@ -68,8 +68,7 @@ Page({
   addClass() {
     let pages = getCurrentPages();
     let { options } = pages.pop();
-    let type = options.type;   // 获取路由参数type
-    console.log(type);
+    let type = Number(options.type);   // 获取路由参数type
 
     let { name, icon } = this.data.activeClass;
     console.log(name);
