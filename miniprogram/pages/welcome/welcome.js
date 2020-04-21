@@ -80,7 +80,7 @@ Page({
         this.setData({
           'userInfo.openid': res.result.openid
         })
-        app.globalData.userInfo = this.data.userInfo
+        app.globalData.userInfo = this.data.userInfo;
         wx.switchTab({
           url: '/pages/index/index',
         })

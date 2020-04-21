@@ -33,8 +33,9 @@ Page({
         let classList = res.result.data;
         console.log(classList);
         this.setData({
-          classList
-        });
+          classList,
+          'bookkeep.category': classList[0]._id
+        });   // 复制分类列表,并选中第一个
       })
       .catch(console.error)
   },
@@ -95,6 +96,7 @@ Page({
     let data = this.data.bookkeep;
     data.time = new Date().getTime();
     data.date = time.formatTime(data.time).split(' ')[0];
+    data.num = Math.floor(data.num * 100) / 100;
     const db = wx.cloud.database()
     db.collection('accountBook').add({
       data,

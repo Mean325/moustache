@@ -6,6 +6,8 @@ App({
   globalData: {
     userInfo: {},   // 用户信息
     theme: 'dark', // 主题颜色: light/dark
+
+    categoryList: [],    // 用户分类列表
   },
   themeChanged(theme) {
     this.globalData.theme = theme;
@@ -24,7 +26,7 @@ App({
       themeListeners.splice(index, 1);
     }
   },
-  onLaunch: function () {
+  onLaunch() {
     
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -39,6 +41,24 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {};
+    this.getCategoryList();
+  },
+  /**
+   * @method 获取分类列表
+   */
+  getCategoryList() {
+    wx.cloud.callFunction({
+      name: 'getClassList',
+      data: {
+        type: 1
+      }
+    })
+      .then(res => {
+        let data = res.result.data;
+        console.log(data);
+        this.globalData.categoryList = data;
+      })
+      .catch(console.error)
   }
 })

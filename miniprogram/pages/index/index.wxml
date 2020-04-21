@@ -18,7 +18,7 @@
           本月支付(元)
         </view>
         <view class="bill__amount">
-          1000.00
+          {{ monthAmount }}
         </view>
         <view class="bill__day">
           <view class="bill__entry bill__day-amount">
@@ -30,10 +30,19 @@
             <text>今日暂无支出</text>
           </block>
           <block wx:else>
-            <view bindtap="toDetail" wx:for="{{ todayBill }}" wx:key="{{ item._id }}" class="bill__entry">
-              <text>{{ item.category }}</text>
-              <text>{{ item.num }}</text>
-            </view>
+            <mp-slideview
+              bindtap="toDetail"
+              wx:for="{{ todayBill }}"
+              wx:key="{{ item._id }}"
+              buttons="{{ slideButtons }}"
+              bindbuttontap="delAccount"
+              data-id="{{ item._id }}"
+            >
+              <view class="bill__entry">
+                <text>{{ item.categoryName }}</text>
+                <text>{{ item.num }}</text>
+              </view>
+            </mp-slideview>
           </block>
         </view>
       </view>
