@@ -66,8 +66,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "tools",
+					"id": 2,
+					"name": "工具",
 					"pathName": "pages/tools/tools",
 					"query": "",
 					"scene": null

@@ -5,62 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    arr: {
+      onItemTap: 'onGridItemTap',
+      list: [{
+        icon: '/images/tools/AA.png',
+        title: '折叠面板',
+        entitle: 'Collapse',
+        page: '/page/biz/pages/collapse/index',
+      }, {
+        icon: '/images/tools/AA.png',
+        title: '下拉菜单',
+        entitle: 'Dropdown',
+        page: '/page/biz/pages/dropdown/index',
+      }, {
+        icon: '/images/tools/AA.png',
+        title: '通用错误页',
+        entitle: 'ErrorView',
+        page: '/page/biz/pages/error-view/index',
+      }, {
+        icon: '/images/tools/AA.png',
+        title: '宫格',
+        entitle: 'Grid',
+        page: '/page/biz/pages/grid/index',
+      }, {
+        icon: '/images/tools/AA.png',
+        title: '列表',
+        entitle: 'List',
+        page: '/page/biz/pages/list/index',
+      }, {
+        icon: '/images/tools/AA.png',
+        title: '标签',
+        entitle: 'Tag',
+        page: '/page/biz/pages/tag/index',
+      }],
+    },
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onGridItemTap(e) {
+    const page = this.data.arr.list[e.currentTarget.dataset.index].page;
+    console.log(page);
+    // wx.navigateTo({ url: page });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

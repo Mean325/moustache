@@ -80,40 +80,53 @@ Page({
    */
   tapSubmit() {
     // 用户已提交
-    console.log('res =', this.data.num)
-    // wx.cloud.callFunction({
-    //   // 云函数名称
-    //   name: 'add',
-    //   // 传给云函数的参数
-    //   data: {
-    //     num: this.data.num
-    //   }
-    // })
-    // .then(res => {
-    //   console.log(res)
-    // })
-    // .catch(console.error)
     let data = this.data.bookkeep;
     data.time = new Date().getTime();
     data.date = time.formatTime(data.time).split(' ')[0];
     data.num = Math.floor(data.num * 100) / 100;
-    const db = wx.cloud.database()
-    db.collection('accountBook').add({
-      data,
-      success: res => {
-        wx.showToast({
-          title: '已记一笔',
-        })
-        wx.navigateBack();
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '记账失败'
-        })
-        console.error(err)
-      }
+    wx.cloud.callFunction({
+      name: 'bookkeep',
+      data: data
     })
+    .then(res => {
+      console.log(res);
+      wx.showToast({
+        title: '已记一笔',
+      })
+      wx.vibrateShort();
+      wx.navigateBack();
+    })
+    .catch(err => {
+      wx.showToast({
+        icon: 'none',
+        title: '记账失败'
+      })
+      console.error(err)
+    })
+    // let data = this.data.bookkeep;
+    // data.time = new Date().getTime();
+    // data.date = time.formatTime(data.time).split(' ')[0];
+    // data.num = Math.floor(data.num * 100) / 100;
+    // const db = wx.cloud.database()
+    // db.collection('accountBook').add({
+    //   data,
+    //   success: res => {
+    //     console.log(res);
+    //     wx.showToast({
+    //       title: '已记一笔',
+    //     })
+    //     wx.vibrateShort();
+    //     wx.navigateBack();
+    //   },
+    //   fail: err => {
+    //     wx.showToast({
+    //       icon: 'none',
+    //       title: '记账失败'
+    //     })
+    //     console.error(err)
+    //   },
+      
+    // })
   },
   /**
    * @method 删除按钮点击事件

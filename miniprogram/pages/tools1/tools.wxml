@@ -1,12 +1,6 @@
-<import src="/template/grid/index.wxml" />
-
 <!--工具栏页面-->
 <view class="container">
-  <template is="grid" data="{{ ...arr }}" />
-</view>
-
-<!--工具栏页面-->
-<!-- <view class="container">
+  <!-- 用户信息 -->
   <view class="tool">
     <image src="/images/tools/AA.png" mode="aspectFit" class="tool-icon"></image>
     <text>工具1</text>
@@ -43,4 +37,4 @@
     <image src="/images/tools/AA.png" mode="aspectFit" class="tool-icon"></image>
     <text>工具9</text>
   </view>
-</view> -->
+</view>

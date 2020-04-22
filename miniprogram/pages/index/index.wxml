@@ -18,13 +18,13 @@
           本月支付(元)
         </view>
         <view class="bill__amount">
-          {{ monthAmount }}
+          {{ monthAmount || 0 }}
         </view>
         <view class="bill__day">
           <view class="bill__entry bill__day-amount">
             <text>今日</text>
             <view class="bill__line"></view>
-            <text>{{ todayAmount }}</text>
+            <text>{{ todayAmount || 0 }}</text>
           </view>
           <block wx:if="{{ todayBill.length === 0 }}">
             <text>今日暂无支出</text>
