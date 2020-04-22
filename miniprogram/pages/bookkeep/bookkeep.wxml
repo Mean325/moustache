@@ -19,17 +19,17 @@
     </view>
 
     <!-- 记账分类选择框 -->
-    <scroll-view class="bookkeep__class-box" scroll-x>
+    <scroll-view class="bookkeep__category-box" scroll-x>
       <view
         bindtap="selectCategory"
         data-id="{{ item._id }}"
-        wx:for="{{ classList }}"
-        class="bookkeep__class {{ item._id === bookkeep.category ? 'selected' : '' }}"
+        wx:for="{{ categoryList }}"
+        class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}"
       >
         <image src="{{ item.icon }}" mode="aspectFill"></image>
         <text>{{ item.name }}</text>
       </view>
-      <view class="bookkeep__class">
+      <view class="bookkeep__category">
         <image src="/images/console-entrance.png" mode="aspectFill"></image>
         <text>设置</text>
       </view>

@@ -1,7 +1,7 @@
 const time = require("../../utils/utils.js");
 const commonJs = require("../common.js");
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {

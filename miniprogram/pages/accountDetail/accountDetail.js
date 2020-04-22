@@ -33,8 +33,9 @@ Page({
    * @method 编辑按钮点击事件
    */
   editAccount() {
+    let _id = this.data.detail._id;
     wx.navigateTo({
-      url: '/pages/bookkeep/bookkeep',
+      url: `/pages/bookkeep/bookkeep?_id=${ _id }`,
     })
   },
   /**

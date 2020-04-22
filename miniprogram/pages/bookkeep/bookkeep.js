@@ -1,5 +1,6 @@
 const time = require("../../utils/utils.js");
 
+const app = getApp();
 
 Page({
   /**
@@ -16,29 +17,43 @@ Page({
     classList: [],    // 记账分类列表
   },
   onLoad(options) {
-    this.getClassList();
+    let { categoryList } = app.globalData;
+    
+    this.setData({
+      categoryList: categoryList,
+      'bookkeep.category': categoryList[0]._id
+    })
+    let _id = options._id;
+    if (_id) {
+      let { activeAccountDetail } = app.globalData;
+      let { categoryName, openid, categoryIcon, ...data } = activeAccountDetail;
+      console.log(_id);
+      this.setData({
+        bookkeep: { ...data }
+      })
+    }
   },
   /**
    * 调用云函数adminClassList获取
    * @method 获取分类列表
    */
-  getClassList() {
-    wx.cloud.callFunction({
-      name: 'getClassList',
-      data: {
-        type: this.data.bookkeep.type
-      }
-    })
-      .then(res => {
-        let classList = res.result.data;
-        console.log(classList);
-        this.setData({
-          classList,
-          'bookkeep.category': classList[0]._id
-        });   // 复制分类列表,并选中第一个
-      })
-      .catch(console.error)
-  },
+  // getClassList() {
+  //   wx.cloud.callFunction({
+  //     name: 'getClassList',
+  //     data: {
+  //       type: this.data.bookkeep.type
+  //     }
+  //   })
+  //     .then(res => {
+  //       let classList = res.result.data;
+  //       console.log(classList);
+  //       this.setData({
+  //         classList,
+  //         'bookkeep.category': classList[0]._id
+  //       });   // 复制分类列表,并选中第一个
+  //     })
+  //     .catch(console.error)
+  // },
   /**
    * @method 选中分类事件
    */
@@ -81,7 +96,9 @@ Page({
   tapSubmit() {
     // 用户已提交
     let data = this.data.bookkeep;
-    data.time = new Date().getTime();
+    if (!data.time) {
+      data.time = new Date().getTime();
+    }
     data.num = Math.floor(data.num * 100) / 100;
     wx.cloud.callFunction({
       name: 'bookkeep',
