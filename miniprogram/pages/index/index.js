@@ -65,7 +65,7 @@ Page({
       .catch(console.error)
   },
   /**
-   * @method 获取本月账单列表
+   * @method 获取月账单列表
    */
   getMonthBill() {
     let time = new Date().getTime();
