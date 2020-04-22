@@ -9,15 +9,14 @@ Page({
     monthAmount: 0,   // 本月总额
     todayBill: [],    // 今日账单
     monthBill: [],    // 本月账单
-    boxHeight: 0,   // 今日信息view高度,用于计算bill__today高度,使第一屏只显示今日信息
 
+    statusBarHeight: getApp().globalData.deviceInfo.statusBarHeight,   // 获取全局变量的导航栏高度
     slideButtons: [{
       type: 'warn',
       text: '删除'
     }],   // 左滑删除组件
   },
   // onLoad() {
-  //   this.getTodayBoxHeight();
   //   this.getTodayBill();
   // },
   onShow() {
@@ -35,14 +34,14 @@ Page({
    * @method 获取今日账单列表
    */
   getTodayBill() {
-    let timestamp = new Date().getTime();
-    let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
+    let time = new Date().getTime();
+    // let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
 
     wx.cloud.callFunction({
       name: 'getAccountBook',
       data: {
-        date,
-        dateType: 3,  // 日期类型,1为年,2为月,3为日 
+        time,
+        timeType: 3,  // 日期类型,1为年,2为月,3为日 
       }
     })
       .then(res => {
@@ -59,36 +58,23 @@ Page({
             todayAmount: amount,
             todayBill: data.slice(0, 3)
           })
-          this.getTodayBoxHeight();
         }
       })
       .catch(console.error)
   },
   /**
-   * @method 获取今日信息盒子高度
-   */
-  getTodayBoxHeight() {
-    //创建节点选择器
-    var query = wx.createSelectorQuery();
-    query.select('.bill__today').boundingClientRect(res => {
-      console.log(res);
-      this.setData({
-        boxHeight: res.height
-      })
-    }).exec();
-  },
-  /**
    * @method 获取本月账单列表
    */
   getMonthBill() {
-    let timestamp = new Date().getTime();
-    let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
+    let time = new Date().getTime();
+    // let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
 
     wx.cloud.callFunction({
       name: 'getAccountBook',
       data: {
-        date,
-        dateType: 2,  // 日期类型,1为年,2为月,3为日 
+        time,
+        timeType: 2,  // 日期类型,1为年,2为月,3为日
+        previous: 3,
       }
     })
       .then(res => {
@@ -105,7 +91,6 @@ Page({
             monthAmount: amount,
             monthBill: data
           })
-          this.getTodayBoxHeight();
         }
       })
       .catch(console.error)
@@ -122,5 +107,12 @@ Page({
   delAccount(e) {
     let id = e.currentTarget.dataset.id;
     commonJs.delAccount(id, this.getAccountBook);
+  },
+  /**
+   * 加载月账单
+   * @hook 滑动触底事件
+   */
+  onReachBottom() {
+    console.log(1);
   }
 })

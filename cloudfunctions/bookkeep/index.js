@@ -12,7 +12,7 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
-  const { num, type, category, remark, time, date } = event;
+  const { num, type, category, remark, time } = event;
   let result;
 
   await db.collection('accountBook').add({
@@ -22,8 +22,7 @@ exports.main = async (event, context) => {
       type,
       category,
       remark,
-      time,
-      date
+      time
     },
     success(res) { //成功打印消息
       console.log('记账成功', res);

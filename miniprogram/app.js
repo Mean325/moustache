@@ -6,6 +6,7 @@ App({
   globalData: {
     userInfo: {},   // 用户信息
     theme: 'dark', // 主题颜色: light/dark
+    deviceInfo: {},   // 设备信息
 
     categoryList: [],    // 用户分类列表
   },
@@ -42,7 +43,18 @@ App({
     }
 
     this.globalData = {};
-    this.getCategoryList();
+    this.getDeviceInfo();   // 获取设备信息
+    this.getCategoryList();   // 获取用户分类列表
+  },
+  /**
+   * @method 获取设备信息
+   */
+  getDeviceInfo() {
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.deviceInfo = res;
+      }
+    })
   },
   /**
    * @method 获取分类列表

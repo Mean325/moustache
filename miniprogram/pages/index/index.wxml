@@ -1,19 +1,14 @@
 <!--index.wxml-->
 <view class="container">
   <image class="bg-image" src="/images/index/bg.jpg" mode="aspectFill"></image>
-  <scroll-view
-    class="scroll-view"
-    scroll-y="true"
-    enable-back-to-top
-    bindscrolltoupper="upper"
-    bindscrolltolower="lower"
-    bindscroll="scroll"
-    scroll-into-view="{{toView}}"
-    scroll-top="{{scrollTop}}"
+  <swiper
+    class="bill"
+    duration="800"
+    vertical
   >
-    <view class="bill">
+    <swiper-item>
       <!-- 今日信息框,首页 -->
-      <view class="bill__today" style="margin-top: calc(100vh - {{ boxHeight }}px);">
+      <view class="bill__today">
         <view class="bill__amount-title">
           本月支付(元)
         </view>
@@ -46,44 +41,58 @@
           </block>
         </view>
       </view>
-      <!-- 历史账单 -->
-      <view class="bill__month">
-        <view class="bill__entry bill__month-amount">
-          <text>2020年3月</text>
-          <text>收入 0 支出 3000.9</text>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view
+        class="scroll-view"
+        style="padding-top: {{ statusBarHeight + 44 }}px;"
+        scroll-y="true"
+        enable-back-to-top
+        bindscrolltoupper="upper"
+        bindscrolltolower="lower"
+        bindscroll="scroll"
+        scroll-into-view="{{toView}}"
+        scroll-top="{{scrollTop}}"
+      >
+        <!-- 历史账单 -->
+        <view class="bill__month">
+          <view class="bill__entry bill__month-amount">
+            <text>2020年3月</text>
+            <text>收入 0 支出 3000.9</text>
+          </view>
+          <view class="bill__entry bill__day-amount">
+            <text>今日</text>
+            <view class="bill__line"></view>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
+          <view class="bill__entry">
+            <text>日用</text>
+            <text>30.9</text>
+          </view>
         </view>
-        <view class="bill__entry bill__day-amount">
-          <text>今日</text>
-          <view class="bill__line"></view>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-        <view class="bill__entry">
-          <text>日用</text>
-          <text>30.9</text>
-        </view>
-      </view>
-      <!-- <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style1">记一笔</navigator> -->
-      <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style2">+</navigator>
-    </view>
-  </scroll-view>
+        <!-- <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style1">记一笔</navigator> -->
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style2">+</navigator>
 </view>

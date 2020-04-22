@@ -82,7 +82,6 @@ Page({
     // 用户已提交
     let data = this.data.bookkeep;
     data.time = new Date().getTime();
-    data.date = time.formatTime(data.time).split(' ')[0];
     data.num = Math.floor(data.num * 100) / 100;
     wx.cloud.callFunction({
       name: 'bookkeep',

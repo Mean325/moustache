@@ -2,6 +2,7 @@
 
 page {
   background: #f6f6f6;
+  height: 100%;
 }
 
 .container {
@@ -12,6 +13,8 @@ page {
   width: 100vw;
   height: 100vh;
   position: absolute;
+  top: 0;
+  left:0;
   z-index: -1;
 }
 
@@ -22,32 +25,38 @@ page {
 
 /* 账本 */
 .bill {
-  height: 500rpx;
-  padding: 0 30rpx;
+  height: 100vh;
   box-sizing: border-box;
   text-align: right;
   /* padding-top: calc(100vh - 500rpx - 120rpx); */
   color: #FFFFFF;
+  position: relative;
 }
 
 /* 今日账本信息 */
 .bill__today {
   padding-bottom: 30rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* 顶部当月账单支出 */
 .bill__amount-title {
   font-size: 40rpx;
+  padding: 0 30rpx;
 }
 
 .bill__amount {
   font-size: 100rpx;
+  padding: 0 30rpx;
 }
 
 /* 历史账单 - 每月合计 */
-.bill__month-amount {
+/* .bill__month-amount {
   margin-top: 120rpx;
-}
+} */
 
 /* 账单每日 */
 /* .bill__day {
@@ -56,6 +65,7 @@ page {
 /* 账单条目 */
 .bill__entry, .bill__day-amount {
   height: 68rpx;
+  padding: 0 30rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
