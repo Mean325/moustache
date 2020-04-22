@@ -9,6 +9,7 @@ App({
     deviceInfo: {},   // 设备信息
 
     categoryList: [],    // 用户分类列表
+    activeAccountDetail: {},    // 当前显示的账目详情
   },
   themeChanged(theme) {
     this.globalData.theme = theme;
@@ -72,5 +73,12 @@ App({
         this.globalData.categoryList = data;
       })
       .catch(console.error)
+  },
+  /**
+   * @method 获取设置当前活跃的账目详情
+   */
+  setActiveAccountDetail(obj) {
+    console.log(obj);
+    this.globalData.activeAccountDetail = obj;
   }
 })

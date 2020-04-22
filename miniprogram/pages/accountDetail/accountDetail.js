@@ -1,20 +1,18 @@
-// miniprogram/pages/accountDetail/accountDetail.js
+const commonJs = require("../common.js");
+
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    detail: {}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onShow(options) {
+    this.setData({
+      detail: getApp().globalData.activeAccountDetail
+    })
   },
   /**
+   * 调用公共方法删除
    * @method 删除按钮点击事件
    */
   delAccount() {
@@ -24,7 +22,7 @@ Page({
       confirmColor: '#fa5151',
       success: res => {
         if (res.confirm) {
-          console.log('用户点击确定')
+          commonJs.delAccount(this.data.detail._id, this.handleDelAccount);
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -38,5 +36,14 @@ Page({
     wx.navigateTo({
       url: '/pages/bookkeep/bookkeep',
     })
+  },
+  /**
+   * @hook 删除账目成功事件
+   */
+  handleDelAccount() {
+    wx.showToast({
+      title: '删除成功',
+    })
+    wx.navigateBack();
   }
 })

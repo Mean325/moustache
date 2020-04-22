@@ -52,7 +52,9 @@ Page({
           let categoryList = app.globalData.categoryList;
           data.forEach(item => {
             amount += item.num;
-            item.categoryName = categoryList.find(n => item.category === n._id).name;
+            let category = categoryList.find(n => item.category === n._id);
+            item.categoryName = category.name;
+            item.categoryIcon = category.icon;
           })
           this.setData({
             todayAmount: amount,
@@ -99,20 +101,21 @@ Page({
    * 跳转到账目详情页
    * @method 账单条目点击事件
    */
-  toDetail() {
-    wx.navigateTo({
-      url: '/pages/accountDetail/accountDetail'
-    })
+  toDetail(e) {
+    let data = e.currentTarget.dataset.data;
+    if (data._id) {
+      app.setActiveAccountDetail(data);
+      wx.navigateTo({
+        url: '/pages/accountDetail/accountDetail'
+      })
+    }
   },
+  /**
+   * 调用公共方法删除
+   * @method 账单条目右侧删除按钮点击事件
+   */
   delAccount(e) {
     let id = e.currentTarget.dataset.id;
     commonJs.delAccount(id, this.getAccountBook);
   },
-  /**
-   * 加载月账单
-   * @hook 滑动触底事件
-   */
-  onReachBottom() {
-    console.log(1);
-  }
 })

@@ -4,18 +4,18 @@
   <view class="account-detail">
     <!-- 账目详情 - 分类 -->
     <view class="account-category">
-      <image src="/images/console-entrance.png" mode="aspectFill"></image>
-      <text>餐饮</text>
+      <image src="{{ detail.categoryIcon }}" mode="aspectFill"></image>
+      <text>{{ detail.categoryName }}</text>
     </view>
     <!-- 账目详情 - 金额 -->
     <view class="account-amount">
-      - 78.00
+      {{ detail.type === 1 ? '-' : '+' }} {{ detail.num }}
     </view>
     <!-- 账目详情 - 其他信息 -->
     <view class="account-infos">
       <view class="account-info">
         <text class="account-info__label">记录时间</text>
-        <text class="account-info__value">2020年4月18日 18:46</text>
+        <text class="account-info__value">{{ detail.time }}</text>
       </view>
       <view class="account-info">
         <text class="account-info__label">来源</text>
@@ -23,7 +23,7 @@
       </view>
       <view class="account-info">
         <text class="account-info__label">备注</text>
-        <text class="account-info__value">扫码付款</text>
+        <text class="account-info__value">{{ detail.remark || '无' }}</text>
       </view>
     </view>
     <!-- 账目详情 - 按钮 -->

@@ -31,7 +31,7 @@
               wx:key="{{ item._id }}"
               buttons="{{ slideButtons }}"
               bindbuttontap="delAccount"
-              data-id="{{ item._id }}"
+              data-data="{{ item }}"
             >
               <view class="bill__entry">
                 <text>{{ item.categoryName }}</text>
