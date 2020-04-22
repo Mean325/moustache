@@ -115,7 +115,7 @@ Page({
    * @method 账单条目右侧删除按钮点击事件
    */
   delAccount(e) {
-    let id = e.currentTarget.dataset.id;
-    commonJs.delAccount(id, this.getAccountBook);
+    let { _id } = e.currentTarget.dataset.data;
+    commonJs.delAccount(_id, this.getAccountBook);
   },
 })

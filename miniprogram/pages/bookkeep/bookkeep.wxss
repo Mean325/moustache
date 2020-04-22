@@ -3,12 +3,20 @@
   background: #F6F6F6;
   box-sizing: border-box;
 }
+
 .title {
   height: calc(100vh - 1005rpx);
   line-height: calc(100vh - 1005rpx);
   text-align: center;
   font-size: 40rpx;
 }
+
+/* 插槽图片 */
+.slot-image {
+  width: 100%;
+  height: 100%;
+}
+
 /* 金额输入框 */
 .bookkeep__amount {
   font-size: 80rpx;

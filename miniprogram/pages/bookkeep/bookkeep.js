@@ -34,27 +34,6 @@ Page({
     }
   },
   /**
-   * 调用云函数adminClassList获取
-   * @method 获取分类列表
-   */
-  // getClassList() {
-  //   wx.cloud.callFunction({
-  //     name: 'getClassList',
-  //     data: {
-  //       type: this.data.bookkeep.type
-  //     }
-  //   })
-  //     .then(res => {
-  //       let classList = res.result.data;
-  //       console.log(classList);
-  //       this.setData({
-  //         classList,
-  //         'bookkeep.category': classList[0]._id
-  //       });   // 复制分类列表,并选中第一个
-  //     })
-  //     .catch(console.error)
-  // },
-  /**
    * @method 选中分类事件
    */
   selectCategory(e) {
@@ -62,6 +41,12 @@ Page({
     this.setData({
       'bookkeep.category': _id
     });
+  },
+  /**
+   * @method 记账分类右侧日历点击事件
+   */
+  chooseDate() {
+    console.log("选择日期");
   },
   /**
    * @method 选中分类事件
@@ -94,7 +79,6 @@ Page({
    * @method 自定义数字键盘确认按钮点击事件
    */
   tapSubmit() {
-    // 用户已提交
     let data = this.data.bookkeep;
     if (!data.time) {
       data.time = new Date().getTime();
@@ -109,7 +93,6 @@ Page({
       wx.showToast({
         title: '已记一笔',
       })
-      wx.vibrateShort();
       wx.navigateBack();
     })
     .catch(err => {
@@ -119,30 +102,6 @@ Page({
       })
       console.error(err)
     })
-    // let data = this.data.bookkeep;
-    // data.time = new Date().getTime();
-    // data.date = time.formatTime(data.time).split(' ')[0];
-    // data.num = Math.floor(data.num * 100) / 100;
-    // const db = wx.cloud.database()
-    // db.collection('accountBook').add({
-    //   data,
-    //   success: res => {
-    //     console.log(res);
-    //     wx.showToast({
-    //       title: '已记一笔',
-    //     })
-    //     wx.vibrateShort();
-    //     wx.navigateBack();
-    //   },
-    //   fail: err => {
-    //     wx.showToast({
-    //       icon: 'none',
-    //       title: '记账失败'
-    //     })
-    //     console.error(err)
-    //   },
-      
-    // })
   },
   /**
    * @method 删除按钮点击事件

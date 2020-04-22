@@ -1,5 +1,4 @@
 const delAccount = (accountId, func) => {
-  console.log(func);
   wx.cloud.callFunction({
     name: 'delAccount',
     data: {
@@ -12,7 +11,7 @@ const delAccount = (accountId, func) => {
         wx.showToast({
           title: '删除成功'
         })
-        console.log(func);
+        wx.vibrateShort();
         func();
       }
     })

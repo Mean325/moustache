@@ -6,6 +6,7 @@
   <view class="bookkeep">
     <!-- 账本分类类别 -->
     <bookkeep-type-bar>
+      <image bindtap="chooseDate" slot="right" class="slot-image" src="/images/icon/rili22.png" mode="aspectFit"></image>
     </bookkeep-type-bar>
 
     <!-- 记账金额输入框 -->

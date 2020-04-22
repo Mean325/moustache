@@ -34,7 +34,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default",
     "backgroundColor": "#EDEDED"
