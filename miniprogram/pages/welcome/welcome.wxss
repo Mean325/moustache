@@ -8,6 +8,19 @@
   justify-content: flex-start;
   align-items: stretch;
 }
+
+.weather {
+  width: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.weather-icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
 .avatar {
   width: 160rpx;
   height: 160rpx;
