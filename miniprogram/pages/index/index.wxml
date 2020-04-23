@@ -22,7 +22,7 @@
             <text>{{ todayAmount || 0 }}</text>
           </view>
           <block wx:if="{{ todayBill.length === 0 }}">
-            <text>今日暂无支出</text>
+            <text style="padding: 0 30rpx;">今日暂无支出</text>
           </block>
           <block wx:else>
             <mp-slideview
@@ -56,39 +56,25 @@
       >
         <!-- 历史账单 -->
         <view class="bill__month">
-          <view class="bill__entry bill__month-amount">
-            <text>2020年3月</text>
-            <text>收入 0 支出 3000.9</text>
-          </view>
-          <view class="bill__entry bill__day-amount">
-            <text>今日</text>
-            <view class="bill__line"></view>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
-          <view class="bill__entry">
-            <text>日用</text>
-            <text>30.9</text>
-          </view>
+          <block wx:for="{{ moreBill }}" wx:for-item="monthBill" wx:key="*this">
+            <view class="bill__entry bill__month-amount">
+              <text>2020年{{ monthBill.month }}月</text>
+              <text>收入 0 支出 3000.9</text>
+            </view>
+            <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
+              <view class="bill__entry bill__day-amount">
+                <text>{{ dateBill.date }}</text>
+                <view class="bill__line"></view>
+                <text>30.9</text>
+              </view>
+              <block wx:for="{{ dateBill.list }}" wx:for-item="item" wx:key="*this">
+                <view class="bill__entry">
+                  <text>{{ item.categoryName }}</text>
+                  <text>{{ item.num }}</text>
+                </view>
+              </block>
+            </block>
+          </block>
         </view>
         <!-- <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style1">记一笔</navigator> -->
       </scroll-view>

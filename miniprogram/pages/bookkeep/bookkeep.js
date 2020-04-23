@@ -1,4 +1,4 @@
-const time = require("../../utils/utils.js");
+const utils = require("../../utils/utils.js");
 
 const app = getApp();
 
@@ -80,10 +80,11 @@ Page({
    */
   tapSubmit() {
     let data = this.data.bookkeep;
-    if (!data.time) {
-      data.time = new Date().getTime();
-    }
+    data.updateTime = new Date().getTime();
     data.num = Math.floor(data.num * 100) / 100;
+    if (!data.date) {
+      data.date = utils.getDate();
+    }
     wx.cloud.callFunction({
       name: 'bookkeep',
       data: data
