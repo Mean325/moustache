@@ -25,7 +25,7 @@
 	},
 	"appid": "wx1010f5d30a0d43ed",
 	"projectname": "wechat-mp",
-	"libVersion": "2.10.3",
+	"libVersion": "2.10.4",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -126,6 +126,20 @@
 					"id": -1,
 					"name": "管理员 - 启动页设置",
 					"pathName": "pages/admin/setWelcome/setWelcome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于",
+					"pathName": "pages/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "高级设置",
+					"pathName": "pages/personalSetting/personalSetting",
 					"query": "",
 					"scene": null
 				}

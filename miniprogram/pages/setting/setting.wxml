@@ -13,6 +13,13 @@
   </view>
   <!-- 其余设置 -->
   <view class="weui-cells weui-cells_after-title">
+    <!-- <navigator url="/pages/personalSetting/personalSetting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="/images/setting/xitongguanli.png" class="cell__icon"></image>
+      </view>
+      <view class="weui-cell__bd">高级设置</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator> -->
     <navigator url="/pages/classManage/classManage" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__hd">
         <image src="/images/setting/xiangqing.png" class="cell__icon"></image>
@@ -37,6 +44,21 @@
       <view class="weui-cell__bd">小程序设置</view>
       <view class="weui-cell__ft weui-cell__ft_in-access">超级管理员</view>
     </navigator>
+  </view>
+  <!-- 意见反馈 -->
+  <view class="weui-cells weui-cells_after-title">
+    <button
+      open-type='feedback'
+      style="width: 100%;text-align:left;font-weight: normal;"
+      class="weui-cell weui-cell_access"
+      hover-class="weui-cell_active"
+    >
+      <view class="weui-cell__hd">
+        <image src="/images/setting/feedback.png" class="cell__icon"></image>
+      </view>
+      <view class="weui-cell__bd">意见反馈</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </button>
   </view>
   <!-- 关于 -->
   <view class="weui-cells weui-cells_after-title">

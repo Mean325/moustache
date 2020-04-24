@@ -9,17 +9,17 @@ Page({
       onItemTap: 'onGridItemTap',
       list: [{
         icon: '/images/tools/AA.png',
-        title: '折叠面板',
+        title: '搜索条目',
         entitle: 'Collapse',
         page: '/page/biz/pages/collapse/index',
       }, {
         icon: '/images/tools/AA.png',
-        title: '下拉菜单',
+        title: 'AA算账',
         entitle: 'Dropdown',
         page: '/page/biz/pages/dropdown/index',
       }, {
         icon: '/images/tools/AA.png',
-        title: '通用错误页',
+        title: '汇率转换',
         entitle: 'ErrorView',
         page: '/page/biz/pages/error-view/index',
       }, {
@@ -44,7 +44,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showModal({
+      title: '通知',
+      content: '工具页面还在开发中',
+      showCancel: false
+    })
   },
   onGridItemTap(e) {
     const page = this.data.arr.list[e.currentTarget.dataset.index].page;

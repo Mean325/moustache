@@ -19,6 +19,11 @@ let iconList = [
   "/images/class/yaowan.png",
   "/images/class/youxiji-1.png",
   "/images/class/youxiji-2.png",
+  "/images/class/qiandai.png",
+  "/images/class/gongzi.png",
+  "/images/class/hongbao.png",
+  "/images/class/jianzhi.png",
+  "/images/class/tongqian.png",
 ];
 
 const md5 = require('./../../utils/md5.js');    // 引入md5加密

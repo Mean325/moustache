@@ -43,11 +43,11 @@ Page({
    * 赋值给activeType,并重新获取分类列表
    * @hook 顶部分类类型组件改变事件
    */
-  changeType(e) {
+  handleTypeChange(e) {
+    let value = e.detail;
     this.setData({
-      activeType: e.detail
+      activeType: value
     })
-    this.getClassList();
   },
   /**
    * 保存改变后的数据

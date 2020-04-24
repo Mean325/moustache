@@ -14,6 +14,7 @@ Page({
     this.getWelcomeConfig();
     this.getWeather();
     this.getSetting();
+    this.getCategoryList();   // 获取用户分类列表
   },
   /**
    * 调用云函数getWelcomeConfig获取
@@ -33,6 +34,28 @@ Page({
       })
       .catch(console.error)
   },
+  /**
+   * @method 获取分类列表
+   */
+  getCategoryList() {
+    wx.cloud.callFunction({
+      name: 'getClassList',
+      data: {}
+    })
+      .then(res => {
+        let data = res.result.data;
+        console.log(data);
+        app.setCategoryList(data);
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      })
+      .catch(console.error)
+  },
+  /**
+   * 高德地图api
+   * @method 获取当前天气
+   */
   getWeather() {
     var amapFun = new amap.AMapWX({ key: 'a4a2d92da0b8a0b8ecbe699ef4e76426' });
     amapFun.getWeather({
@@ -66,30 +89,27 @@ Page({
               this.getOpenid();
             }
           });
+        } else {
+          this.getOpenid();
         }
       }
     });
   },
   /**
+   * 调用云函数login
    * @method 获取用户openid
    */
   getOpenid() {
-    // 调用云函数login
     wx.cloud.callFunction({
       name: 'login',
       data: {},
       success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
         this.setData({
           'userInfo.openid': res.result.openid
         })
         app.globalData.userInfo = this.data.userInfo;
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
       },
       fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
         wx.showToast({
           title: '登录失败',
           icon: 'none'

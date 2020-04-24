@@ -35,7 +35,7 @@
             >
               <view class="bill__entry">
                 <text>{{ item.categoryName }}</text>
-                <text>{{ item.num }}</text>
+                <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
               </view>
             </mp-slideview>
           </block>
@@ -77,7 +77,7 @@
               >
                 <view class="bill__entry">
                   <text>{{ item.categoryName }}</text>
-                  <text>{{ item.num }}</text>
+                  <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
                 </view>
               </mp-slideview>
             </block>

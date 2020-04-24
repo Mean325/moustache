@@ -11,9 +11,6 @@ Page({
       wx.navigateBack();
     } else {
       // 当用户为超级管理员时
-      this.setData({
-        icon: base64.icon20
-      });
     }
   },
 })

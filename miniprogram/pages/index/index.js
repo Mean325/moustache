@@ -27,7 +27,7 @@ Page({
     this.getMoreBill();
   },
   /**
-   * @method 获取今日账单列表
+   * @method 获取今日支出账单列表
    */
   getTodayBill() {
     let date = utils.getDate();
@@ -41,11 +41,15 @@ Page({
       .then(res => {
         let data = res.result.list;
         if (data.length) {
-          let categoryList = app.globalData.categoryList;
+          let categoryList = app.globalData.categoryList.reduce((acc, cur) => {
+            return acc.concat(cur)
+          })
           data.forEach(item => {
             let category = categoryList.find(n => item.category === n._id);
-            item.categoryName = category.name;
-            item.categoryIcon = category.icon;
+            if (category) {
+              item.categoryName = category.name;
+              item.categoryIcon = category.icon;
+            }
           })
           this.setData({
             todayAmount: res.result.amount,
@@ -74,15 +78,19 @@ Page({
         console.log(data);
         // let data = result.list;
         // console.log(result);
-        let categoryList = app.globalData.categoryList;
+        let categoryList = app.globalData.categoryList.reduce((acc, cur) => {
+          return acc.concat(cur)
+        })
         
         data.forEach(month => {
           if (month.list.length) {
             month.list.forEach(day => {
               day.list.forEach(item => {
                 let category = categoryList.find(n => item.category === n._id);
-                item.categoryName = category.name;
-                item.categoryIcon = category.icon;
+                if (category) {
+                  item.categoryName = category.name;
+                  item.categoryIcon = category.icon;
+                }
               })
             })
           }

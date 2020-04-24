@@ -40,6 +40,17 @@ Page({
     }
   },
   /**
+   * 赋值给activeType,并重新获取分类列表
+   * @hook 顶部分类类型组件改变事件
+   */
+  handleTypeChange(e) {
+    let value = e.detail;
+    console.log(value);
+    this.setData({
+      'bookkeep.type': value
+    })
+  },
+  /**
    * @method 选中分类事件
    */
   selectCategory(e) {

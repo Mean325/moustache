@@ -12,6 +12,7 @@
     "pages/addClass/addClass",
     "pages/classManage/classManage",
 
+    "pages/personalSetting/personalSetting",
     "pages/about/about",
     "pages/login/login",
     "pages/admin/index/index",

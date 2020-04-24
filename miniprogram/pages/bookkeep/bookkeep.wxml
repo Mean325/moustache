@@ -5,7 +5,7 @@
   </view>
   <view class="bookkeep">
     <!-- 账本分类类别 -->
-    <bookkeep-type-bar>
+    <bookkeep-type-bar bind:changeType="handleTypeChange">
       <picker
         bindchange="bindDateChange"
         value="{{ date }}"
@@ -32,7 +32,7 @@
       <view
         bindtap="selectCategory"
         data-id="{{ item._id }}"
-        wx:for="{{ categoryList }}"
+        wx:for="{{ categoryList[bookkeep.type - 1] }}"
         class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}"
       >
         <image src="{{ item.icon }}" mode="aspectFill"></image>

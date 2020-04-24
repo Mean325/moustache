@@ -45,7 +45,6 @@ App({
 
     this.globalData = {};
     this.getDeviceInfo();   // 获取设备信息
-    this.getCategoryList();   // 获取用户分类列表
   },
   /**
    * @method 获取设备信息
@@ -58,24 +57,14 @@ App({
     })
   },
   /**
-   * @method 获取分类列表
+   * @method 保存记账分类列表
    */
-  getCategoryList() {
-    wx.cloud.callFunction({
-      name: 'getClassList',
-      data: {
-        type: 1
-      }
-    })
-      .then(res => {
-        let data = res.result.data;
-        console.log(data);
-        this.globalData.categoryList = data;
-      })
-      .catch(console.error)
+  setCategoryList(obj) {
+    console.log(obj);
+    this.globalData.categoryList = obj;
   },
   /**
-   * @method 获取设置当前活跃的账目详情
+   * @method 设置当前活跃的账目详情
    */
   setActiveAccountDetail(obj) {
     console.log(obj);

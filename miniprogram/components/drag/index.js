@@ -43,7 +43,13 @@ Component({
   properties: {
     beforeExtraNodes: { type: Array, value: [] },            // 插入正常节点之前的额外节点
     afterExtraNodes: { type: Array, value: [] },             // 插入正常节点之后的额外节点
-    listData: { type: Array, value: [] },                    // 数据源
+    listData: {
+      type: Array,
+      value: [],
+      observer(newVal, oldVal) {
+        this.init();
+      }
+    },                    // 数据源
     columns: { type: Number, value: 1 },                     // 列数
     topSize: { type: Number, value: 0 },                     // 顶部高度
     bottomSize: { type: Number, value: 0 },                  // 底部高度

@@ -19,20 +19,20 @@ Page({
     this.drag = this.selectComponent('#drag');
     wx.cloud.callFunction({
       name: 'adminClassList',
-      data: {
-        type: this.data.activeType
-      }
+      data: {}
     })
       .then(res => {
-        let data = res.result.data;
-        console.log(data);
-        data.forEach((item,index) => {
-          // item.dragId = `item${ index }`;
-          item.bookkeepNum = 0;
-          item.fixed = false;
+        let datas = res.result.data;
+        console.log(datas);
+        datas.forEach(data => {
+          data.forEach(item => {
+            // item.dragId = `item${ index }`;
+            item.bookkeepNum = 0;
+            item.fixed = false;
+          })
         })
         this.setData({
-          listData: data
+          listData: datas
         });
 
         this.drag.init();   // 拖动列表初始化
@@ -43,12 +43,11 @@ Page({
    * 赋值给activeType,并重新获取分类列表
    * @hook 顶部分类类型组件改变事件
    */
-  changeType(e) {
-    console.log(e.detail);
+  handleTypeChange(e) {
+    let value = e.detail;
     this.setData({
-      activeType: e.detail
+      activeType: value
     })
-    this.getClassList();
   },
   /**
    * 保存改变后的数据
