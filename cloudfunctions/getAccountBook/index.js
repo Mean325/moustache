@@ -63,7 +63,8 @@ exports.main = async (event, context) => {
       list[index] = {
         date: key,
         list: accountData[key],
-        amount: lodash.reduce(accountData[key], (sum, n) => sum + n.num, 0)
+        incomeAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 2 }), (sum, n) => sum + n.num, 0),
+        outlayAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 1 }), (sum, n) => sum + n.num, 0)
       }
     })
     console.log(list);
@@ -73,7 +74,8 @@ exports.main = async (event, context) => {
       accountList.push({   // 筛选时间为年,月时
         month: Number(dateArr[1]),
         list: list,
-        amount: lodash.reduce(list, (sum, n) => sum + n.amount, 0)
+        incomeAmount: lodash.reduce(list, (sum, n) => sum + n.incomeAmount, 0),
+        outlayAmount: lodash.reduce(list, (sum, n) => sum + n.outlayAmount, 0)
       })
     }
     dateArr[dateType - 1]--;

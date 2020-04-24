@@ -13,13 +13,13 @@
           本月支付(元)
         </view>
         <view class="bill__amount">
-          {{ moreBill[0].amount || 0 }}
+          {{ moreBill[0].outlayAmount || 0 }}
         </view>
         <view class="bill__day">
           <view class="bill__entry bill__day-amount">
             <text>今日</text>
             <view class="bill__line"></view>
-            <text>{{ todayAmount || 0 }}</text>
+            <text>{{ todayOutlayAmount || 0 }}</text>
           </view>
           <block wx:if="{{ todayBill.length === 0 }}">
             <text style="padding: 0 30rpx;">今日暂无支出</text>
@@ -59,13 +59,13 @@
           <block wx:for="{{ moreBill }}" wx:for-item="monthBill" wx:key="*this">
             <view class="bill__entry bill__month-amount">
               <text>2020年{{ monthBill.month }}月</text>
-              <text>收入 0 支出 {{ monthBill.amount }}</text>
+              <text>收入 {{ monthBill.incomeAmount }} 支出 {{ monthBill.outlayAmount }}</text>
             </view>
             <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
               <view class="bill__entry bill__day-amount">
                 <text>{{ dateBill.date }}</text>
                 <view class="bill__line"></view>
-                <text>{{ dateBill.amount }}</text>
+                <text>{{ dateBill.outlayAmount }}</text>
               </view>
               <mp-slideview
                 bindtap="toDetail"
