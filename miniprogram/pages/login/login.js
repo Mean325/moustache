@@ -64,7 +64,7 @@ Page({
     } else {    // 用户按了拒绝按钮
       wx.showModal({
         title: '警告',
-        content: '您点击了拒绝授权，将无法进入小程序',
+        content: '您拒绝了授权，有些功能将无法正常使用',
         showCancel: false,
         confirmText: '返回',
         success: res => {
@@ -83,7 +83,13 @@ Page({
           'userInfo.openid': res.result.openid
         })
         app.globalData.userInfo = this.data.userInfo;
-        wx.navigateBack();
+        wx.navigateBack({
+          success: res => {
+            wx.showToast({
+              title: '登录成功',
+            })
+          }
+        });
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)

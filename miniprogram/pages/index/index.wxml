@@ -28,7 +28,7 @@
             <mp-slideview
               bindtap="toDetail"
               wx:for="{{ todayBill }}"
-              wx:key="{{ item._id }}"
+              wx:key="_id"
               buttons="{{ slideButtons }}"
               bindbuttontap="delAccount"
               data-data="{{ item }}"
@@ -70,7 +70,7 @@
               <mp-slideview
                 bindtap="toDetail"
                 wx:for="{{ dateBill.list }}"
-                wx:key="{{ item._id }}"
+                wx:key="_id"
                 buttons="{{ slideButtons }}"
                 bindbuttontap="delAccount"
                 data-data="{{ item }}"

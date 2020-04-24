@@ -17,21 +17,7 @@
     "pages/admin/index/index",
     "pages/admin/classManage/classManage",
     "pages/admin/addClass/addClass",
-    "pages/admin/setWelcome/setWelcome",
-
-    "pages/test/index1/index",
-    "pages/test/userConsole/userConsole",
-    "pages/test/storageConsole/storageConsole",
-    "pages/test/databaseGuide/databaseGuide",
-    "pages/test/addFunction/addFunction",
-    "pages/test/deployFunctions/deployFunctions",
-    "pages/test/chooseLib/chooseLib",
-    "pages/test/openapi/openapi",
-    "pages/test/openapi/serverapi/serverapi",
-    "pages/test/openapi/callback/callback",
-    "pages/test/openapi/cloudid/cloudid",
-    "pages/test/im/im",
-    "pages/test/im/room/room"
+    "pages/admin/setWelcome/setWelcome"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -42,8 +28,8 @@
     "backgroundColor": "#EDEDED"
   },
   "tabBar": {
-    "color": "#dddddd",
-    "selectedColor": "#16C2C2",
+    "color": "#AAAAAA",
+    "selectedColor": "#333333",
     "list": [
       {
         "pagePath": "pages/index/index",

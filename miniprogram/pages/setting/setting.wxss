@@ -13,6 +13,14 @@
   background-color: white;
 }
 
+/* cell图标 */
+.cell__icon {
+  margin: 2px 16px 2px 0;
+  vertical-align: top;
+  width:20px;
+  height: 20px;
+}
+
 /* 退出登录cell */
 .weui-btn_cell {
   margin-top: 30rpx;

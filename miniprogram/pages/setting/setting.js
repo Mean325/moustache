@@ -1,4 +1,3 @@
-var base64 = require("../../images/base64");     // 未知图标,待删除
 const app = getApp()
 
 Page({
@@ -11,13 +10,22 @@ Page({
     requestResult: ''
   },
 
-  onLoad: function() {
+  onShow() {
     this.setData({
-      userInfo: app.globalData.userInfo,
-      icon: base64.icon20
+      userInfo: app.globalData.userInfo
     });
   },
-
+  /**
+   * 跳转微信授权管理页面
+   * @method 授权管理点击事件
+   */
+  openSetting() {
+    wx.openSetting({
+      success: res => {
+        console.log(res);
+      }
+    });
+  },
   onGetUserInfo: function(e) {
     if (!this.data.logged && e.detail.userInfo) {
       this.setData({

@@ -1,4 +1,3 @@
-var base64 = require("../../../images/base64");     // 未知图标,待删除
 const app = getApp()
 
 Page({
