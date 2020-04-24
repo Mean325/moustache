@@ -53,14 +53,8 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "setting",
+					"id": 1,
+					"name": "设置",
 					"pathName": "pages/setting/setting",
 					"query": "",
 					"scene": null
@@ -73,8 +67,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "statistics",
+					"id": 2,
+					"name": "统计",
 					"pathName": "pages/statistics/statistics",
 					"query": "",
 					"scene": null

@@ -5,8 +5,7 @@ const app = getApp();
 
 Page({
   data: {
-    todayAmount: 0,   // 今日总额
-    monthAmount: 0,   // 本月总额
+    todayAmount: 0,   // 今日支出总额
     todayBill: [],    // 今日账单
     moreBill: [],    // 本月账单
 
@@ -16,9 +15,6 @@ Page({
       text: '删除'
     }],   // 左滑删除组件
   },
-  // onLoad() {
-  //   this.getTodayBill();
-  // },
   onShow() {
     this.getAccountBook();
   },
@@ -35,9 +31,6 @@ Page({
    */
   getTodayBill() {
     let date = utils.getDate();
-    // let time = new Date().getTime();
-    // let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
-
     wx.cloud.callFunction({
       name: 'getAccountBook',
       data: {
@@ -48,16 +41,14 @@ Page({
       .then(res => {
         let data = res.result.list;
         if (data.length) {
-          let amount = 0;
           let categoryList = app.globalData.categoryList;
           data.forEach(item => {
-            amount += item.num;
             let category = categoryList.find(n => item.category === n._id);
             item.categoryName = category.name;
             item.categoryIcon = category.icon;
           })
           this.setData({
-            todayAmount: amount,
+            todayAmount: res.result.amount,
             todayBill: data.slice(0, 3)
           })
         }
@@ -68,9 +59,7 @@ Page({
    * @method 获取月账单列表
    */
   getMoreBill() {
-    // let time = new Date().getTime();
     let date = utils.getDate();
-    // let date = time.formatTime(timestamp).split(' ')[0];   // 获取当前日期
 
     wx.cloud.callFunction({
       name: 'getAccountBook',
@@ -91,7 +80,9 @@ Page({
           if (month.list.length) {
             month.list.forEach(day => {
               day.list.forEach(item => {
-                item.categoryName = categoryList.find(n => item.category === n._id).name;
+                let category = categoryList.find(n => item.category === n._id);
+                item.categoryName = category.name;
+                item.categoryIcon = category.icon;
               })
             })
           }

@@ -1,27 +1,33 @@
+const computedBehavior = require('miniprogram-computed');
 const utils = require("../../utils/utils.js");
 
 const app = getApp();
 
 Page({
-  /**
-   * 页面的初始数据
-   */
+  behaviors: [computedBehavior],
   data: {
     bookkeep: {
       num: 0,   // 金额
       type: 1,    // 账目类型,1为支出,2为收入
       category: "1",    // 账目分类id
-      remark: ""    // 备注
+      remark: "",    // 备注
+      date: "",   // 日期
     },    // 记账数据
     hasDot: false,    // 是否有小数点,防止用户多次输入小数点
     classList: [],    // 记账分类列表
   },
+  computed: {
+    activeDay(data) {
+      return data.bookkeep.date.split("-")[2] || "1";
+    },    // 当前选中的日期,用于右上角小日历显示
+  },
   onLoad(options) {
     let { categoryList } = app.globalData;
-    
+    let date = utils.getDate();
     this.setData({
       categoryList: categoryList,
-      'bookkeep.category': categoryList[0]._id
+      'bookkeep.category': categoryList[0]._id,
+      'bookkeep.date': date
     })
     let _id = options._id;
     if (_id) {
@@ -45,8 +51,11 @@ Page({
   /**
    * @method 记账分类右侧日历点击事件
    */
-  chooseDate() {
-    console.log("选择日期");
+  bindDateChange(e) {
+    let date = e.detail.value;
+    this.setData({
+      'bookkeep.date': date
+    })
   },
   /**
    * @method 选中分类事件

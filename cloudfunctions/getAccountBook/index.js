@@ -62,7 +62,8 @@ exports.main = async (event, context) => {
     Object.keys(accountData).forEach((key, index) => {
       list[index] = {
         date: key,
-        list: accountData[key]
+        list: accountData[key],
+        amount: lodash.reduce(accountData[key], (sum, n) => sum + n.num, 0)
       }
     })
     console.log(list);
@@ -71,7 +72,8 @@ exports.main = async (event, context) => {
     } else {
       accountList.push({   // 筛选时间为年,月时
         month: Number(dateArr[1]),
-        list: list
+        list: list,
+        amount: lodash.reduce(list, (sum, n) => sum + n.amount, 0)
       })
     }
     dateArr[dateType - 1]--;

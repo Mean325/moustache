@@ -54,9 +54,9 @@ page {
 }
 
 /* 历史账单 - 每月合计 */
-/* .bill__month-amount {
-  margin-top: 120rpx;
-} */
+.bill__month-amount {
+  margin-top: 40rpx;
+}
 
 /* 账单每日 */
 /* .bill__day {

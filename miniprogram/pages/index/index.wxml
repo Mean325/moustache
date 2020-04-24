@@ -13,7 +13,7 @@
           本月支付(元)
         </view>
         <view class="bill__amount">
-          {{ monthAmount || 0 }}
+          {{ moreBill[0].amount || 0 }}
         </view>
         <view class="bill__day">
           <view class="bill__entry bill__day-amount">
@@ -59,20 +59,27 @@
           <block wx:for="{{ moreBill }}" wx:for-item="monthBill" wx:key="*this">
             <view class="bill__entry bill__month-amount">
               <text>2020年{{ monthBill.month }}月</text>
-              <text>收入 0 支出 3000.9</text>
+              <text>收入 0 支出 {{ monthBill.amount }}</text>
             </view>
             <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
               <view class="bill__entry bill__day-amount">
                 <text>{{ dateBill.date }}</text>
                 <view class="bill__line"></view>
-                <text>30.9</text>
+                <text>{{ dateBill.amount }}</text>
               </view>
-              <block wx:for="{{ dateBill.list }}" wx:for-item="item" wx:key="*this">
+              <mp-slideview
+                bindtap="toDetail"
+                wx:for="{{ dateBill.list }}"
+                wx:key="{{ item._id }}"
+                buttons="{{ slideButtons }}"
+                bindbuttontap="delAccount"
+                data-data="{{ item }}"
+              >
                 <view class="bill__entry">
                   <text>{{ item.categoryName }}</text>
                   <text>{{ item.num }}</text>
                 </view>
-              </block>
+              </mp-slideview>
             </block>
           </block>
         </view>
