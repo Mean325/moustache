@@ -6,12 +6,32 @@ Page({
   mixins: [require('../../libs/Mixins.js')],
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),    // 判断小程序的API，回调，参数，组件等是否在当前版本可用
-    userInfo: {},    // 用户信息,在获取到openid后,保存到全局变量
     weather: {},    // 天气数据
+    config: {},   // 启动页配置
+    statusBarHeight: getApp().globalData.deviceInfo.statusBarHeight,   // 获取全局变量的导航栏高度
   },
   onLoad(options) {
+    this.getWelcomeConfig();
     this.getWeather();
     this.getSetting();
+  },
+  /**
+   * 调用云函数getWelcomeConfig获取
+   * @method 获取启动页配置
+   */
+  getWelcomeConfig() {
+    wx.cloud.callFunction({
+      name: 'getWelcomeConfig',
+      data: {}
+    })
+      .then(res => {
+        let data = res.result.data;
+        console.log(res);
+        this.setData({
+          config: data
+        });
+      })
+      .catch(console.error)
   },
   getWeather() {
     var amapFun = new amap.AMapWX({ key: 'a4a2d92da0b8a0b8ecbe699ef4e76426' });
@@ -28,8 +48,7 @@ Page({
     })
   },
   /**
-   * 当userInfo可以被获取时,跳转到首页
-   * 否则停留在授权页面
+   * 当userInfo可以被获取时,保存到userInfo
    * @method 获取用户设置
    */
   getSetting() {
@@ -42,24 +61,9 @@ Page({
               this.setData({
                 userInfo: res.userInfo
               })
-              // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-              // wx.login({    // 获取到用户的code
-              //   success: res => {
-              //     console.log(res);
-              //     console.log("用户的code:" + res.code);
-                  this.getOpenid();
-                  // 可以传给后台，再经过解析获取用户的 openid
-                  // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-                  // wx.request({
-                  //     // 自行补上自己的 APPID 和 SECRET
-                  //     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-                  //     success: res => {
-                  //         // 获取到用户的 openid
-                  //         console.log("用户的openid:" + res.data.openid);
-                  //     }
-                  // });
-              //   }
-              // });
+            },
+            complete: res => {
+              this.getOpenid();
             }
           });
         }
@@ -67,27 +71,8 @@ Page({
     });
   },
   /**
-   * @method 授权登录按钮点击事件
+   * @method 获取用户openid
    */
-  bindGetUserInfo: function (e) {
-    if (e.detail.userInfo) {    // 用户按了允许授权按钮
-      console.log("用户的信息如下：");
-      console.log(e.detail.userInfo);
-      this.setData({
-        userInfo: e.detail.userInfo
-      })
-      this.getOpenid();
-    } else {    // 用户按了拒绝按钮
-      wx.showModal({
-        title: '警告',
-        content: '您点击了拒绝授权，将无法进入小程序',
-        showCancel: false,
-        confirmText: '返回',
-        success: res => {
-        }
-      });
-    }
-  },
   getOpenid() {
     // 调用云函数login
     wx.cloud.callFunction({

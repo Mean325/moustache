@@ -127,6 +127,13 @@
 					"pathName": "pages/accountDetail/accountDetail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员 - 启动页设置",
+					"pathName": "pages/admin/setWelcome/setWelcome",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

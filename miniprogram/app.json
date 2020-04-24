@@ -9,13 +9,15 @@
 
     "pages/bookkeep/bookkeep",
     "pages/accountDetail/accountDetail",
-
     "pages/addClass/addClass",
     "pages/classManage/classManage",
+
     "pages/about/about",
+    "pages/login/login",
     "pages/admin/index/index",
     "pages/admin/classManage/classManage",
     "pages/admin/addClass/addClass",
+    "pages/admin/setWelcome/setWelcome",
 
     "pages/test/index1/index",
     "pages/test/userConsole/userConsole",

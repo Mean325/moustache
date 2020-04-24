@@ -1,0 +1,12 @@
+[
+  {
+    "name": "设置启动页配置",
+    "value": {
+      "openid": "o8Hls5RluXwV-Hktw2CNiiIEFe2M",
+      "config": {
+        "showWeather": false,
+        "text": ""
+      }
+    }
+  }
+]

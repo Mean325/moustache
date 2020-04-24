@@ -3,17 +3,20 @@
   height: 100vh;
   box-sizing: border-box;
   padding: 60rpx;
-  flex-direction: column;
+  flex-direction: row;
+  position: relative;
   display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
 
+/* 启动页 - 天气 */
 .weather {
   width: 80rpx;
   font-size: 24rpx;
   text-align: center;
-  align-self: flex-end;
+  position: absolute;
+  right: 60rpx;
 }
 
 .weather-icon {
@@ -21,33 +24,7 @@
   height: 80rpx;
 }
 
-.avatar {
-  width: 160rpx;
-  height: 160rpx;
-  border-radius: 50%;
-  background-size: cover;
-  background-color: white;
-  margin: 100rpx auto 0;
-}
-
-.line {
-  height: 1px;
-  width: 100%;
-  background: #CCCCCC;
-  margin: 80rpx 0;
-}
-
-.h, .p {
-  margin-bottom: 28px;
-}
-
-
+/* 启动页 - 文字 */
 .p {
   color: #999999;
 } 
-
-.login-btn {
-  border-radius: 25px;
-  margin-top: 50rpx;
-  padding: 12px 24px;
-}

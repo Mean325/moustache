@@ -5,7 +5,7 @@ Page({
   data: {
     userInfo: {},
     
-    avatarUrl: './user-unlogin.png',
+    unloginAvatar: '/images/welcome/user-unlogin.png',
     logged: false,
     takeSession: false,
     requestResult: ''
