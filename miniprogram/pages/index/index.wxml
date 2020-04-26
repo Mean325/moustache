@@ -57,30 +57,32 @@
         <!-- 历史账单 -->
         <view class="bill__month">
           <block wx:for="{{ moreBill }}" wx:for-item="monthBill" wx:key="*this">
-            <view class="bill__entry bill__month-amount">
-              <text>2020年{{ monthBill.month }}月</text>
-              <text>收入 {{ monthBill.incomeAmount }} 支出 {{ monthBill.outlayAmount }}</text>
-            </view>
-            <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
-              <view class="bill__entry bill__day-amount">
-                <text>{{ dateBill.date }}</text>
-                <view class="bill__line"></view>
-                <text>收 {{ dateBill.incomeAmount }}</text>
-                <text>支 {{ dateBill.outlayAmount }}</text>
+            <block wx:if="{{ monthBill.list.length }}">
+              <view class="bill__entry bill__month-amount">
+                <text>2020年{{ monthBill.month }}月</text>
+                <text>收入 {{ monthBill.incomeAmount }} 支出 {{ monthBill.outlayAmount }}</text>
               </view>
-              <mp-slideview
-                bindtap="toDetail"
-                wx:for="{{ dateBill.list }}"
-                wx:key="_id"
-                buttons="{{ slideButtons }}"
-                bindbuttontap="delAccount"
-                data-data="{{ item }}"
-              >
-                <view class="bill__entry">
-                  <text>{{ item.categoryName }}</text>
-                  <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
+              <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
+                <view class="bill__entry bill__day-amount">
+                  <text>{{ dateBill.date }}</text>
+                  <view class="bill__line"></view>
+                  <text>收 {{ dateBill.incomeAmount }}</text>
+                  <text>支 {{ dateBill.outlayAmount }}</text>
                 </view>
-              </mp-slideview>
+                <mp-slideview
+                  bindtap="toDetail"
+                  wx:for="{{ dateBill.list }}"
+                  wx:key="_id"
+                  buttons="{{ slideButtons }}"
+                  bindbuttontap="delAccount"
+                  data-data="{{ item }}"
+                >
+                  <view class="bill__entry">
+                    <text>{{ item.categoryName }}</text>
+                    <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
+                  </view>
+                </mp-slideview>
+              </block>
             </block>
           </block>
         </view>

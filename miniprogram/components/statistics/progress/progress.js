@@ -4,7 +4,10 @@ Component({
     addGlobalClass: true
   },
   properties: {
-
+    scale: {
+      type: Number,
+      value: 0
+    },                    // 百分比
   },
 
   /**

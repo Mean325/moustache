@@ -13,5 +13,14 @@
       "date": "2020-04-23",
       "dateType": 3
     }
+  },
+  {
+    "name": "统计当月账单",
+    "value": {
+      "date": "2020-04-26",
+      "dateType": 2,
+      "groupBy": "category",
+      "sortBy": "outlayAmount"
+    }
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#F6F6F6",
+  "navigationBarTitleText": "统计",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default",
+  "usingComponents": {
+    "calendar": "/components/calendar/index",
+    "progress": "/components/statistics/progress/progress"
+  },
+  "enablePullDownRefresh": false
+}

@@ -13,7 +13,7 @@ const MAX_LIMIT = 100
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const openid = wxContext.OPENID;
-  let { date, dateType, previous = 1 } = event;
+  let { date, dateType, type, previous = 1, groupBy = "date", sortBy = "date" } = event;
   let dateArr = date.split("-")
 
   let accountList = [];
@@ -24,6 +24,7 @@ exports.main = async (event, context) => {
     const countResult = await db.collection('accountBook')
       .where({
         openid,
+        type,
         date: db.RegExp({
           regexp: regexp,
           options: 'i',
@@ -40,6 +41,7 @@ exports.main = async (event, context) => {
       const promise = await db.collection('accountBook')
         .where({
           openid,
+          type,
           date: db.RegExp({
             regexp: regexp,
             options: 'i',
@@ -56,19 +58,23 @@ exports.main = async (event, context) => {
       return acc.concat(cur)
     })
     console.log(list);
-    accountData = lodash.groupBy(list, 'date');
+    accountData = lodash.groupBy(list, groupBy);
 
     list = [];
     Object.keys(accountData).forEach((key, index) => {
       list[index] = {
-        date: key,
+        [groupBy]: key,
         list: accountData[key],
-        incomeAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 2 }), (sum, n) => sum + n.num, 0),
-        outlayAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 1 }), (sum, n) => sum + n.num, 0)
+        incomeAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 2 }), (sum, n) => add(sum, n.num), 0),
+        outlayAmount: lodash.reduce(lodash.filter(accountData[key], { 'type': 1 }), (sum, n) => add(sum, n.num), 0)
       }
     })
     console.log(list);
-    list = list.sort((a, b) => b.date.split("-")[2] - a.date.split("-")[2]);
+    if (sortBy === "date") {    // 按时间排序
+      list = list.sort((a, b) => b.date.split("-")[2] - a.date.split("-")[2]);
+    } else if (sortBy === "outlayAmount") {    // 按支出排序
+      list = list.sort((a, b) => b[sortBy] - a[sortBy]);
+    }
     console.log(list);
     if (dateType === 3) {   // 筛选时间为日时
       accountList = list[0];   // 可能问题,待修改         !!!
@@ -76,12 +82,29 @@ exports.main = async (event, context) => {
       accountList.push({   // 筛选时间为年,月时
         month: Number(dateArr[1]),
         list: list,
-        incomeAmount: lodash.reduce(list, (sum, n) => sum + n.incomeAmount, 0),
-        outlayAmount: lodash.reduce(list, (sum, n) => sum + n.outlayAmount, 0)
+        incomeAmount: lodash.reduce(list, (sum, n) => add(sum, n.incomeAmount), 0),
+        outlayAmount: lodash.reduce(list, (sum, n) => add(sum, n.outlayAmount), 0)
       })
     }
     dateArr[dateType - 1]--;
   }
   console.log(accountList);
   return accountList;
+}
+
+// 解决浮点型加法精度丢失问题
+function add(arg1, arg2) {
+  let r1, r2, m
+  try {
+    r1 = arg1.toString().split('.')[1].length
+  } catch (e) {
+    r1 = 0
+  }
+  try {
+    r2 = arg2.toString().split('.')[1].length
+  } catch (e) {
+    r2 = 0
+  }
+  m = Math.pow(10, Math.max(r1, r2))
+  return (arg1 * m + arg2 * m) / m
 }

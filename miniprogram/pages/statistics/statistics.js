@@ -1,44 +1,101 @@
-// miniprogram/pages/statistics/statistics.js
+const utils = require("../../utils/utils.js");
+const app = getApp();
+
 Page({
   mixins: [require('../../mixin/themeChanged')],
   data: {
-    calendar: null,
-    calendarConfig: {
-      // 配置内置主题
-      theme: 'elegant',
-      defaultDay: true,
-      markToday: '今',
-      highlightToday: true,
-      onlyShowCurrentMonth: true,
-      hideHeadOnWeekMode: true,
-    }
+    selectedDate: "",   // 选中的月份,用于查询月账单
+    selectedDateArr: [],    // 选中的月份数组,仅用于页面展示
+    outlayAmount: 0,    // 支出总额
+    incomeAmount: 0,    // 收入总额
+    categorylist: [],    // 账单条目分类列表
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.bindDateChange({
+      detail: {
+        value: utils.getDate()
+      }
+    })
+  },
+  /**
+   * 获取当前月份的月账单
+   * @hook 日期改变事件钩子
+   */
+  bindDateChange(e) {
+    let value = e.detail.value;
+    this.setData({
+      selectedDate: value,
+      selectedDateArr: value.split("-")
+    })
+    this.getMonthAmount();
+    this.getMonthAccount();
+  },
+  /**
+   * 因getMonthAccount方法只获取对应支出/收入的数据,导致另一个amount为0
+   * @method 获取月账单总金额
+   */
+  getMonthAmount() {
+    let date = this.data.selectedDate;
+    wx.cloud.callFunction({
+      name: 'getAccountBook',
+      data: {
+        date,
+        dateType: 2,  // 日期类型,1为年,2为月,3为日
+      }
+    })
+      .then(res => {
+        let result = res.result[0];
+        let list = result.list;
+        console.log(list);
+        this.setData({
+          outlayAmount: result.outlayAmount,
+          incomeAmount: result.incomeAmount
+        })
+        // }
+      })
+      .catch(console.error)
+  },
+  /**
+   * @method 获取月支出/收入账单数据
+   */
+  getMonthAccount() {
+    let date = this.data.selectedDate;
 
-  },
-  afterCalendarRender() {
-    const todoLabels = this.calendar.getTodoLabels('#calendar');
-    this.calendar.setTodoLabels({
-      // 待办点标记设置
-      pos: 'bottom', // 待办点标记位置 ['top', 'bottom']
-      dotColor: '#40', // 待办点标记颜色
-      circle: false, // 待办圆圈标记设置（如圆圈标记已签到日期），该设置与点标记设置互斥
-      showLabelAlways: true, // 点击时是否显示待办事项（圆点/文字），在 circle 为 true 及当日历配置 showLunar 为 true 时，此配置失效
-      days: [
-        {
-          year: 2020,
-          month: 3,
-          day: 26,
-          todoText: '待办'
-        }
-      ]
-    });
-  },
-  dayClick: function (event) {
-    console.log(event.detail);
+    wx.cloud.callFunction({
+      name: 'getAccountBook',
+      data: {
+        date,
+        dateType: 2,  // 日期类型,1为年,2为月,3为日
+        type: 1,    // 数据类型
+        groupBy: "category",    // 按分类分组
+        sortBy: "outlayAmount"    // 按支出金额排序
+      }
+    })
+      .then(res => {
+        let result = res.result[0];
+        let list = result.list;
+        console.log(list);
+        // let data = res.result.list;
+        // if (list.length) {
+          let categoryList = app.globalData.categoryList;
+          list.forEach(item => {
+            let category = categoryList[0].find(n => item.category === n._id);
+            if (category) {
+              item.categoryName = category.name;
+              item.categoryIcon = category.icon;
+              item.scale = (item.outlayAmount / result.outlayAmount * 100).toFixed(2);
+            }
+          })
+          this.setData({
+            // outlayAmount: result.outlayAmount,
+            // incomeAmount: result.incomeAmount,
+            categorylist: list
+          })
+        // }
+      })
+      .catch(console.error)
   }
 })

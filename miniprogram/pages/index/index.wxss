@@ -71,10 +71,16 @@ page {
   align-items: center;
 }
 
-/* 账单每日金额 */
-.bill__day-amount {
+/* 账单每月金额 */
+.bill__month-amount {
   font-size: 40rpx;
 }
+
+/* 账单每日金额 */
+.bill__day-amount text + text{
+  margin-left: 30rpx;
+}
+
 /* 账单每日金额 - 分割线 */
 .bill__line {
   flex: 1;

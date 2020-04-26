@@ -1,47 +1,38 @@
 <view class="container" data-weui-theme="{{ theme }}">
-  <!-- 用户信息 -->
-  <view class="statistics__month">
-    3月 2020 | 当月
+  <!-- 该月收支概览 -->
+  <view class="month__summary">
+    <!-- 日期选择器 -->
+    <picker
+      mode="date"
+      value="{{ selectedDate }}"
+      fields="month"
+      bindchange="bindDateChange"
+    >
+      <view class="month__picker weui-btn weui-btn_default">
+        {{ selectedDateArr[1] }}月 {{ selectedDateArr[0] }} | 当月
+      </view>
+    </picker>
+    <view class="month__summary-amounts">
+      <view class="month__summary-amount outlay">
+        <text class="month__summary-amount__label">共支出</text>
+        <text class="month__summary-amount__value">{{ outlayAmount }}</text>
+      </view>
+      <view class="month__summary-amount income">
+        <text class="month__summary-amount__label">共收入</text>
+        <text class="month__summary-amount__value">{{ incomeAmount }}</text>
+      </view>
+    </view>
   </view>
-  <!-- <calendar binddayClick="dayClick" weeks-type="cn" active-type="rounded"/> -->
-  <calendar
-    id="calendar"
-    calendarConfig="{{calendarConfig}}"
-    bind:afterCalendarRender="afterCalendarRender"
-  >
-  </calendar>
-  <text class="statistics__title">各分类支出占比</text>
-  <view class="class-proportion">
-    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
+  <text class="statistics__title">收支构成</text>
+  <view wx:for="{{ categorylist }}" wx:for-item="category" wx:key="*this" class="class-proportion">
+    <image class="class-icon" src="{{ category.categoryIcon }}" mode="aspectFill"></image>
     <view class="expense-wrapper">
       <view>
-        <text class="expense-class">日用 - </text>
-        <text class="expense-value">1111</text>
+        <text class="expense-class">{{ category.categoryName }} - </text>
+        <text class="expense-value">{{ category.outlayAmount }}</text>
       </view>
-      <progress></progress>
+      <progress scale="{{ category.scale }}"></progress>
     </view>
-    94.54% >
-  </view>
-  <view class="class-proportion">
-    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
-    <view class="expense-wrapper">
-      <view>
-        <text class="expense-class">日用 - </text>
-        <text class="expense-value">1111</text>
-      </view>
-      <progress></progress>
-    </view>
-    94.54% >
-  </view>
-  <view class="class-proportion">
-    <image class="class-icon" src="/images/console-entrance.png" mode="aspectFill"></image>
-    <view class="expense-wrapper">
-      <view>
-        <text class="expense-class">日用 - </text>
-        <text class="expense-value">1111</text>
-      </view>
-      <progress></progress>
-    </view>
-    94.54% >
+    {{ category.scale }}% >
   </view>
 </view>
