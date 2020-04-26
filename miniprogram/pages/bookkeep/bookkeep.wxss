@@ -140,6 +140,17 @@
 .zero, .dot, .submit{
   margin-bottom: 0;
 }
+/* 退格按钮图片 */
+.del {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.del image {
+  width: 46rpx;
+  height: 32rpx;
+}
 /* 确定按钮文字居中 */
 .submit {
   background: #16C2C2;

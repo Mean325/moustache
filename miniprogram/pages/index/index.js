@@ -5,6 +5,7 @@ const app = getApp();
 
 Page({
   data: {
+    todayIncomeAmount: 0,   // 今日收入总额
     todayOutlayAmount: 0,   // 今日支出总额
     todayBill: [],    // 今日账单
     moreBill: [],    // 本月账单
@@ -52,6 +53,7 @@ Page({
             }
           })
           this.setData({
+            todayIncomeAmount: res.result.incomeAmount,
             todayOutlayAmount: res.result.outlayAmount,
             todayBill: data.slice(0, 3)
           })

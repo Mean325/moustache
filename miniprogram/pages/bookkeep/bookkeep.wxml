@@ -10,6 +10,7 @@
         bindchange="bindDateChange"
         value="{{ date }}"
         mode="date"
+        end="{{ today }}"
         slot="right"
       >
         <image class="slot-image" src="/images/icon/rili{{ activeDay }}.png" mode="aspectFit"></image>
@@ -53,7 +54,9 @@
         <view class='key one' hover-class="weui-cell_active" data-key='1' bindtap='tapKey'>1</view>
         <view class='key two' hover-class="weui-cell_active" data-key='2' bindtap='tapKey'>2</view>
         <view class='key three' hover-class="weui-cell_active" data-key='3' bindtap='tapKey'>3</view>
-        <view class='key del' hover-class="weui-cell_active" bindtap='tapDel'>退格</view>
+        <view class='key del' hover-class="weui-cell_active" bindtap='tapDel' bindlongtap="longtapDel">
+          <image src="/images/bookkeep/del.png" mode="aspectFill"></image>
+        </view>
       </view>
       <view class="keyboard-bottom3">
         <view class="keyboard-bottom3-num">

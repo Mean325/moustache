@@ -19,7 +19,8 @@
           <view class="bill__entry bill__day-amount">
             <text>今日</text>
             <view class="bill__line"></view>
-            <text>{{ todayOutlayAmount || 0 }}</text>
+            <text>收 {{ todayIncomeAmount }}</text>
+            <text>支 {{ todayOutlayAmount }}</text>
           </view>
           <block wx:if="{{ todayBill.length === 0 }}">
             <text style="padding: 0 30rpx;">今日暂无支出</text>

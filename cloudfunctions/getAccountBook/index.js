@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
 
   let accountList = [];
   for (let l = 0; l < previous; l++) {
-    let regexp = dateArr.slice(0, dateType).join("-");
+    let regexp = dateArr.map(n => ("" + n).padStart(2, "0")).slice(0, dateType).join("-");
 
     let list = [];
     const countResult = await db.collection('accountBook')

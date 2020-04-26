@@ -55,15 +55,17 @@ Page({
    * @hook 数组拖动排序结束事件
    */
   sortEnd(e) {
-    console.log("sortEnd", e.detail.listData)
+    let listData = e.detail.listData;
+    let type = this.data.activeType;
+    console.log("sortEnd", listData);
     this.setData({
-      listData: e.detail.listData
+      [`listData[${ type }]`]: listData
     });
     wx.cloud.callFunction({
       name: 'saveClassList',
       data: {
-        list: this.data.listData,
-        type: this.data.activeType
+        list: listData,
+        type: type
       }
     })
     .then(res => {

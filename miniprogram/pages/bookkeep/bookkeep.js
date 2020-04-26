@@ -13,6 +13,7 @@ Page({
       remark: "",    // 备注
       date: "",   // 日期
     },    // 记账数据
+    today: "",    // 今日日期,用于限制日期选择器必须小于今日
     hasDot: false,    // 是否有小数点,防止用户多次输入小数点
     classList: [],    // 记账分类列表
   },
@@ -23,11 +24,13 @@ Page({
   },
   onLoad(options) {
     let { categoryList } = app.globalData;
+    console.log(categoryList);
     let date = utils.getDate();
     this.setData({
       categoryList: categoryList,
-      'bookkeep.category': categoryList[0]._id,
-      'bookkeep.date': date
+      'bookkeep.category': categoryList[0][0]._id,
+      'bookkeep.date': date,
+      today: date
     })
     let _id = options._id;
     if (_id) {
@@ -46,8 +49,10 @@ Page({
   handleTypeChange(e) {
     let value = e.detail;
     console.log(value);
+    let { categoryList } = app.globalData;
     this.setData({
-      'bookkeep.type': value
+      'bookkeep.type': value,
+      'bookkeep.category': categoryList[value - 1][0]._id
     })
   },
   /**
@@ -100,6 +105,20 @@ Page({
    */
   tapSubmit() {
     let data = this.data.bookkeep;
+    if (!data.num) {
+      wx.showToast({
+        title: '金额不能为空或者0',
+        icon: 'none',
+      })
+      return;
+    }
+    if (!data.category) {
+      wx.showToast({
+        title: '请选择分类',
+        icon: 'none',
+      })
+      return;
+    }
     data.updateTime = new Date().getTime();
     data.num = Math.floor(data.num * 100) / 100;
     if (!data.date) {
@@ -138,6 +157,12 @@ Page({
     this.setData({
       'bookkeep.num': data.num.length == 1 ? '0' : data.num.substring(0, data.num.length - 1)
     })
+  },
+  /**
+   * @method 删除按钮长按事件
+   */
+  longtapDel() {
+    console.log("持续删除");
   },
   /**
    * @method 自定义数字键盘 - 清除按钮点击事件

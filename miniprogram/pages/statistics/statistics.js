@@ -10,10 +10,7 @@ Page({
     incomeAmount: 0,    // 收入总额
     categorylist: [],    // 账单条目分类列表
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  onShow(options) {
     this.bindDateChange({
       detail: {
         value: utils.getDate()
