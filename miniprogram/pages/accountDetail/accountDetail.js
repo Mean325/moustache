@@ -20,18 +20,7 @@ Page({
    * @method 删除按钮点击事件
    */
   delAccount() {
-    wx.showModal({
-      content: '删除后无法恢复,是否删除?',
-      confirmText: '删除',
-      confirmColor: '#fa5151',
-      success: res => {
-        if (res.confirm) {
-          commonJs.delAccount(this.data.detail._id, this.handleDelAccount);
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+    commonJs.delAccount(this.data.detail._id, this.handleDelAccount);
   },
   /**
    * @method 编辑按钮点击事件
