@@ -2,8 +2,8 @@
   {
     "name": "获取近3个月账本",
     "value": {
-      "date": "2020-04-23",
-      "timeType": 2,
+      "date": "2020-04-26",
+      "dateType": 2,
       "previous": 3
     }
   },
@@ -11,7 +11,7 @@
     "name": "获取今日账本",
     "value": {
       "date": "2020-04-23",
-      "timeType": 3
+      "dateType": 3
     }
   }
 ]

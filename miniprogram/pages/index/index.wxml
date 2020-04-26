@@ -65,7 +65,8 @@
               <view class="bill__entry bill__day-amount">
                 <text>{{ dateBill.date }}</text>
                 <view class="bill__line"></view>
-                <text>{{ dateBill.outlayAmount }}</text>
+                <text>收 {{ dateBill.incomeAmount }}</text>
+                <text>支 {{ dateBill.outlayAmount }}</text>
               </view>
               <mp-slideview
                 bindtap="toDetail"

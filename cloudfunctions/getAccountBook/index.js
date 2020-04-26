@@ -68,6 +68,8 @@ exports.main = async (event, context) => {
       }
     })
     console.log(list);
+    list = list.sort((a, b) => b.date.split("-")[2] - a.date.split("-")[2]);
+    console.log(list);
     if (dateType === 3) {   // 筛选时间为日时
       accountList = list[0];   // 可能问题,待修改         !!!
     } else {

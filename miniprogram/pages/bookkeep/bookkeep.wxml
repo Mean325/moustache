@@ -39,7 +39,7 @@
         <text>{{ item.name }}</text>
       </view>
       <view class="bookkeep__category">
-        <image src="/images/console-entrance.png" mode="aspectFill"></image>
+        <image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
         <text>设置</text>
       </view>
     </scroll-view>
