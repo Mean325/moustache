@@ -1,7 +1,8 @@
 /**
  * 格式化日期加时间
  */
-const formatTime = date => {
+const formatTime = time => {
+  const date = new Date(time);
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()

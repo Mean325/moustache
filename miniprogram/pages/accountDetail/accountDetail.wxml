@@ -15,7 +15,7 @@
     <view class="account-infos">
       <view class="account-info">
         <text class="account-info__label">记录时间</text>
-        <text class="account-info__value">{{ detail.updateTime }}</text>
+        <text class="account-info__value">{{ detail.formatTime }}</text>
       </view>
       <view class="account-info">
         <text class="account-info__label">来源</text>

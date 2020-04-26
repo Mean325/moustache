@@ -1,4 +1,5 @@
 const commonJs = require("../common.js");
+const utils = require("../../utils/utils.js");
 
 const app = getApp()
 
@@ -7,8 +8,11 @@ Page({
     detail: {}
   },
   onShow(options) {
+    let detail = getApp().globalData.activeAccountDetail;
+    console.log(detail.updateTime);
+    detail.formatTime = utils.formatTime(detail.updateTime);
     this.setData({
-      detail: getApp().globalData.activeAccountDetail
+      detail
     })
   },
   /**
