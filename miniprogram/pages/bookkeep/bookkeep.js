@@ -148,14 +148,16 @@ Page({
    */
   tapDel() {
     let data = this.data.bookkeep;
-    if (data.num == '0') return;
-    if (data.num[data.num.length - 1] == '.') {
+    let num = "" + data.num;    // 转为String
+    console.log(num);
+    if (num == '0') return;
+    if (num[num.length - 1] == '.') {
       this.setData({
         hasDot: false
       })
     }
     this.setData({
-      'bookkeep.num': data.num.length == 1 ? '0' : data.num.substring(0, data.num.length - 1)
+      'bookkeep.num': num.length == 1 ? '0' : num.substring(0, num.length - 1)
     })
   },
   /**
