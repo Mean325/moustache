@@ -39,9 +39,9 @@
         <image src="{{ item.icon }}" mode="aspectFill"></image>
         <text>{{ item.name }}</text>
       </view>
-      <view class="bookkeep__category">
+      <view bindtap="toCategoryManage" class="bookkeep__category">
         <image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
-        <text>设置</text>
+        <text>自定义</text>
       </view>
     </scroll-view>
 

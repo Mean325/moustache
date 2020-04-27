@@ -6,10 +6,17 @@ Page({
   data: {
     selectedDate: "",   // 选中的月份,用于查询月账单
     selectedDateArr: [],    // 选中的月份数组,仅用于页面展示
+    today: "",    // 今日日期,用于限制日期选择器必须小于今日
     activeType: 1,    // 账目类型,1为支出,2为收入
     outlayAmount: 0,    // 支出总额
     incomeAmount: 0,    // 收入总额
     categorylist: [],    // 账单条目分类列表
+  },
+  onLoad() {
+    let date = utils.getDate();
+    this.setData({
+      today: date
+    })
   },
   onShow(options) {
     this.bindDateChange({

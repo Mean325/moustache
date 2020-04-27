@@ -65,6 +65,15 @@ Page({
     });
   },
   /**
+   * 跳转到分类管理页面
+   * @method 自定义按钮点击事件
+   */
+  toCategoryManage() {
+    wx.navigateTo({
+      url: '/pages/setting/classManage/classManage',
+    })
+  },
+  /**
    * @method 记账分类右侧日历点击事件
    */
   bindDateChange(e) {
@@ -74,7 +83,8 @@ Page({
     })
   },
   /**
-   * @method 选中分类事件
+   * 实现数据双向绑定
+   * @method 备注input输入事件
    */
   handleInputChange(e) {
     setTimeout(() => {
@@ -88,15 +98,17 @@ Page({
    * @method 自定义数字键盘按钮点击事件
    */
   tapKey(e) {
-    var x = e.currentTarget.dataset.key
-    if (x == '.') {
-      if (this.data.hasDot) return
+    var key = e.currentTarget.dataset.key;
+    let { num } = this.data.bookkeep;
+    let { hasDot } = this.data;
+    if (key == '.') {
+      if (hasDot) return;
       this.setData({
         hasDot: true
       })
     }
     this.setData({
-      'bookkeep.num': this.data.bookkeep.num == '0' ? x : this.data.bookkeep.num + x
+      'bookkeep.num': num == '0' ? key : num + key
     })
   },
   /**

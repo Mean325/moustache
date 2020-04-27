@@ -2,7 +2,7 @@
   <!-- 该月收支概览 -->
   <view class="month__summary">
     <!-- 日期选择器 -->
-    <picker mode="date" value="{{ selectedDate }}" fields="month" bindchange="bindDateChange">
+    <picker mode="date" value="{{ selectedDate }}" fields="month" end="{{ today }}" bindchange="bindDateChange">
       <view class="month__picker weui-btn weui-btn_default">
         {{ selectedDateArr[1] }}月 {{ selectedDateArr[0] }} | 当月
       </view>
