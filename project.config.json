@@ -142,6 +142,12 @@
 					"pathName": "pages/personalSetting/personalSetting",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AA记账",
+					"pathName": "pages/tools/AA/team/team",
+					"scene": null
 				}
 			]
 		}

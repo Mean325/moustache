@@ -1,5 +1,5 @@
 const utils = require("../../utils/utils.js");
-const commonJs = require("../common.js");
+const commonJs = require("./common/common.js");
 
 const app = getApp();
 
@@ -114,7 +114,7 @@ Page({
     if (data._id) {
       app.setActiveAccountDetail(data);
       wx.navigateTo({
-        url: '/pages/accountDetail/accountDetail'
+        url: '/pages/index/accountDetail/accountDetail'
       })
     }
   },

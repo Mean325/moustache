@@ -91,5 +91,5 @@
       </scroll-view>
     </swiper-item>
   </swiper>
-  <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style2">+</navigator>
+  <navigator url="/pages/index/bookkeep/bookkeep" class="bookkeep-btn style2">+</navigator>
 </view>

@@ -3,22 +3,24 @@
     "pages/welcome/welcome",
 
     "pages/index/index",
+    "pages/index/bookkeep/bookkeep",
+    "pages/index/accountDetail/accountDetail",
+
     "pages/statistics/statistics",
     "pages/tools/tools",
+    "pages/tools/AA/index/index",
+    "pages/tools/AA/team/team",
+    
     "pages/setting/setting",
-
-    "pages/bookkeep/bookkeep",
-    "pages/accountDetail/accountDetail",
-    "pages/addClass/addClass",
-    "pages/classManage/classManage",
-
-    "pages/personalSetting/personalSetting",
-    "pages/about/about",
-    "pages/login/login",
-    "pages/admin/index/index",
-    "pages/admin/classManage/classManage",
-    "pages/admin/addClass/addClass",
-    "pages/admin/setWelcome/setWelcome"
+    "pages/setting/classManage/classManage",
+    "pages/setting/classManage/addClass/addClass",
+    "pages/setting/personalSetting/personalSetting",
+    "pages/setting/about/about",
+    "pages/setting/login/login",
+    "pages/setting/admin/index/index",
+    "pages/setting/admin/classManage/classManage",
+    "pages/setting/admin/classManage/addClass/addClass",
+    "pages/setting/admin/setWelcome/setWelcome"
   ],
   "window": {
     "backgroundTextStyle": "dark",
