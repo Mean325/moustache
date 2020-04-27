@@ -77,6 +77,10 @@ Component({
     itemWrapHeight: 0,                                      // 动态计算父级元素高度
     dragging: false,                                        // 是否在拖拽中
     itemTransition: false,                                  // item 变换是否需要过渡动画, 首次渲染不需要
+    slideButtons: [{
+      type: 'warn',
+      text: '删除'
+    }],   // 左滑删除组件
   },
   methods: {
 		/**
@@ -313,6 +317,13 @@ Component({
       });
 
       this.triggerEvent(type, { listData: listData });
+    },
+    /**
+		 *  侧边删除按钮点击事件
+		 */
+    handleSlideBtnClick(e) {
+      let { data } = e.currentTarget.dataset.data;
+      this.triggerEvent("del", data);
     },
 		/**
 		 *  初始化获取 dom 信息

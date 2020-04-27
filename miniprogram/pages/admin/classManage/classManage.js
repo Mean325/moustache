@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     activeType: 1,    // 当前分类类型,1为支出,2为收入
@@ -76,7 +78,13 @@ Page({
    * @hook 数组item点击事件
    */
   itemClick(e) {
-    console.log(e);
+    let data = e.detail.data;
+    if (data._id) {
+      app.setActiveCategoryDetail(data);
+      wx.navigateTo({
+        url: `/pages/admin/addClass/addClass?_id=${ data._id }&type=${ data.type }`
+      })
+    }
   },
   // toggleFixed(e) {
   //   let key = e.currentTarget.dataset.key;
@@ -96,6 +104,38 @@ Page({
   //     pageMetaScrollTop: e.detail.scrollTop
   //   })
   // },
+  handleDel(e) {
+    console.log(e.detail);
+    let { _id } = e.detail;
+    wx.showModal({
+      content: '删除后无法恢复,是否删除?',
+      confirmText: '删除',
+      confirmColor: '#fa5151',
+      success: res => {
+        if (res.confirm) {
+          wx.cloud.callFunction({
+            name: 'adminDelCategory',
+            data: {
+              _id
+            }
+          })
+            .then(res => {
+              console.log(res);
+              if (res.result.stats.removed === 1) {
+                wx.showToast({
+                  title: '删除成功'
+                })
+                wx.vibrateShort();
+                this.getClassList();
+              }
+            })
+            .catch(console.error)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   // 页面滚动
   onPageScroll(e) {
     this.setData({

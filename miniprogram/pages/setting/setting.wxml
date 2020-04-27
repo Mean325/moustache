@@ -71,8 +71,5 @@
     </navigator>
   </view>
   <!-- 退出登录 -->
-  <a class="weui-btn_cell weui-btn_cell-default">退出登录</a>
-  <!-- <button class="sign-out-button" hover-class="weui-cell_active" style="width: 100%;">
-    退出登录
-  </button> -->
+  <!-- <a class="weui-btn_cell weui-btn_cell-default">退出登录</a> -->
 </view>

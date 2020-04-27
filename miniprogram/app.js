@@ -10,6 +10,7 @@ App({
 
     categoryList: [],    // 用户分类列表
     activeAccountDetail: {},    // 当前显示的账目详情
+    activeCategoryDetail: {},    // 当前显示的分类详情
   },
   themeChanged(theme) {
     this.globalData.theme = theme;
@@ -69,5 +70,12 @@ App({
   setActiveAccountDetail(obj) {
     console.log(obj);
     this.globalData.activeAccountDetail = obj;
-  }
+  },
+  /**
+   * @method 设置当前活跃的分类详情
+   */
+  setActiveCategoryDetail(obj) {
+    console.log(obj);
+    this.globalData.activeCategoryDetail = obj;
+  },
 })

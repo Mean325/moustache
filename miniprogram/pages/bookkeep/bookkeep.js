@@ -9,7 +9,7 @@ Page({
     bookkeep: {
       num: 0,   // 金额
       type: 1,    // 账目类型,1为支出,2为收入
-      category: "1",    // 账目分类id
+      category: "",    // 账目分类id
       remark: "",    // 备注
       date: "",   // 日期
     },    // 记账数据

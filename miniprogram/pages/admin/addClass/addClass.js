@@ -26,11 +26,12 @@ let iconList = [
   "/images/class/tongqian.png",
 ];
 
+const app = getApp();
+
 Page({
   data: {
     iconList: [],   // 图标列表
     activeClass: {
-      iconIndex: 0,
       icon: iconList[0],
       name: ""
     }   // 当前active的分类
@@ -43,6 +44,18 @@ Page({
     this.setData({
       iconList
     });
+
+    let _id = options._id;
+    if (_id) {
+      let { activeCategoryDetail } = app.globalData;
+      console.log(activeCategoryDetail);
+      let { fixed, bookkeepNum, ...data } = activeCategoryDetail;
+      console.log(_id);
+      
+      this.setData({
+        activeClass: { ...data }
+      })
+    }
   },
   /**
    * 实现数据双向绑定
@@ -106,7 +119,8 @@ Page({
       data: {
         type,
         name,
-        icon
+        icon,
+        _id: options._id
       }
     })
     .then(res => {
