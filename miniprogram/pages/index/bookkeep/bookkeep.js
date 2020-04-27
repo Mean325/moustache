@@ -120,7 +120,7 @@ Page({
       return;
     }
     data.updateTime = new Date().getTime();
-    data.num = Math.floor(data.num * 100) / 100;
+    data.num = Math.round(data.num * 100) / 100;
     if (!data.date) {
       data.date = utils.getDate();
     }

@@ -9,7 +9,6 @@ Page({
     takeSession: false,
     requestResult: ''
   },
-
   onShow() {
     this.setData({
       userInfo: app.globalData.userInfo

@@ -28,7 +28,7 @@ Page({
   editAccount() {
     let _id = this.data.detail._id;
     wx.navigateTo({
-      url: `/pages/bookkeep/bookkeep?_id=${ _id }`,
+      url: `/pages/index/bookkeep/bookkeep?_id=${ _id }`,
     })
   },
   /**

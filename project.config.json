@@ -25,7 +25,7 @@
 	},
 	"appid": "wx1010f5d30a0d43ed",
 	"projectname": "wechat-mp",
-	"libVersion": "2.10.4",
+	"libVersion": "2.11.0",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
