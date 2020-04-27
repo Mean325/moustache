@@ -6,6 +6,7 @@ Page({
   data: {
     selectedDate: "",   // 选中的月份,用于查询月账单
     selectedDateArr: [],    // 选中的月份数组,仅用于页面展示
+    activeType: 1,    // 账目类型,1为支出,2为收入
     outlayAmount: 0,    // 支出总额
     incomeAmount: 0,    // 收入总额
     categorylist: [],    // 账单条目分类列表
@@ -60,13 +61,14 @@ Page({
    */
   getMonthAccount() {
     let date = this.data.selectedDate;
+    let type = this.data.activeType;
 
     wx.cloud.callFunction({
       name: 'getAccountBook',
       data: {
         date,
         dateType: 2,  // 日期类型,1为年,2为月,3为日
-        type: 1,    // 数据类型
+        type,    // 数据类型
         groupBy: "category",    // 按分类分组
         sortBy: "outlayAmount"    // 按支出金额排序
       }
@@ -79,11 +81,13 @@ Page({
         // if (list.length) {
           let categoryList = app.globalData.categoryList;
           list.forEach(item => {
-            let category = categoryList[0].find(n => item.category === n._id);
+            let category = categoryList[type - 1].find(n => item.category === n._id);
             if (category) {
               item.categoryName = category.name;
               item.categoryIcon = category.icon;
-              item.scale = (item.outlayAmount / result.outlayAmount * 100).toFixed(2);
+              let typeName = (type === 1 ? "outlayAmount" : "incomeAmount");
+              item.amount = item[typeName];
+              item.scale = (item.amount / result[typeName] * 100).toFixed(2);
             }
           })
           this.setData({
@@ -94,5 +98,14 @@ Page({
         // }
       })
       .catch(console.error)
+  },
+  /**
+   * @method 改变当前的Type - 收入/支出
+   */
+  changeType() {
+    this.setData({
+      activeType: this.data.activeType === 1 ? 2 : 1
+    })
+    this.getMonthAccount();
   }
 })

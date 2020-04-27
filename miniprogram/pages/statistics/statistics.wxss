@@ -53,11 +53,15 @@
   font-size: 30px;
 }
 
-/* 日期选择样式    未生效 */
-.elegant_choosed {
-  background-color: #16c2c2;
+/* 统计页面 - 模块 */
+.statistics__module {
+  margin: 15vh 0 10px;
 }
 
+.statistics__module-title {
+  padding: 0 30rpx;
+  color: #999999;
+}
 
 /* 分类占比 */
 .class-proportion {
@@ -73,12 +77,6 @@
   width: 80rpx;
   height: 80rpx;
   padding: 20rpx 20rpx 20rpx 0;
-}
-
-.statistics__title {
-  padding: 0 30rpx;
-  margin: 15vh 0 10px;
-  color: #999999;
 }
 
 /* 分类占比 - 支出信息 */

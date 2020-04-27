@@ -2,12 +2,7 @@
   <!-- 该月收支概览 -->
   <view class="month__summary">
     <!-- 日期选择器 -->
-    <picker
-      mode="date"
-      value="{{ selectedDate }}"
-      fields="month"
-      bindchange="bindDateChange"
-    >
+    <picker mode="date" value="{{ selectedDate }}" fields="month" bindchange="bindDateChange">
       <view class="month__picker weui-btn weui-btn_default">
         {{ selectedDateArr[1] }}月 {{ selectedDateArr[0] }} | 当月
       </view>
@@ -23,16 +18,19 @@
       </view>
     </view>
   </view>
-  <text class="statistics__title">收支构成</text>
-  <view wx:for="{{ categorylist }}" wx:for-item="category" wx:key="*this" class="class-proportion">
-    <image class="class-icon" src="{{ category.categoryIcon }}" mode="aspectFill"></image>
-    <view class="expense-wrapper">
-      <view>
-        <text class="expense-class">{{ category.categoryName }} - </text>
-        <text class="expense-value">{{ category.outlayAmount }}</text>
+  <view class="statistics__module">
+    <text class="statistics__module-title">收支构成</text>
+    <text bindtap="changeType">查看{{ activeType === 1 ? '收入' : '支出' }}</text>
+    <view wx:for="{{ categorylist }}" wx:for-item="category" wx:key="*this" class="class-proportion">
+      <image class="class-icon" src="{{ category.categoryIcon }}" mode="aspectFill"></image>
+      <view class="expense-wrapper">
+        <view>
+          <text class="expense-class">{{ category.categoryName }} - </text>
+          <text class="expense-value">{{ category.amount }}</text>
+        </view>
+        <progress scale="{{ category.scale }}"></progress>
       </view>
-      <progress scale="{{ category.scale }}"></progress>
+      {{ category.scale }}% >
     </view>
-    {{ category.scale }}% >
   </view>
 </view>
