@@ -86,24 +86,10 @@ Page({
       })
     }
   },
-  // toggleFixed(e) {
-  //   let key = e.currentTarget.dataset.key;
-
-  //   let { listData } = this.data;
-
-  //   listData[key].fixed = !listData[key].fixed
-
-  //   this.setData({
-  //     listData: listData
-  //   });
-
-  //   this.drag.init();
-  // },
-  // scroll(e) {
-  //   this.setData({
-  //     pageMetaScrollTop: e.detail.scrollTop
-  //   })
-  // },
+  /**
+   * 调用云函数adminDelCategory
+   * @method 可拖动列表item,右滑删除按钮点击事件
+   */
   handleDel(e) {
     console.log(e.detail);
     let { _id } = e.detail;

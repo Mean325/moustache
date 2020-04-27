@@ -15,5 +15,11 @@
       </block>
     </view>
     <!-- 添加分类按钮 -->
-  <button bindtap="addClass" class="add-class-btn" hover-class="add-class-btn_active" style="width: calc(100% - 60rpx);">添加</button>
+  <button
+    bindtap="addClass"
+    class="add-class-btn"
+    hover-class="add-class-btn_active"
+    style="width: calc(100% - 60rpx);"
+  >{{ activeClass._id ? "保存" : "添加" }}
+  </button>
 </view>

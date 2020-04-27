@@ -2,9 +2,10 @@
   {
     "name": "用户新建分类",
     "value": {
-      "type": "1",
-      "icon": "2",
-      "name": "3"
+      "icon": "/images/class/baomihua.png",
+      "name": "奥奥",
+      "type": 1,
+      "_id": "d41d8cd98f00b204e9800998ecf8427e"
     }
   }
 ]

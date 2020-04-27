@@ -73,10 +73,9 @@ Page({
    * @method 图标点击事件
    */
   selectIcon(e) {
-    let { icon, iconIndex } = e.currentTarget.dataset;
+    let { icon } = e.currentTarget.dataset;
     this.setData({
-      'activeClass.icon': icon,
-      'activeClass.iconIndex': iconIndex
+      'activeClass.icon': icon
     })
   },
   /**
@@ -88,7 +87,7 @@ Page({
     let { options } = pages.pop();
     let type = Number(options.type);   // 获取路由参数type
 
-    let { name, icon } = this.data.activeClass;
+    let { name, icon, _id } = this.data.activeClass;
     console.log(name);
     if (!type) {
       wx.showToast({
@@ -120,7 +119,7 @@ Page({
         type,
         name,
         icon,
-        _id: options._id
+        _id
       }
     })
     .then(res => {

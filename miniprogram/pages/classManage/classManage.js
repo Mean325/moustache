@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     activeType: 1,    // 当前分类类型,1为支出,2为收入
@@ -17,16 +19,17 @@ Page({
    */
   getClassList() {
     this.drag = this.selectComponent('#drag');
+    let type = this.data.activeType;
     wx.cloud.callFunction({
       name: 'getClassList',
       data: {
-        type: this.data.activeType
+        type
       }
     })
       .then(res => {
         let data = res.result.data;
         console.log(data);
-        data.forEach((item, index) => {
+        data[type - 1].forEach((item, index) => {
           item.id = index;
           item.bookkeepNum = 0;
           item.fixed = false;
@@ -83,7 +86,50 @@ Page({
    * @hook 数组item点击事件
    */
   itemClick(e) {
-    console.log(e);
+    let data = e.detail.data;
+    if (data._id) {
+      app.setActiveCategoryDetail(data);
+      wx.navigateTo({
+        url: `/pages/addClass/addClass?_id=${ data._id }&type=${ data.type }`
+      })
+    }
+  },
+  /**
+   * 调用云函数delCategory
+   * @method 可拖动列表item,右滑删除按钮点击事件
+   */
+  handleDel(e) {
+    console.log(e.detail);
+    let { _id, type } = e.detail;
+    wx.showModal({
+      content: '删除后无法恢复,是否删除?',
+      confirmText: '删除',
+      confirmColor: '#fa5151',
+      success: res => {
+        if (res.confirm) {
+          wx.cloud.callFunction({
+            name: 'delCategory',
+            data: {
+              _id,
+              type
+            }
+          })
+            .then(res => {
+              console.log(res);
+              if (res.result.stats.removed === 1) {
+                wx.showToast({
+                  title: '删除成功'
+                })
+                wx.vibrateShort();
+                this.getClassList();
+              }
+            })
+            .catch(console.error)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   // 页面滚动
   onPageScroll(e) {

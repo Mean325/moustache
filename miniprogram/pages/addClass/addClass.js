@@ -27,12 +27,12 @@ let iconList = [
 ];
 
 const md5 = require('./../../utils/md5.js');    // 引入md5加密
+const app = getApp();
 
 Page({
   data: {
     iconList: [],   // 图标列表
     activeClass: {
-      iconIndex: 0,
       icon: iconList[0],
       name: ""
     }   // 当前active的分类
@@ -45,6 +45,18 @@ Page({
     this.setData({
       iconList
     });
+
+    let _id = options._id;
+    if (_id) {    // 当路由中带有_id时,判断为编辑,获取相关数据
+      let { activeCategoryDetail } = app.globalData;
+      console.log(activeCategoryDetail);
+      let { fixed, bookkeepNum, ...data } = activeCategoryDetail;
+      console.log(_id);
+
+      this.setData({
+        activeClass: { ...data }
+      })
+    }
   },
   /**
    * 实现数据双向绑定
@@ -62,10 +74,9 @@ Page({
    * @method 图标点击事件
    */
   selectIcon(e) {
-    let { icon, iconIndex } = e.currentTarget.dataset;
+    let { icon } = e.currentTarget.dataset;
     this.setData({
-      'activeClass.icon': icon,
-      'activeClass.iconIndex': iconIndex
+      'activeClass.icon': icon
     })
   },
   /**
@@ -78,10 +89,11 @@ Page({
     let type = Number(options.type);   // 获取路由参数type
     console.log(type);
 
-    let time = new Date().getTime();
-    let _id = md5.hexMD5(time);   // 与微信云储存保持一致
-
-    let { name, icon } = this.data.activeClass;
+    let { name, icon, _id } = this.data.activeClass;
+    if (!_id) {
+      let time = new Date().getTime();
+      _id = md5.hexMD5(time);   // 与微信云储存保持一致
+    }
     console.log(name);
     if (!type) {
       wx.showToast({

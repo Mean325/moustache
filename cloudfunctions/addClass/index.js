@@ -21,28 +21,30 @@ exports.main = async (event, context) => {
     .get();   // 查询到数据时返回自定义分类数组
   console.log(res);
   let list;
+  let obj = {
+    type,
+    icon,
+    name,
+    _id
+  }
   if (res.data.length) {   // 查询到数据时
     list = res.data[0].list;
-    list.push({
-      type,
-      icon,
-      name,
-      _id
-    })    // 插入新的分类
   } else {   // 查询不到数据时查询默认分类数组
-    _list = await db.collection('_classList')
+    let _list = await db.collection('_classList')
       .where({
         type: type
       })
       .get();
-    console.log(_list);
-    _list.data.push({
-      type,
-      icon,
-      name,
-      _id
-    })    // 插入新的分类
     list = _list.data;
+    console.log(list);
+  }
+
+  let index = list.findIndex(n => n._id === obj._id);
+  console.log(index);
+  if (index === -1) {     // 当数组中没有该_id时,插入新的分类
+    list.push(obj)
+  } else {     // 当数组中有该_id时,编辑该分类
+    list[index] = obj;
   }
 
   const saveRes = await cloud.callFunction({

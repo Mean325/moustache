@@ -10,6 +10,7 @@
     bind:change="change"
     bind:sortend="sortEnd"
     bind:scroll="scroll"
+    bind:del="handleDel"
     list-data="{{ listData[activeType - 1] }}"
     columns="1"
     scroll-top="{{ scrollTop }}"

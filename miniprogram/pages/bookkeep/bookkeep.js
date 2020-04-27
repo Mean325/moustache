@@ -130,10 +130,24 @@ Page({
     })
     .then(res => {
       console.log(res);
-      wx.showToast({
-        title: '已记一笔',
-      })
-      wx.navigateBack();
+      if (data._id) {    // 如果是新增,返回上一页
+        wx.navigateBack({
+          delta: 2,
+          success: res => {
+            wx.showToast({
+              title: '编辑成功',
+            })
+          }
+        })
+      } else {    // 如果是新增,返回上一页
+        wx.navigateBack({
+          success: res => {
+            wx.showToast({
+              title: '已记一笔',
+            })
+          }
+        });
+      }
     })
     .catch(err => {
       wx.showToast({

@@ -4,12 +4,12 @@
       <view class="icon-wrapper">
         <image class="icon" src="{{ activeClass.icon }}" mode="aspectFill"></image>
       </view>
-      <input bindinput="handleInputChange" class="add-class__input" maxlength="20" placeholder="分类名称"	/>
+      <input bindinput="handleInputChange" value="{{ activeClass.name }}" class="add-class__input" maxlength="20" placeholder="分类名称"	/>
     </view>
     <!-- 类型图标合集 -->
     <view class="icons">
       <block wx:for="{{ iconList }}" wx:key="*this">
-        <view bindtap="selectIcon" data-icon="{{ item }}" data-icon-index="{{ index }}" class="icon-wrapper {{ index === activeClass.iconIndex ? 'icon-selected' : '' }}">
+        <view bindtap="selectIcon" data-icon="{{ item }}" class="icon-wrapper {{ item === activeClass.icon ? 'icon-selected' : '' }}">
           <image class="icon" src="{{ item }}" mode="aspectFill"></image>
         </view>
       </block>
