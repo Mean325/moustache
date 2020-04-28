@@ -88,13 +88,6 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "云开发案例",
-					"pathName": "pages/test/index1/index",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 7,
 					"name": "管理员-分类管理",
 					"pathName": "pages/admin/classManage/classManage",

@@ -116,14 +116,26 @@ Page({
     var key = e.currentTarget.dataset.key;
     let { num } = this.data.bookkeep;
     let { hasDot } = this.data;
-    if (key == '.') {
-      if (hasDot) return;
-      this.setData({
-        hasDot: true
+
+    num = Number(num + key);
+    if (num > 10000000) {
+      wx.showToast({
+        title: '输入金额不能大于10,000,000',
+        icon: 'none'
       })
+      return
+    } else {
+      num = "" + Math.floor(num * 100) / 100;
+      if (key == '.') {
+        if (hasDot) return;
+        num = num + "."
+        this.setData({
+          hasDot: true
+        })
+      }
     }
     this.setData({
-      'bookkeep.num': num == '0' ? key : num + key
+      'bookkeep.num': num == '0' ? key : num
     })
   },
   /**
@@ -157,7 +169,7 @@ Page({
     })
     .then(res => {
       console.log(res);
-      if (data._id) {    // 如果是新增,返回上一页
+      if (data._id) {    // 如果是新增,返回上上页
         wx.navigateBack({
           delta: 2,
           success: res => {
@@ -198,6 +210,7 @@ Page({
         hasDot: false
       })
     }
+    
     this.setData({
       'bookkeep.num': num.length == 1 ? '0' : num.substring(0, num.length - 1)
     })
