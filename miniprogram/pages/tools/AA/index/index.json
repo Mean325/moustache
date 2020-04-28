@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "mp-index-list": "@miniprogram-component-plus/index-list"
+    "mp-index-list": "/components/tools/AA/index-list/index"
   }
 }
