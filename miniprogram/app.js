@@ -58,6 +58,28 @@ App({
     })
   },
   /**
+   * @method 获取分类列表
+   */
+  getCategoryList() {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getClassList',
+        data: {}
+      })
+        .then(res => {
+          let data = res.result.data;
+          console.log(data);
+          if (data) {
+            this.setCategoryList(data);
+            resolve(data);
+          } else {
+            reject(error);
+          }
+        })
+        .catch(console.error)
+    })
+  },
+  /**
    * @method 保存记账分类列表
    */
   setCategoryList(obj) {

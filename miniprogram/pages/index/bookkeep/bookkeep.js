@@ -23,15 +23,6 @@ Page({
     },    // 当前选中的日期,用于右上角小日历显示
   },
   onLoad(options) {
-    let { categoryList } = app.globalData;
-    console.log(categoryList);
-    let date = utils.getDate();
-    this.setData({
-      categoryList: categoryList,
-      'bookkeep.category': categoryList[0][0]._id,
-      'bookkeep.date': date,
-      today: date
-    })
     let _id = options._id;
     if (_id) {
       let { activeAccountDetail } = app.globalData;
@@ -41,6 +32,28 @@ Page({
         bookkeep: { ...data }
       })
     }
+  },
+  /**
+   * 获取分类列表数据
+   * 解决修改分类列表后,不更新的问题
+   * @hook 页面显示时
+   */
+  onShow() {
+    this.getCategoryList();
+  },
+  /**
+   * @method 从全局变量中获取分类列表数据
+   */
+  getCategoryList() {
+    let { categoryList } = app.globalData;
+    console.log(categoryList);
+    let date = utils.getDate();
+    this.setData({
+      categoryList: categoryList,
+      'bookkeep.category': categoryList[0][0]._id,
+      'bookkeep.date': date,
+      today: date
+    })
   },
   /**
    * 赋值给activeType,并重新获取分类列表

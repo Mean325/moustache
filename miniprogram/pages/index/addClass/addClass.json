@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "新建分类",
-  "usingComponents": {
-    "drag": "../../components/drag/index"
-  },
-  "enablePullDownRefresh": false
-}

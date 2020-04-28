@@ -91,8 +91,9 @@ Page({
 
     let { name, icon, _id } = this.data.activeClass;
     if (!_id) {
-      let time = new Date().getTime();
+      let time = String(new Date().getTime());
       _id = md5.hexMD5(time);   // 与微信云储存保持一致
+      console.log(_id);
     }
     console.log(name);
     if (!type) {

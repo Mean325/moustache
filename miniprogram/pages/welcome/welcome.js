@@ -38,19 +38,12 @@ Page({
    * @method 获取分类列表
    */
   getCategoryList() {
-    wx.cloud.callFunction({
-      name: 'getClassList',
-      data: {}
-    })
+    app.getCategoryList()
       .then(res => {
-        let data = res.result.data;
-        console.log(data);
-        app.setCategoryList(data);
         wx.switchTab({
           url: '/pages/index/index',
         })
       })
-      .catch(console.error)
   },
   /**
    * 高德地图api

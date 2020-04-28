@@ -37,6 +37,7 @@ Page({
         this.setData({
           listData: data
         });
+        app.setCategoryList(data);    // 更新全局categoryList
 
         this.drag.init();   // 拖动列表初始化
       })
@@ -116,13 +117,13 @@ Page({
           })
             .then(res => {
               console.log(res);
-              if (res.result.stats.removed === 1) {
-                wx.showToast({
-                  title: '删除成功'
-                })
-                wx.vibrateShort();
-                this.getClassList();
-              }
+              // if (res.result.stats.removed === 1) {
+              wx.showToast({
+                title: '删除成功'
+              })
+              wx.vibrateShort();
+              this.getClassList();
+              // }
             })
             .catch(console.error)
         } else if (res.cancel) {

@@ -74,16 +74,16 @@
 					"scene": null
 				},
 				{
-					"id": 4,
+					"id": 3,
 					"name": "用户-分类管理",
-					"pathName": "pages/classManage/classManage",
+					"pathName": "pages/setting/classManage/classManage",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 5,
+					"id": 4,
 					"name": "用户-记账",
-					"pathName": "pages/bookkeep/bookkeep",
+					"pathName": "pages/index/bookkeep/bookkeep",
 					"query": "",
 					"scene": null
 				},
@@ -147,6 +147,7 @@
 					"id": -1,
 					"name": "AA记账",
 					"pathName": "pages/tools/AA/team/team",
+					"query": "",
 					"scene": null
 				}
 			]
