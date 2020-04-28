@@ -200,10 +200,8 @@ Page({
    * @method 删除按钮点击事件
    */
   tapDel() {
-    console.log("删除");
     let data = this.data.bookkeep;
     let num = "" + data.num;    // 转为String
-    console.log(num);
     if (num == '0') return;
     if (num[num.length - 1] == '.') {
       this.setData({
@@ -219,7 +217,6 @@ Page({
    * @method 删除按钮长按事件
    */
   longpressDel() {
-    console.log("持续删除");
     this.tapDel();    // 立即触发一次
     this.setData({
       interval: setInterval(() => {
@@ -231,7 +228,6 @@ Page({
    * @method 删除按钮松开事件
    */
   clearDelInterval() {
-    console.log("暂停");
     clearInterval(this.data.interval)
   },
   /**

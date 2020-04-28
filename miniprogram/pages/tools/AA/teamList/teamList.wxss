@@ -1,0 +1,51 @@
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: #F6F6F6;
+}
+
+.item {
+  background: #FFFFFF;
+  padding: 40rpx;
+  border-radius: 10px;
+}
+
+.item-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-title__date {
+  color: #CCCCCC;
+  font-size: 14px;
+}
+
+.item-member {
+  padding: 30rpx 0;
+  margin-bottom: 30rpx;
+  border-bottom: 2px solid #CCCCCC;
+  display: flex;
+  align-items: flex-end;
+}
+
+.item-member__avatar {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.item-amount {
+  font-size: 34px;
+  line-height: 1;
+}
+
+/* 添加群组按钮 */
+.add-item-btn {
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  right: 100rpx;
+  bottom: 180rpx;
+}

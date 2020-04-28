@@ -129,11 +129,13 @@ Page({
     })
       .then(res => {
         console.log(res);
-        wx.showToast({
-          title: '添加成功',
-          icon: 'none',
-        })
-        wx.navigateBack();    // 返回上一页
+        wx.navigateBack({
+          success: res => {
+            wx.showToast({
+              title: '添加成功',
+            })
+          }
+        });    // 返回上一页
       })
       .catch(console.error)
   }

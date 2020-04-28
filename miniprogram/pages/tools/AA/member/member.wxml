@@ -1,0 +1,37 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <view class="banner">
+    <text class="banner__item-name">我的组织</text>
+    <text class="banner__item-date">4月28日创建</text>
+  </view>
+  <view class="member-list">
+    <view class="member-list__title">
+      团队人数・1人
+    </view>
+    <mp-cells>
+      <mp-cell>
+        <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+        <view>标题文字(管理员)</view>
+        <view slot="footer">
+          <view class="quit-btn">退出</view>
+        </view>
+      </mp-cell>
+      <mp-cell>
+        <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+        <view>标题文字</view> 
+      </mp-cell>
+      <!-- 邀请好友按钮 -->
+      <button
+        open-type='share'
+        style="width: 100%;text-align:left;font-weight: normal;"
+        class="weui-cell"
+        hover-class="weui-cell_active"
+      >
+        <view class="weui-cell__hd">
+          <image src="/images/tabBar/add.png" class="cell__icon"></image>
+        </view>
+        <view class="weui-cell__bd">邀请好友</view>
+      </button>
+    </mp-cells>
+  </view>
+</view>

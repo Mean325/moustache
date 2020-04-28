@@ -142,6 +142,26 @@
 					"pathName": "pages/tools/AA/team/team",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AA记账 - 邀请",
+					"pathName": "pages/tools/AA/invite/invite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AA记账 - 成员列表",
+					"pathName": "pages/tools/AA/member/member",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index-list",
+					"pathName": "pages/tools/AA/index/index",
+					"scene": null
 				}
 			]
 		}

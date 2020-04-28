@@ -95,8 +95,8 @@ module.exports =
 
 Component({
     options: {
-        addGlobalClass: true,
-        multipleSlots: true
+      addGlobalClass: true,
+      multipleSlots: true
     },
     properties: {
         hover: {
