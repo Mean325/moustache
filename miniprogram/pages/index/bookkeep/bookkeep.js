@@ -13,9 +13,11 @@ Page({
       remark: "",    // 备注
       date: "",   // 日期
     },    // 记账数据
+    classList: [],    // 记账分类列表
+
     today: "",    // 今日日期,用于限制日期选择器必须小于今日
     hasDot: false,    // 是否有小数点,防止用户多次输入小数点
-    classList: [],    // 记账分类列表
+    interval: null,   // 定时器
   },
   computed: {
     activeDay(data) {
@@ -186,6 +188,7 @@ Page({
    * @method 删除按钮点击事件
    */
   tapDel() {
+    console.log("删除");
     let data = this.data.bookkeep;
     let num = "" + data.num;    // 转为String
     console.log(num);
@@ -202,8 +205,21 @@ Page({
   /**
    * @method 删除按钮长按事件
    */
-  longtapDel() {
+  longpressDel() {
     console.log("持续删除");
+    this.tapDel();    // 立即触发一次
+    this.setData({
+      interval: setInterval(() => {
+        this.tapDel()
+      }, 500)
+    })
+  },
+  /**
+   * @method 删除按钮松开事件
+   */
+  clearDelInterval() {
+    console.log("暂停");
+    clearInterval(this.data.interval)
   },
   /**
    * @method 自定义数字键盘 - 清除按钮点击事件
