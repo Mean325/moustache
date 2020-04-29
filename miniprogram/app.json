@@ -14,6 +14,8 @@
     "pages/tools/AA/teamList/teamList",
     "pages/tools/AA/member/member",
     "pages/tools/AA/invite/invite",
+    "pages/tools/AA/settle/settle",
+    "pages/tools/AA/solution/solution",
     
     "pages/setting/setting",
     "pages/setting/classManage/classManage",

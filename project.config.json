@@ -162,6 +162,20 @@
 					"name": "AA记账 - 索引列表",
 					"pathName": "pages/tools/AA/indexList/indexList",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AA记账 - 结算",
+					"pathName": "pages/tools/AA/settle/settle",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结算方案",
+					"pathName": "pages/tools/AA/solution/solution",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

@@ -16,7 +16,7 @@ Page({
         icon: '/images/tools/AA.png',
         title: 'AA算账',
         entitle: 'Dropdown',
-        page: '/page/biz/pages/dropdown/index',
+        page: '/pages/tools/AA/index/index',
       }, {
         icon: '/images/tools/AA.png',
         title: '汇率转换',
@@ -56,6 +56,6 @@ Page({
   onGridItemTap(e) {
     const page = this.data.arr.list[e.currentTarget.dataset.index].page;
     console.log(page);
-    // wx.navigateTo({ url: page });
+    wx.navigateTo({ url: page });
   },
 })

@@ -109,7 +109,7 @@ Component({
     },
     data: {
       list: [{
-        "text": "对话",
+        "text": "明细",
         "iconPath": "/images/class/baomihua.png",
         "selectedIconPath": "/images/class/baomihua.png"
       },{
@@ -118,7 +118,7 @@ Component({
         "selectedIconPath": "/images/tabBar/add.png"
       },
       {
-        "text": "设置",
+        "text": "结算",
         "iconPath": "/images/class/baomihua.png",
         "selectedIconPath": "/images/class/baomihua.png"
       }]
