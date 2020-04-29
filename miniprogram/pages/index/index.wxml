@@ -46,7 +46,6 @@
     <swiper-item>
       <scroll-view
         class="scroll-view"
-        style="padding-top: {{ statusBarHeight + 44 }}px;"
         scroll-y="true"
         enable-back-to-top
         bindscrolltoupper="upper"
@@ -57,16 +56,24 @@
       >
         <!-- 历史账单 -->
         <view class="bill__month">
+          <view class="bill__month__nav" style="padding-top: {{ statusBarHeight }}px;">近三个月账单</view>
           <block wx:for="{{ moreBill }}" wx:for-item="monthBill" wx:key="*this">
             <block wx:if="{{ monthBill.list.length }}">
               <view class="bill__entry bill__month-amount">
-                <text>2020年{{ monthBill.month }}月</text>
-                <text>收入 {{ monthBill.incomeAmount }} 支出 {{ monthBill.outlayAmount }}</text>
+                <text class="bill__month-amount__title">2020年{{ monthBill.month }}月</text>
+                <text>
+                  <text>收入 {{ monthBill.incomeAmount }}</text>
+                  <text>支出 {{ monthBill.outlayAmount }}</text>
+                </text>
               </view>
-              <block wx:for="{{ monthBill.list }}" wx:for-item="dateBill" wx:key="*this">
+              <view
+                wx:for="{{ monthBill.list }}"
+                wx:for-item="dateBill"
+                wx:key="*this"
+                class="bill__day"
+              >
                 <view class="bill__entry bill__day-amount">
                   <text>{{ dateBill.date }}</text>
-                  <view class="bill__line"></view>
                   <text>收 {{ dateBill.incomeAmount }}</text>
                   <text>支 {{ dateBill.outlayAmount }}</text>
                 </view>
@@ -83,7 +90,7 @@
                     <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
                   </view>
                 </mp-slideview>
-              </block>
+              </view>
             </block>
           </block>
         </view>

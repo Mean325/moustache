@@ -41,7 +41,7 @@
     "custom": false,
     "backgroundColor": "#EDEDED",
     "color": "#AAAAAA",
-    "selectedColor": "#333333",
+    "selectedColor": "#16c2c2",
     "list": [
       {
         "pagePath": "pages/index/index",

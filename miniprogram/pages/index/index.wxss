@@ -1,7 +1,5 @@
-/**index.wxss**/
-
 page {
-  background: #f6f6f6;
+  background: #EDEDED;
   height: 100%;
 }
 
@@ -20,6 +18,7 @@ page {
 
 .scroll-view {
   height: 100vh;
+  box-sizing: border-box;
 }
 
 
@@ -28,7 +27,6 @@ page {
   height: 100vh;
   box-sizing: border-box;
   text-align: right;
-  /* padding-top: calc(100vh - 500rpx - 120rpx); */
   color: #FFFFFF;
   position: relative;
 }
@@ -48,24 +46,49 @@ page {
   padding: 0 30rpx;
 }
 
+/* 账单金额 - 分割线 */
+.bill__line {
+  flex: 1;
+  height: 2px;
+  background: #FFFFFF;
+  margin: 0 20px;
+}
+
 .bill__amount {
   font-size: 100rpx;
   padding: 0 30rpx;
 }
 
 /* 历史账单 - 每月合计 */
-.bill__month-amount {
-  margin-top: 40rpx;
+.bill__month {
+  background: #EDEDED;
+  color: #333333;
+  padding-bottom: 30rpx;
 }
 
-/* 账单每日 */
-/* .bill__day {
-  padding-bottom: 120rpx;
-} */
+.bill__month__nav {
+  height: 44px;
+  line-height: 44px;
+  color: #FFFFFF;
+  background: #16C2C2;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+}
+
+.bill__month-amount {
+  /* margin-top: 40rpx; */
+  /* background: #FBFAFA; */
+}
+
+.bill__month-amount__title {
+  flex-shrink: 0;
+}
+
 /* 账单条目 */
 .bill__entry, .bill__day-amount {
-  height: 68rpx;
-  padding: 0 30rpx;
+  padding: 16rpx 30rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,20 +96,28 @@ page {
 
 /* 账单每月金额 */
 .bill__month-amount {
-  font-size: 40rpx;
+  font-size: 32rpx;
 }
 
 /* 账单每日金额 */
-.bill__day-amount text + text{
-  margin-left: 30rpx;
+.bill__month .bill__day {
+  background: #FFFFFF;
+  margin: 0 30rpx;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* 账单每日金额 - 分割线 */
-.bill__line {
-  flex: 1;
-  height: 2px;
-  background: #FFFFFF;
-  margin: 0 20px;
+.bill__day + .bill__day {
+  margin-top: 14rpx;
+}
+
+.bill__month .bill__day-amount {
+  background: #FBFAFA;
+  height: 80rpx;
+}
+
+.bill__day-amount text + text{
+  margin-left: 30rpx;
 }
 
 /* 底部记账按钮 */

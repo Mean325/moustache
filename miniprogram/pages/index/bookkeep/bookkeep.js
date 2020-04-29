@@ -118,13 +118,7 @@ Page({
     let { hasDot } = this.data;
 
     num = Number(num + key);
-    if (num > 10000000) {
-      wx.showToast({
-        title: '输入金额不能大于10,000,000',
-        icon: 'none'
-      })
-      return
-    } else {
+    if (num < 1000000) {
       num = "" + Math.floor(num * 100) / 100;
       if (key == '.') {
         if (hasDot) return;
@@ -133,6 +127,12 @@ Page({
           hasDot: true
         })
       }
+    } else {
+      wx.showToast({
+        title: '金额不能大于1,000,000',
+        icon: 'none'
+      })
+      return
     }
     this.setData({
       'bookkeep.num': num == '0' ? key : num
