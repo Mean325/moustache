@@ -10,13 +10,14 @@
 
     "pages/tools/tools",
     "pages/tools/AA/index/index",
+    "pages/tools/AA/bookkeep/bookkeep",
     "pages/tools/AA/indexList/indexList",
     "pages/tools/AA/teamList/teamList",
     "pages/tools/AA/member/member",
     "pages/tools/AA/invite/invite",
     "pages/tools/AA/settle/settle",
     "pages/tools/AA/solution/solution",
-    
+
     "pages/setting/setting",
     "pages/setting/classManage/classManage",
     "pages/setting/classManage/addClass/addClass",

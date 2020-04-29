@@ -1,8 +1,9 @@
 <view class="weui-tabbar {{extClass}}">
   <!-- 选中的时候往weui-tabbar__item加class:weui-bar__item_on -->
   <view
-    data-index='{{index}}'
     bindtap="tabChange"
+    data-index="{{ index }}"
+    data-path="{{ item.pagePath }}"
     wx:for="{{ list }}"
     class="{{ index === 1 ? 'weui-tabbar__add' : 'weui-tabbar__item' }} {{ index === current ? 'weui-bar__item_on' : ''}}"
   >

@@ -171,8 +171,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "结算方案",
+					"id": 17,
+					"name": "AA记账 - 结算方案",
 					"pathName": "pages/tools/AA/solution/solution",
 					"query": "",
 					"scene": null

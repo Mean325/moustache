@@ -111,30 +111,39 @@ Component({
       list: [{
         "text": "明细",
         "iconPath": "/images/class/baomihua.png",
-        "selectedIconPath": "/images/class/baomihua.png"
+        "selectedIconPath": "/images/class/baomihua.png",
+        "pagePath": "/pages/tools/AA/index/index",
       },{
         "text": "",
         "iconPath": "/images/tabBar/add.png",
-        "selectedIconPath": "/images/tabBar/add.png"
+        "selectedIconPath": "/images/tabBar/add.png",
+        "pagePath": "/pages/tools/AA/bookkeep/bookkeep"
       },
       {
         "text": "结算",
         "iconPath": "/images/class/baomihua.png",
-        "selectedIconPath": "/images/class/baomihua.png"
+        "selectedIconPath": "/images/class/baomihua.png",
+        "pagePath": "/pages/tools/AA/settle/settle"
       }]
     },
     methods: {
-        tabChange: function tabChange(e) {
-            var index = e.currentTarget.dataset.index;
-
-            if (index === this.data.current) {
-                return;
-            }
-            this.setData({
-                current: index
-            });
-            this.triggerEvent('change', { index: index, item: this.data.list[index] });
+      tabChange: function tabChange(e) {
+        const { index, path } = e.currentTarget.dataset;
+        console.log(this.data.current);
+        console.log(index);
+        if (index === this.data.current) {
+          return;
         }
+        if (index === 1) {
+          wx.navigateTo({
+            url: path
+          })
+        } else {
+          wx.redirectTo({
+            url: path
+          })
+        }
+      }
     }
 });
 
