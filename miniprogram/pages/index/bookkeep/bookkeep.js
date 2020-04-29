@@ -142,7 +142,7 @@ Page({
    * 调用云函数添加当前交易
    * @method 自定义数字键盘确认按钮点击事件
    */
-  tapSubmit() {
+  tapSubmit: utils.throttle(function() {
     let data = this.data.bookkeep;
     if (!data.num) {
       wx.showToast({
@@ -195,7 +195,7 @@ Page({
       })
       console.error(err)
     })
-  },
+  }, 1000),
   /**
    * @method 删除按钮点击事件
    */

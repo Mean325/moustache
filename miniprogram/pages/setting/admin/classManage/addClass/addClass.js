@@ -26,6 +26,7 @@ let iconList = [
   "/images/class/tongqian.png",
 ];
 
+const utils = require("../../../../../utils/utils.js");
 const app = getApp();
 
 Page({
@@ -82,7 +83,7 @@ Page({
    * 调用云函数adminAddClass新增用户默认分类
    * @method 底部添加分类事件
    */
-  addClass() {
+  addClass: utils.throttle(function () {
     let pages = getCurrentPages();
     let { options } = pages.pop();
     let type = Number(options.type);   // 获取路由参数type
@@ -131,5 +132,5 @@ Page({
       wx.navigateBack();    // 返回上一页
     })
     .catch(console.error)
-  }
+  }, 1000)
 })
