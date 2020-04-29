@@ -1,90 +1,14 @@
-// miniprogram/pages/tools/AA/index/index.js
+// miniprogram/pages/tools/AA/team/team.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        alpha: "A",
-        subItems: [
-          {
-            name: "aa"
-          },
-          {
-            name: "ab"
-          }
-        ]
-      },
-      {
-        alpha: "B",
-        subItems: [
-          {
-            name: "bd"
-          },
-          {
-            name: "bb"
-          }
-        ]
-      },
-      {
-        alpha: "D",
-        subItems: [
-          {
-            name: "dd"
-          },
-          {
-            name: "db"
-          }
-        ]
-      },
-      {
-        alpha: "F",
-        subItems: [
-          {
-            name: "fd"
-          },
-          {
-            name: "fb"
-          }
-        ]
-      },
-      {
-        alpha: "我",
-        subItems: [
-          {
-            name: "我d",
-            id: "aaaa123"
-          },
-          {
-            name: "我b"
-          }
-        ]
-      },
-      {
-        alpha: "Z",
-        subItems: [
-          {
-            name: "zd"
-          },
-          {
-            name: "zb"
-          }
-        ]
-      },
-      {
-        alpha: "S",
-        subItems: [
-          {
-            name: "sd"
-          },
-          {
-            name: "sb"
-          }
-        ]
-      },
-    ]
+    slideButtons: [{
+      type: 'warn',
+      text: '删除'
+    }],   // 左滑删除组件
   },
 
   /**
@@ -93,7 +17,53 @@ Page({
   onLoad: function (options) {
 
   },
-  onChoose(e) {
-    console.log(e)
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

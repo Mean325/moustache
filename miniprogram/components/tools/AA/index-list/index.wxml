@@ -9,17 +9,22 @@
   <view>
     <slot></slot>
   </view>
-  <view class="index_list_item" wx:for="{{list}}" wx:key="alpha" id="{{item.alpha}}">
-    <view class="index-group__title font-size-26 tips-color">{{item.alpha}}</view>
+  <view class="index_list_item" wx:for="{{ list }}" wx:for-index="alphaIndex" wx:key="alpha" id="{{ item.alpha }}">
+    <view class="index-group__title font-size-26 tips-color">{{ item.alpha }}{{ alphaIndex }}</view>
     <view class="index-group__content">
       <view class="index-group__list">
-        <block wx:for="{{item.subItems}}" wx:for-item="subItem" wx:key="name">
+        <block wx:for="{{item.subItems}}" wx:for-item="subItem" wx:for-index="subItemIndex" wx:key="name">
           <view 
-            class="index-group__item thin-border-bottom" 
+            class="index-group__item thin-border-bottom {{ subItem.isSelected ? 'index-group__item-selected' : '' }}" 
             hover-class="bg-highlight" 
-            data-item="{{subItem}}"
-            bindtap="choose">
-              {{subItem.name}}
+            data-item="{{ subItem }}"
+            data-alpha-index="{{ alphaIndex }}"
+            data-sub-item-index="{{ subItemIndex }}"
+            bindtap="choose"
+          >
+            <image class="index-group__item-avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132" />
+            {{ subItem.name }}
+            <icon wx:if="{{ subItem.isSelected }}" size="24" class="selected-icon" type="success_no_circle" />
           </view>
         </block>
       </view>

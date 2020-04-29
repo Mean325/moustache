@@ -180,8 +180,8 @@ Component({
     },
     methods: {
         choose: function choose(e) {
-            var item = e.target.dataset.item;
-            this.triggerEvent('choose', { item: item });
+          var { item, alphaIndex, subItemIndex } = e.target.dataset;
+          this.triggerEvent('choose', { item, alphaIndex, subItemIndex });
         },
         scrollTo: function scrollTo(e) {
             this.__scrollTo(e);

@@ -1,4 +1,4 @@
-<!-- 群组列表管理 -->
+<!-- 群组管理 -->
 <view class="container">
   <view class="banner">
     <text class="banner__item-name">我的组织</text>

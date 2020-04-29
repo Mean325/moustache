@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mp-index-list": "/components/tools/AA/index-list/index"
+  }
+}

@@ -1,0 +1,2 @@
+<!--miniprogram/pages/tools/AA/index/index.wxml-->
+<mp-index-list list="{{ list }}" bindchoose="onChoose"></mp-index-list>

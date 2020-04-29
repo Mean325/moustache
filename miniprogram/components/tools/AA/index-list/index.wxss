@@ -40,6 +40,23 @@
   font-size: 30rpx;
 }
 
+.index-group__item-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+
+.index-group__item-selected {
+  color: #1aad19;
+}
+
+.selected-icon {
+  position: absolute;
+  right: 30px;
+  top: 18px;
+}
+
 .index-group__item.thin-border-bottom:after {
   left: 24rpx;
 }

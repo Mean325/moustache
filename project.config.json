@@ -137,9 +137,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "AA记账",
-					"pathName": "pages/tools/AA/team/team",
+					"id": 12,
+					"name": "AA记账 - 首页",
+					"pathName": "pages/tools/AA/index/index",
 					"query": "",
 					"scene": null
 				},
@@ -158,9 +158,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "index-list",
-					"pathName": "pages/tools/AA/index/index",
+					"id": 15,
+					"name": "AA记账 - 索引列表",
+					"pathName": "pages/tools/AA/indexList/indexList",
 					"scene": null
 				}
 			]

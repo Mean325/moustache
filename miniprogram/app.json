@@ -10,8 +10,8 @@
 
     "pages/tools/tools",
     "pages/tools/AA/index/index",
+    "pages/tools/AA/indexList/indexList",
     "pages/tools/AA/teamList/teamList",
-    "pages/tools/AA/team/team",
     "pages/tools/AA/member/member",
     "pages/tools/AA/invite/invite",
     
