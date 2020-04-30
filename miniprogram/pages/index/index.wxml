@@ -77,7 +77,25 @@
                   <text>收 {{ dateBill.incomeAmount }}</text>
                   <text>支 {{ dateBill.outlayAmount }}</text>
                 </view>
-                <mp-slideview
+                <mp-cells>
+                  <mp-slideview
+                    bindtap="toDetail"
+                    wx:for="{{ dateBill.list }}"
+                    wx:key="_id"
+                    buttons="{{ slideButtons }}"
+                    bindbuttontap="delAccount"
+                    data-data="{{ item }}"
+                  >
+                    <mp-cell>
+                      <image slot="icon" class="cell__icon" src="{{ item.categoryIcon }}"></image>
+                      <view>{{ item.categoryName }}</view>
+                      <view slot="footer">
+                        {{ item.type === 2 ? '+' : '-' }} {{ item.num }}
+                      </view>
+                    </mp-cell>
+                  </mp-slideview>
+                </mp-cells>
+                <!-- <mp-slideview
                   bindtap="toDetail"
                   wx:for="{{ dateBill.list }}"
                   wx:key="_id"
@@ -89,12 +107,11 @@
                     <text>{{ item.categoryName }}</text>
                     <text>{{ item.type === 2 ? '+' : '-' }} {{ item.num }}</text>
                   </view>
-                </mp-slideview>
+                </mp-slideview> -->
               </view>
             </block>
           </block>
         </view>
-        <!-- <navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn style1">记一笔</navigator> -->
       </scroll-view>
     </swiper-item>
   </swiper>

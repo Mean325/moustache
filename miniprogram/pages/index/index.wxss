@@ -22,7 +22,7 @@ page {
 }
 
 
-/* 账本 */
+/* 账本 - swiper */
 .bill {
   height: 100vh;
   box-sizing: border-box;
@@ -59,11 +59,14 @@ page {
   padding: 0 30rpx;
 }
 
+
+
 /* 历史账单 - 每月合计 */
 .bill__month {
   background: #EDEDED;
   color: #333333;
   padding-bottom: 30rpx;
+  text-align: left;
 }
 
 .bill__month__nav {
@@ -118,6 +121,12 @@ page {
 
 .bill__day-amount text + text{
   margin-left: 30rpx;
+}
+
+.cell__icon {
+  border-radius: 50%;
+  padding: 10rpx;
+  box-sizing: border-box;
 }
 
 /* 底部记账按钮 */
