@@ -24,7 +24,7 @@
 		"bundle": false
 	},
 	"appid": "wx1010f5d30a0d43ed",
-	"projectname": "wechat-mp",
+	"projectname": "moustache",
 	"libVersion": "2.11.0",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"simulatorType": "wechat",
@@ -161,6 +161,7 @@
 					"id": 15,
 					"name": "AA记账 - 索引列表",
 					"pathName": "pages/tools/AA/indexList/indexList",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -175,6 +176,12 @@
 					"name": "AA记账 - 结算方案",
 					"pathName": "pages/tools/AA/solution/solution",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "AA  - 团队列表",
+					"pathName": "pages/tools/AA/teamList/teamList",
 					"scene": null
 				}
 			]

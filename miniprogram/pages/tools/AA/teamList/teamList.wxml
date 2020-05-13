@@ -10,14 +10,18 @@
     </view> -->
     <view class="item-member">
       <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-    <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-    <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-    <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-    <text>等50个人</text>
+      <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <image class="item-member__avatar" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <text>等50个人</text>
     </view>
     <view class="item-amount">
       <text>¥240000.00</text>
     </view>
   </view>
-  <image class="add-item-btn" src="/images/tabBar/add.png" />
+  <image bindtap="showModal" class="add-item-btn" src="/images/tabBar/add.png" />
+
+  <mp-dialog title="新建团队" show="{{ isDialogShow }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
+    <input bindinput="handleInputChange" class="dialog-input"></input>
+  </mp-dialog>
 </view>

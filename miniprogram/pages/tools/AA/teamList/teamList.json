@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "团队列表",
   "usingComponents": {
-
+    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
   },
   "enablePullDownRefresh": false
 }

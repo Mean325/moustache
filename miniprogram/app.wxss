@@ -1,5 +1,6 @@
 /* 引用weui */
-@import "/style/weui.wxss";
+/* @import "/style/weui.wxss"; */
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
 
 /**app.wxss**/
 /* .container {
