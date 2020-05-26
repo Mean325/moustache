@@ -31,7 +31,7 @@ exports.main = async (event, context) => {
       .then(resq => {
         console.log('用户与团队管理表创建成功')
         console.log(resq);
-        return res;
+        return resq;
       })
   }
 }

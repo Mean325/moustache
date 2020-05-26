@@ -1,4 +1,4 @@
-const utils = require("../../../../../utils/utils.js");
+const utils = require("../../../../utils/utils.js");
 const app = getApp();
 
 Page({
@@ -29,8 +29,22 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow() {
+    this.getTeamList();
+  },
+  getTeamList() {
+    wx.cloud.callFunction({
+      name: 'AA_getItemList',
+      data: {}
+    })
+      .then(res => {
+        let data = res.result.data;
+        console.log(res);
+        this.setData({
+          config: data
+        });
+      })
+      .catch(console.error)
   },
   showModal() {
     this.setData({
@@ -39,7 +53,7 @@ Page({
   },
   tapDialogButton(e) {
     console.log(e);
-    if (e.detail.index === 1) {
+    if (e.detail.index === 1) {   // 当用户点击确定时
       console.log("创建");
       this.addItem();
     }
@@ -48,9 +62,9 @@ Page({
     })
   },
   /**
- * 实现数据双向绑定
- * @hook 顶部分类名称input输入事件
- */
+   * 实现数据双向绑定
+   * @hook 顶部分类名称input输入事件
+   */
   handleInputChange(e) {
     this.setData({
       'form.name': e.detail.value

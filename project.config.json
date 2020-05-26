@@ -9,6 +9,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -20,8 +21,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"nodeModules": true,
-		"bundle": false
+		"bundle": false,
+		"useCompilerModule": false
 	},
 	"appid": "wx1010f5d30a0d43ed",
 	"projectname": "moustache",
